@@ -14,13 +14,20 @@ import org.swrlapi.ext.SWRLAPIOWLOntology;
 import org.swrlapi.sqwrl.SQWRLQueryEngine;
 import org.swrlapi.test.SWRLAPIRegressionTester;
 
+/**
+ * Example invocation: <code><pre>
+ * java -jar target/swrltab-1.0-jar-with-dependencies.jar ~/workspace/swrlapi/swrltab/src/main/resources/projects/SWRLCoreTests.owl 
+ * </pre></code>
+ * 
+ * @author martin
+ */
 public class P4SWRLAPIRegressionTester
 {
 	public static void main(String[] args)
 	{
 		String owlFileName = "";
 
-		if (args.length == 2) {
+		if (args.length == 1) {
 			owlFileName = args[0];
 		} else
 			Usage();
