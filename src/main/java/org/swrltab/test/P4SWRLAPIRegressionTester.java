@@ -1,33 +1,56 @@
 package org.swrltab.test;
 
+import java.io.File;
+
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.swrlapi.core.SWRLAPIFactory;
+import org.swrlapi.core.SWRLRuleEngineFactory;
+import org.swrlapi.drools.DroolsSWRLRuleEngineCreator;
+import org.swrlapi.exceptions.SWRLRuleEngineException;
+import org.swrlapi.ext.SWRLAPIOWLOntology;
+import org.swrlapi.sqwrl.SQWRLQueryEngine;
+import org.swrlapi.test.SWRLAPIRegressionTester;
+
 public class P4SWRLAPIRegressionTester
 {
-	// private final SQWRLQueryEngine queryEngine;
-	// private final String ruleEngineName;
-
 	public static void main(String[] args)
 	{
-		@SuppressWarnings("unused")
-		String ruleEngineName = "", owlFileName = "";
+		String owlFileName = "";
 
 		if (args.length == 2) {
-			ruleEngineName = args[0];
-			owlFileName = args[1];
+			owlFileName = args[0];
 		} else
 			Usage();
 
-		// OWLOntologyManager manager = null;
-		// OWLOntologyID ontologyID = null;
+		try {
+			OWLOntologyManager ontologyManager = OWLManager.createOWLOntologyManager();
+			File file = new File(owlFileName);
+			OWLOntology ontology = ontologyManager.loadOntologyFromOntologyDocument(file);
+			SWRLAPIOWLOntology swrlapiOWLOntology = SWRLAPIFactory.createSWRLAPIOWLOntology(ontologyManager, ontology);
 
-		// SWRLRuleEngineFactory.registerRuleEngine("Drools", new DroolsSWRLRuleEngineCreator());
+			SWRLRuleEngineFactory swrlRuleEngineFactory = SWRLAPIFactory.createSWRLRuleEngineFactory();
+			swrlRuleEngineFactory.registerRuleEngine(new DroolsSWRLRuleEngineCreator());
 
-		// SWRLAPIOWLOntology swrlapiOWLOntology = new DefaultSWRLAPIOWLOntology(manager, ontologyID);
+			SQWRLQueryEngine queryEngine = swrlRuleEngineFactory.createSQWRLQueryEngine(ontologyManager, swrlapiOWLOntology);
 
+			SWRLAPIRegressionTester swrlapiRegressionTester = new SWRLAPIRegressionTester(swrlapiOWLOntology, queryEngine);
+
+			swrlapiRegressionTester.run();
+		} catch (SWRLRuleEngineException e) {
+			e.printStackTrace();
+		} catch (OWLOntologyCreationException e) {
+			e.printStackTrace();
+		} catch (RuntimeException e) {
+			e.printStackTrace();
+		}
 	}
 
 	private static void Usage()
 	{
-		System.err.println("Usage: " + P4SWRLAPIRegressionTester.class.getName() + " <ruleEngine> <owlFileName>");
+		System.err.println("Usage: " + P4SWRLAPIRegressionTester.class.getName() + " <owlFileName>");
 		System.exit(1);
 	}
 }
