@@ -39,7 +39,8 @@ public class P4SWRLAPIRegressionTester
 			OWLOntology ontology = ontologyManager.loadOntologyFromOntologyDocument(file);
 			DefaultPrefixManager prefixManager = new DefaultPrefixManager(
 					"http://swrl.stanford.edu/ontologies/tests/3.5.1/SWRLCoreTests.owl#");
-			prefixManager.setPrefix("sqwrl:", "http://swrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#");
+			prefixManager.setPrefix("swrlb:", "http://www.w3.org/2003/11/swrlb#");
+			prefixManager.setPrefix("sqwrl:", "http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#");
 			prefixManager.setPrefix("swrlm:", "http://swrl.stanford.edu/ontologies/built-ins/3.4/swrlm.owl#");
 			prefixManager.setPrefix("temporal:", "http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#");
 			prefixManager.setPrefix("tbox:", "http://swrl.stanford.edu/ontologies/built-ins/3.3/tbox.owl#");
