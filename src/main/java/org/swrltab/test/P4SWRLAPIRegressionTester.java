@@ -6,6 +6,7 @@ import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.util.DefaultPrefixManager;
 import org.swrlapi.core.SWRLAPIFactory;
 import org.swrlapi.core.SWRLRuleEngineFactory;
 import org.swrlapi.drools.DroolsSWRLRuleEngineCreator;
@@ -36,7 +37,17 @@ public class P4SWRLAPIRegressionTester
 			OWLOntologyManager ontologyManager = OWLManager.createOWLOntologyManager();
 			File file = new File(owlFileName);
 			OWLOntology ontology = ontologyManager.loadOntologyFromOntologyDocument(file);
-			SWRLAPIOWLOntology swrlapiOWLOntology = SWRLAPIFactory.createSWRLAPIOWLOntology(ontologyManager, ontology);
+			DefaultPrefixManager prefixManager = new DefaultPrefixManager(
+					"http://swrl.stanford.edu/ontologies/tests/3.5.1/SWRLCoreTests.owl#");
+			prefixManager.setPrefix("sqwrl:", "http://swrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#");
+			prefixManager.setPrefix("swrlm:", "http://swrl.stanford.edu/ontologies/built-ins/3.4/swrlm.owl#");
+			prefixManager.setPrefix("temporal:", "http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#");
+			prefixManager.setPrefix("tbox:", "http://swrl.stanford.edu/ontologies/built-ins/3.3/tbox.owl#");
+			prefixManager.setPrefix("swrlx:", "http://swrl.stanford.edu/ontologies/built-ins/3.3/swrlx.owl#");
+			prefixManager.setPrefix("swrla:", "http://swrl.stanford.edu/ontologies/3.3/swrla.owl#");
+
+			SWRLAPIOWLOntology swrlapiOWLOntology = SWRLAPIFactory.createSWRLAPIOWLOntology(ontologyManager, ontology,
+					prefixManager);
 
 			SWRLRuleEngineFactory swrlRuleEngineFactory = SWRLAPIFactory.createSWRLRuleEngineFactory();
 			swrlRuleEngineFactory.registerRuleEngine(new DroolsSWRLRuleEngineCreator());
