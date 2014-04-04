@@ -10,7 +10,7 @@
 
   <properties>
 
-    <owlapi.version>3.4.10</owlapi.version>
+    <owlapi.version>3.5.0-SNAPSHOT</owlapi.version>
     <swrlapi.version>1.0</swrlapi.version>
     <swrlapi.drools.version>1.0</swrlapi.drools.version>
     <log4j.version>1.2.16</log4j.version>
