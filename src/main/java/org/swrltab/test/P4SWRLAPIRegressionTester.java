@@ -17,7 +17,7 @@ import org.swrlapi.test.SWRLAPIRegressionTester;
 
 /**
  * Example invocation: <code><pre>
- * java -jar ~/workspace/swrlapi/swrlta/target/swrltab-1.0-jar-with-dependencies.jar ~/workspace/swrlapi/swrltab/src/main/resources/projects/SWRLCoreTests.owl 
+ * java -jar ~/workspace/swrlapi/swrltab/target/swrltab-1.0-jar-with-dependencies.jar ~/workspace/swrlapi/swrltab/src/main/resources/projects/SWRLCoreTests.owl 
  * </pre></code>
  * 
  * @author martin
@@ -54,9 +54,8 @@ public class P4SWRLAPIRegressionTester
 			SWRLRuleEngineFactory swrlRuleEngineFactory = SWRLAPIFactory.createSWRLRuleEngineFactory();
 			swrlRuleEngineFactory.registerRuleEngine(new DroolsSWRLRuleEngineCreator());
 
-			SQWRLQueryEngine queryEngine = swrlRuleEngineFactory.createSQWRLQueryEngine(ontologyManager, swrlapiOWLOntology);
-
-			SWRLAPIRegressionTester swrlapiRegressionTester = new SWRLAPIRegressionTester(swrlapiOWLOntology, queryEngine);
+			SQWRLQueryEngine sqwrlQueryEngine = swrlRuleEngineFactory.createSQWRLQueryEngine(swrlapiOWLOntology);
+			SWRLAPIRegressionTester swrlapiRegressionTester = new SWRLAPIRegressionTester(sqwrlQueryEngine);
 
 			swrlapiRegressionTester.run();
 		} catch (SWRLRuleEngineException e) {
