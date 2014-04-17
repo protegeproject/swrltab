@@ -62,13 +62,13 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
       <owl:Class rdf:ID="Person"/>
     </rdfs:subClassOf>
   </owl:Class>
-  <owl:Class rdf:about="http://swrl.stanford.edu/3.4.4/SQWRLExamples.owl#Male">
+  <owl:Class rdf:ID="Male">
     <rdfs:subClassOf>
-      <owl:Class rdf:about="http://swrl.stanford.edu/3.4.4/SQWRLExamples.owl#Person"/>
+      <owl:Class rdf:ID="Person"/>
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:ID="Product"/>
-  <owl:Class rdf:about="http://swrl.stanford.edu/3.4.4/SQWRLExamples.owl#Shape"/>
+  <owl:Class rdf:ID="Shape"/>
   <owl:Class rdf:ID="Square">
     <rdfs:subClassOf>
       <owl:Class rdf:ID="Shape"/>
@@ -85,8 +85,8 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
     <rdfs:subClassOf rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#ValidInstant"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
-  <owl:Class rdf:about="http://swrl.stanford.edu/3.4.4/SQWRLExamples.owl#Triangle">
-    <rdfs:subClassOf rdf:resource="http://swrl.stanford.edu/3.4.4/SQWRLExamples.owl#Shape"/>
+  <owl:Class rdf:ID="Triangle">
+    <rdfs:subClassOf rdf:resource="#Shape"/>
   </owl:Class>
   <owl:Class rdf:ID="State"/>
   <owl:Class rdf:ID="Drug">
