@@ -40,8 +40,8 @@ public class P4SWRLAPIRegressionTester
 
 			DefaultPrefixManager prefixManager = new DefaultPrefixManager(
 			// "http://swrl.stanford.edu/ontologies/tests/3.5.1/SQWRLCollectionsTests.owl#");
-					// "http://swrl.stanford.edu/ontologies/tests/3.5.1/SQWRLCoreTests.owl#");
-					// "http://swrl.stanford.edu/ontologies/tests/3.5.1/SWRLInferenceTests.owl#");
+			// "http://swrl.stanford.edu/ontologies/tests/3.5.1/SQWRLCoreTests.owl#");
+			// "http://swrl.stanford.edu/ontologies/tests/3.5.1/SWRLInferenceTests.owl#");
 					"http://swrl.stanford.edu/ontologies/tests/3.5.1/SWRLCoreTests.owl#");
 			prefixManager.setPrefix("swrlb:", "http://www.w3.org/2003/11/swrlb#");
 			prefixManager.setPrefix("sqwrl:", "http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#");
