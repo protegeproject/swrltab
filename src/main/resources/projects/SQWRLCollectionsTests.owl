@@ -163,7 +163,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="hasNumberOfTreatments">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
     <rdfs:domain rdf:resource="#Person"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </owl:DatatypeProperty>
@@ -199,7 +199,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
   <owl:FunctionalProperty rdf:ID="hasAge">
     <rdfs:domain rdf:resource="#Person"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
   </owl:FunctionalProperty>
   <owl:FunctionalProperty rdf:ID="hasName">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
@@ -572,7 +572,7 @@ F2, DDI, "244"^^xsd:long</rdfs:comment>
                                 <rdf:rest>
                                   <rdf:List>
                                     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                                     >3</rdf:first>
                                   </rdf:List>
                                 </rdf:rest>
@@ -1191,7 +1191,7 @@ NY, "786868.0"^^xsd:double</rdfs:comment>
                   <swrl:BuiltinAtom>
                     <swrl:arguments>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                         >1</rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                       </rdf:List>
@@ -1743,7 +1743,7 @@ F2, "8989.0"^^xsd:double</rdfs:comment>
                                 <swrl:builtin rdf:resource="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#size"/>
                                 <swrl:arguments>
                                   <rdf:List>
-                                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                                     >2</rdf:first>
                                     <rdf:rest>
                                       <rdf:List>
@@ -1918,7 +1918,7 @@ F2, "8989.0"^^xsd:double</rdfs:comment>
                                 <rdf:rest>
                                   <rdf:List>
                                     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                                     >3</rdf:first>
                                   </rdf:List>
                                 </rdf:rest>
@@ -2111,7 +2111,7 @@ F2, "8989.0"^^xsd:double</rdfs:comment>
         <rdf:first rdf:resource="#bAZT"/>
         <rdf:rest>
           <rdf:List>
-            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
             >2</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
           </rdf:List>
@@ -2134,7 +2134,7 @@ F2, "8989.0"^^xsd:double</rdfs:comment>
     <rdf:rest>
       <rdf:List>
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
         >2</rdf:first>
       </rdf:List>
     </rdf:rest>
@@ -2440,7 +2440,7 @@ F2, "7.4"^^xsd:double</rdfs:comment>
                       <rdf:List>
                         <rdf:rest>
                           <rdf:List>
-                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                             >17</rdf:first>
                             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                           </rdf:List>
@@ -2778,7 +2778,7 @@ F2, "7.4"^^xsd:double</rdfs:comment>
                                               <rdf:List>
                                                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                                                 <rdf:first rdf:datatype=
-                                                "http://www.w3.org/2001/XMLSchema#int"
+                                                "http://www.w3.org/2001/XMLSchema#integer"
                                                 >2</rdf:first>
                                               </rdf:List>
                                             </rdf:rest>
@@ -2857,7 +2857,7 @@ F2, "7.4"^^xsd:double</rdfs:comment>
                                                   <rdf:List>
                                                     <rdf:first
                                                      rdf:datatype=
-                                                    "http://www.w3.org/2001/XMLSchema#int"
+                                                    "http://www.w3.org/2001/XMLSchema#integer"
                                                     >2</rdf:first>
                                                     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                                                   </rdf:List>
@@ -3013,12 +3013,12 @@ F2, "5.85"^^xsd:double</rdfs:comment>
                                 <rdf:first rdf:resource="#s"/>
                                 <rdf:rest>
                                   <rdf:List>
-                                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                                     >3</rdf:first>
                                     <rdf:rest>
                                       <rdf:List>
                                         <rdf:first rdf:datatype=
-                                        "http://www.w3.org/2001/XMLSchema#int"
+                                        "http://www.w3.org/2001/XMLSchema#integer"
                                         >2</rdf:first>
                                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                                       </rdf:List>
@@ -3585,7 +3585,7 @@ F3</rdfs:comment>
                         <rdf:rest>
                           <rdf:List>
                             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                             >3</rdf:first>
                           </rdf:List>
                         </rdf:rest>
@@ -3624,7 +3624,7 @@ F3</rdfs:comment>
                     <rdf:rest>
                       <rdf:List>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                         >2</rdf:first>
                       </rdf:List>
                     </rdf:rest>
@@ -3644,7 +3644,7 @@ F3</rdfs:comment>
                 <rdf:rest>
                   <rdf:List>
                     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                     >1</rdf:first>
                   </rdf:List>
                 </rdf:rest>
@@ -3801,7 +3801,7 @@ F3</rdfs:comment>
                                               <rdf:List>
                                                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                                                 <rdf:first rdf:datatype=
-                                                "http://www.w3.org/2001/XMLSchema#int"
+                                                "http://www.w3.org/2001/XMLSchema#integer"
                                                 >2</rdf:first>
                                               </rdf:List>
                                             </rdf:rest>
@@ -3982,7 +3982,7 @@ F2, DDI, "7.4"^^xsd:double</rdfs:comment>
                         <rdf:first rdf:resource="#age"/>
                         <rdf:rest>
                           <rdf:List>
-                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                             >17</rdf:first>
                             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                           </rdf:List>
@@ -4964,7 +4964,7 @@ F3, AZT, "33.0"^^xsd:double</rdfs:comment>
                                             <rdf:rest>
                                               <rdf:List>
                                                 <rdf:first rdf:datatype=
-                                                "http://www.w3.org/2001/XMLSchema#int"
+                                                "http://www.w3.org/2001/XMLSchema#integer"
                                                 >2</rdf:first>
                                                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                                               </rdf:List>
@@ -5040,7 +5040,7 @@ F3, AZT, "33.0"^^xsd:double</rdfs:comment>
                                                     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                                                     <rdf:first
                                                      rdf:datatype=
-                                                    "http://www.w3.org/2001/XMLSchema#int"
+                                                    "http://www.w3.org/2001/XMLSchema#integer"
                                                     >2</rdf:first>
                                                   </rdf:List>
                                                 </rdf:rest>
@@ -5574,7 +5574,7 @@ Suzuki, "786868.0"^^xsd:double</rdfs:comment>
                     <rdf:rest>
                       <rdf:List>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                         >3</rdf:first>
                       </rdf:List>
                     </rdf:rest>
@@ -5592,7 +5592,7 @@ Suzuki, "786868.0"^^xsd:double</rdfs:comment>
                         <rdf:first rdf:resource="#s"/>
                         <rdf:rest>
                           <rdf:List>
-                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                             >3</rdf:first>
                             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                           </rdf:List>
@@ -5635,7 +5635,7 @@ Suzuki, "786868.0"^^xsd:double</rdfs:comment>
                 <rdf:rest>
                   <rdf:List>
                     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                     >1</rdf:first>
                   </rdf:List>
                 </rdf:rest>
@@ -5747,7 +5747,7 @@ Suzuki, "786868.0"^^xsd:double</rdfs:comment>
             >3443.0</hasAmount>
           </Sale>
         </hasSales>
-        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
         >77</hasAge>
         <hasCar rdf:resource="#BMW"/>
         <owl:differentFrom>
@@ -5838,7 +5838,7 @@ Suzuki, "786868.0"^^xsd:double</rdfs:comment>
             <hasDrug rdf:resource="#AZT"/>
           </Treatment>
         </hasTreatment>
-        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
         >7</hasAge>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >Claudi</hasName>
@@ -5859,7 +5859,7 @@ Suzuki, "786868.0"^^xsd:double</rdfs:comment>
         <hasCar rdf:resource="#BMW"/>
         <hasManufactureDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >1999-12-12</hasManufactureDate>
-        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
         >66</hasAge>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >Bob</hasName>
@@ -5872,7 +5872,7 @@ Suzuki, "786868.0"^^xsd:double</rdfs:comment>
         >Joe</hasName>
         <hasDOB rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
         >1988-07-25</hasDOB>
-        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
         >12</hasAge>
       </Male>
     </owl:distinctMembers>
@@ -5951,12 +5951,12 @@ Suzuki, "786868.0"^^xsd:double</rdfs:comment>
                               <rdf:List>
                                 <rdf:rest>
                                   <rdf:List>
-                                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                                     >2</rdf:first>
                                     <rdf:rest>
                                       <rdf:List>
                                         <rdf:first rdf:datatype=
-                                        "http://www.w3.org/2001/XMLSchema#int"
+                                        "http://www.w3.org/2001/XMLSchema#integer"
                                         >2</rdf:first>
                                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                                       </rdf:List>
@@ -6475,7 +6475,7 @@ F3, AZT, "1"^^xsd:integer, "33.0"^^xsd:double</rdfs:comment>
                                         <rdf:rest>
                                           <rdf:List>
                                             <rdf:first rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#int"
+                                            "http://www.w3.org/2001/XMLSchema#integer"
                                             >1</rdf:first>
                                             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                                           </rdf:List>
@@ -6709,7 +6709,7 @@ F3, AZT, "1"^^xsd:integer, "33.0"^^xsd:double</rdfs:comment>
                                                           <rdf:List>
                                                             <rdf:first
                                                              rdf:datatype=
-                                                            "http://www.w3.org/2001/XMLSchema#int"
+                                                            "http://www.w3.org/2001/XMLSchema#integer"
                                                             >10</rdf:first>
                                                             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                                                           </rdf:List>
@@ -7021,7 +7021,7 @@ F3, AZT, "1"^^xsd:integer, "33.0"^^xsd:double</rdfs:comment>
                                 <rdf:first rdf:resource="#s"/>
                                 <rdf:rest>
                                   <rdf:List>
-                                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                                     >3</rdf:first>
                                     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                                   </rdf:List>
@@ -7647,7 +7647,7 @@ F3, AZT, "1"^^xsd:integer, "33.0"^^xsd:double</rdfs:comment>
                                 <rdf:rest>
                                   <rdf:List>
                                     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                                     >2</rdf:first>
                                   </rdf:List>
                                 </rdf:rest>
@@ -8345,7 +8345,7 @@ F2</rdfs:comment>
                                 <rdf:rest>
                                   <rdf:List>
                                     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                                     >2</rdf:first>
                                   </rdf:List>
                                 </rdf:rest>
@@ -8371,7 +8371,7 @@ F2</rdfs:comment>
                                       <rdf:List>
                                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                                         <rdf:first rdf:datatype=
-                                        "http://www.w3.org/2001/XMLSchema#int"
+                                        "http://www.w3.org/2001/XMLSchema#integer"
                                         >3</rdf:first>
                                       </rdf:List>
                                     </rdf:rest>
@@ -8513,7 +8513,7 @@ F2</rdfs:comment>
                                                   <rdf:List>
                                                     <rdf:first
                                                      rdf:datatype=
-                                                    "http://www.w3.org/2001/XMLSchema#int"
+                                                    "http://www.w3.org/2001/XMLSchema#integer"
                                                     >2</rdf:first>
                                                     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                                                   </rdf:List>
@@ -8540,7 +8540,7 @@ F2</rdfs:comment>
                                               <rdf:List>
                                                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                                                 <rdf:first rdf:datatype=
-                                                "http://www.w3.org/2001/XMLSchema#int"
+                                                "http://www.w3.org/2001/XMLSchema#integer"
                                                 >2</rdf:first>
                                               </rdf:List>
                                             </rdf:rest>
@@ -8914,7 +8914,7 @@ F2, "4.3"^^xsd:double</rdfs:comment>
                                               <rdf:List>
                                                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                                                 <rdf:first rdf:datatype=
-                                                "http://www.w3.org/2001/XMLSchema#int"
+                                                "http://www.w3.org/2001/XMLSchema#integer"
                                                 >2</rdf:first>
                                               </rdf:List>
                                             </rdf:rest>
@@ -9066,7 +9066,7 @@ F3, "4"^^xsd:integer</rdfs:comment>
                                     <rdf:rest>
                                       <rdf:List>
                                         <rdf:first rdf:datatype=
-                                        "http://www.w3.org/2001/XMLSchema#int"
+                                        "http://www.w3.org/2001/XMLSchema#integer"
                                         >2</rdf:first>
                                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                                       </rdf:List>
@@ -9176,7 +9176,7 @@ F3, "4"^^xsd:integer</rdfs:comment>
                                 <rdf:first rdf:resource="#s"/>
                                 <rdf:rest>
                                   <rdf:List>
-                                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                                     >3</rdf:first>
                                     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                                   </rdf:List>
@@ -9648,13 +9648,13 @@ F2, "5.85"^^xsd:double, "4.3"^^xsd:double</rdfs:comment>
                                                   <rdf:List>
                                                     <rdf:first
                                                      rdf:datatype=
-                                                    "http://www.w3.org/2001/XMLSchema#int"
+                                                    "http://www.w3.org/2001/XMLSchema#integer"
                                                     >2</rdf:first>
                                                     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                                                   </rdf:List>
                                                 </rdf:rest>
                                                 <rdf:first rdf:datatype=
-                                                "http://www.w3.org/2001/XMLSchema#int"
+                                                "http://www.w3.org/2001/XMLSchema#integer"
                                                 >1</rdf:first>
                                               </rdf:List>
                                             </rdf:rest>
@@ -9771,7 +9771,7 @@ F2, "8"^^xsd:long</rdfs:comment>
                                       <rdf:List>
                                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                                         <rdf:first rdf:datatype=
-                                        "http://www.w3.org/2001/XMLSchema#int"
+                                        "http://www.w3.org/2001/XMLSchema#integer"
                                         >1</rdf:first>
                                       </rdf:List>
                                     </rdf:rest>
@@ -9925,14 +9925,14 @@ F2, "5.85"^^xsd:double</rdfs:comment>
                                             <rdf:rest>
                                               <rdf:List>
                                                 <rdf:first rdf:datatype=
-                                                "http://www.w3.org/2001/XMLSchema#int"
+                                                "http://www.w3.org/2001/XMLSchema#integer"
                                                 >1</rdf:first>
                                                 <rdf:rest>
                                                   <rdf:List>
                                                     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                                                     <rdf:first
                                                      rdf:datatype=
-                                                    "http://www.w3.org/2001/XMLSchema#int"
+                                                    "http://www.w3.org/2001/XMLSchema#integer"
                                                     >2</rdf:first>
                                                   </rdf:List>
                                                 </rdf:rest>
