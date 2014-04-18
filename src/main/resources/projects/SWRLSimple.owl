@@ -41,10 +41,10 @@
               <rdf:List>
                 <rdf:rest>
                   <rdf:List>
+                    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                     <rdf:first>
                       <swrl:Variable rdf:ID="h"/>
                     </rdf:first>
-                    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                   </rdf:List>
                 </rdf:rest>
                 <rdf:first>
@@ -59,21 +59,8 @@
     </swrl:head>
     <swrl:body>
       <swrl:AtomList>
-        <rdf:first>
-          <swrl:ClassAtom>
-            <swrl:classPredicate rdf:resource="#CBase"/>
-            <swrl:argument1 rdf:resource="#c"/>
-          </swrl:ClassAtom>
-        </rdf:first>
         <rdf:rest>
           <swrl:AtomList>
-            <rdf:first>
-              <swrl:DatavaluedPropertyAtom>
-                <swrl:propertyPredicate rdf:resource="#hasHeight"/>
-                <swrl:argument1 rdf:resource="#c"/>
-                <swrl:argument2 rdf:resource="#h"/>
-              </swrl:DatavaluedPropertyAtom>
-            </rdf:first>
             <rdf:rest>
               <swrl:AtomList>
                 <rdf:first>
@@ -82,14 +69,14 @@
                       <rdf:List>
                         <rdf:rest>
                           <rdf:List>
-                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                            >h + 0</rdf:first>
                             <rdf:rest>
                               <rdf:List>
                                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                                 <rdf:first rdf:resource="#h"/>
                               </rdf:List>
                             </rdf:rest>
+                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >h + 0</rdf:first>
                           </rdf:List>
                         </rdf:rest>
                         <rdf:first>
@@ -103,57 +90,70 @@
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
               </swrl:AtomList>
             </rdf:rest>
+            <rdf:first>
+              <swrl:DatavaluedPropertyAtom>
+                <swrl:argument1 rdf:resource="#c"/>
+                <swrl:argument2 rdf:resource="#h"/>
+                <swrl:propertyPredicate rdf:resource="#hasHeight"/>
+              </swrl:DatavaluedPropertyAtom>
+            </rdf:first>
           </swrl:AtomList>
         </rdf:rest>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:argument1 rdf:resource="#c"/>
+            <swrl:classPredicate rdf:resource="#CBase"/>
+          </swrl:ClassAtom>
+        </rdf:first>
       </swrl:AtomList>
     </swrl:body>
   </swrl:Imp>
-  <C1 rdf:ID="i1">
-    <hasHeight rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
-    >77.0</hasHeight>
-  </C1>
+  <swrla:Entity rdf:ID="c1"/>
   <swrla:Entity rdf:ID="c2"/>
   <C2 rdf:ID="i2"/>
   <swrl:Imp rdf:ID="Rule-1">
     <swrl:head>
       <swrl:AtomList>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
         <rdf:first>
           <swrl:BuiltinAtom>
+            <swrl:builtin rdf:resource="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#select"/>
             <swrl:arguments>
               <rdf:List>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                 <rdf:first rdf:resource="#CBase"/>
               </rdf:List>
             </swrl:arguments>
-            <swrl:builtin rdf:resource="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#select"/>
           </swrl:BuiltinAtom>
         </rdf:first>
-        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
       </swrl:AtomList>
     </swrl:head>
     <swrl:body>
       <swrl:AtomList>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:first>
+              <swrl:ClassAtom>
+                <swrl:classPredicate rdf:resource="#CBase"/>
+                <swrl:argument1>
+                  <C1 rdf:ID="i1">
+                    <hasHeight rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                    >77.0</hasHeight>
+                  </C1>
+                </swrl:argument1>
+              </swrl:ClassAtom>
+            </rdf:first>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          </swrl:AtomList>
+        </rdf:rest>
         <rdf:first>
           <swrl:ClassAtom>
-            <swrl:classPredicate rdf:resource="#CBase"/>
             <swrl:argument1>
               <swrl:Variable rdf:ID="v1"/>
             </swrl:argument1>
+            <swrl:classPredicate rdf:resource="#CBase"/>
           </swrl:ClassAtom>
         </rdf:first>
-        <rdf:rest>
-          <swrl:AtomList>
-            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-            <rdf:first>
-              <swrl:ClassAtom>
-                <swrl:argument1>
-                  <swrla:Entity rdf:ID="c1"/>
-                </swrl:argument1>
-                <swrl:classPredicate rdf:resource="#CBase"/>
-              </swrl:ClassAtom>
-            </rdf:first>
-          </swrl:AtomList>
-        </rdf:rest>
       </swrl:AtomList>
     </swrl:body>
   </swrl:Imp>
