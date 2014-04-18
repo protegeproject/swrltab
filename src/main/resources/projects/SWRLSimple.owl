@@ -8,11 +8,11 @@
     xmlns:sqwrl="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
-    xmlns="http://swrl.stanford.edu/ontologies/tests/3.5.1/SWRLCoreTests.owl#"
+    xmlns="http://swrl.stanford.edu/ontologies/tests/4.3/SWRLSimple.owl#"
     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
-  xml:base="http://swrl.stanford.edu/ontologies/tests/3.5.1/SWRLCoreTests.owl">
+  xml:base="http://swrl.stanford.edu/ontologies/tests/4.3/SWRLSimple.owl">
   <owl:Ontology rdf:about="">
     <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.4/swrlm.owl"/>
     <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/3.3/swrla.owl"/>
@@ -34,17 +34,16 @@
   <swrl:Imp rdf:ID="Rule-2">
     <swrl:head>
       <swrl:AtomList>
-        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
         <rdf:first>
           <swrl:BuiltinAtom>
             <swrl:arguments>
               <rdf:List>
                 <rdf:rest>
                   <rdf:List>
-                    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                     <rdf:first>
                       <swrl:Variable rdf:ID="h"/>
                     </rdf:first>
+                    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                   </rdf:List>
                 </rdf:rest>
                 <rdf:first>
@@ -55,6 +54,7 @@
             <swrl:builtin rdf:resource="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#select"/>
           </swrl:BuiltinAtom>
         </rdf:first>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
       </swrl:AtomList>
     </swrl:head>
     <swrl:body>
@@ -65,6 +65,7 @@
               <swrl:AtomList>
                 <rdf:first>
                   <swrl:BuiltinAtom>
+                    <swrl:builtin rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.4/swrlm.owl#eval"/>
                     <swrl:arguments>
                       <rdf:List>
                         <rdf:rest>
@@ -84,7 +85,6 @@
                         </rdf:first>
                       </rdf:List>
                     </swrl:arguments>
-                    <swrl:builtin rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.4/swrlm.owl#eval"/>
                   </swrl:BuiltinAtom>
                 </rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -101,20 +101,25 @@
         </rdf:rest>
         <rdf:first>
           <swrl:ClassAtom>
-            <swrl:argument1 rdf:resource="#c"/>
             <swrl:classPredicate rdf:resource="#CBase"/>
+            <swrl:argument1 rdf:resource="#c"/>
           </swrl:ClassAtom>
         </rdf:first>
       </swrl:AtomList>
     </swrl:body>
+    <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</swrla:isRuleEnabled>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This a test comment!</rdfs:comment>
   </swrl:Imp>
   <swrla:Entity rdf:ID="c1"/>
   <swrla:Entity rdf:ID="c2"/>
   <C2 rdf:ID="i2"/>
   <swrl:Imp rdf:ID="Rule-1">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This is another test comment.</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
-        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
         <rdf:first>
           <swrl:BuiltinAtom>
             <swrl:builtin rdf:resource="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#select"/>
@@ -126,26 +131,11 @@
             </swrl:arguments>
           </swrl:BuiltinAtom>
         </rdf:first>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
       </swrl:AtomList>
     </swrl:head>
     <swrl:body>
       <swrl:AtomList>
-        <rdf:rest>
-          <swrl:AtomList>
-            <rdf:first>
-              <swrl:ClassAtom>
-                <swrl:classPredicate rdf:resource="#CBase"/>
-                <swrl:argument1>
-                  <C1 rdf:ID="i1">
-                    <hasHeight rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
-                    >77.0</hasHeight>
-                  </C1>
-                </swrl:argument1>
-              </swrl:ClassAtom>
-            </rdf:first>
-            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-          </swrl:AtomList>
-        </rdf:rest>
         <rdf:first>
           <swrl:ClassAtom>
             <swrl:argument1>
@@ -154,6 +144,22 @@
             <swrl:classPredicate rdf:resource="#CBase"/>
           </swrl:ClassAtom>
         </rdf:first>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            <rdf:first>
+              <swrl:ClassAtom>
+                <swrl:argument1>
+                  <C1 rdf:ID="i1">
+                    <hasHeight rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                    >77.0</hasHeight>
+                  </C1>
+                </swrl:argument1>
+                <swrl:classPredicate rdf:resource="#CBase"/>
+              </swrl:ClassAtom>
+            </rdf:first>
+          </swrl:AtomList>
+        </rdf:rest>
       </swrl:AtomList>
     </swrl:body>
   </swrl:Imp>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <rdf:RDF
-    xmlns="http://swrl.stanford.edu/ontologies/tests/3.5.1/SQWRLCoreTests.owl#"
+    xmlns="http://swrl.stanford.edu/ontologies/tests/4.3/SQWRLCoreTests.owl#"
     xmlns:swrlxml="http://swrl.stanford.edu/ontologies/built-ins/3.4/swrlxml.owl#"
     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
@@ -18,7 +18,7 @@
     xmlns:rdfb="http://swrl.stanford.edu/ontologies/built-ins/3.4/rdfb.owl#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
-  xml:base="http://swrl.stanford.edu/ontologies/tests/3.5.1/SQWRLCoreTests.owl">
+  xml:base="http://swrl.stanford.edu/ontologies/tests/4.3/SQWRLCoreTests.owl">
   <owl:Ontology rdf:about="">
     <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/3.3/swrla.owl"/>
     <owl:imports>
@@ -2198,7 +2198,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
                             <rdf:rest>
                               <rdf:List>
                                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
                                 >2013-02-17T00:10:00.0</rdf:first>
                               </rdf:List>
                             </rdf:rest>

@@ -9,10 +9,10 @@
     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-    xmlns="http://swrl.stanford.edu/ontologies/tests/3.5.1/SWRLInferenceTests.owl#"
+    xmlns="http://swrl.stanford.edu/ontologies/tests/4.3/SWRLInferenceTests.owl#"
     xmlns:tbox="http://swrl.stanford.edu/ontologies/built-ins/3.3/tbox.owl#"
     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
-  xml:base="http://swrl.stanford.edu/ontologies/tests/3.5.1/SWRLInferenceTests.owl">
+  xml:base="http://swrl.stanford.edu/ontologies/tests/4.3/SWRLInferenceTests.owl">
   <owl:Ontology rdf:about="">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >&lt;p style="margin-top: 0"&gt;

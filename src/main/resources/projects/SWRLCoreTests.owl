@@ -12,10 +12,10 @@
     xmlns:sqwrl="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
-    xmlns="http://swrl.stanford.edu/ontologies/tests/3.5.1/SWRLCoreTests.owl#"
+    xmlns="http://swrl.stanford.edu/ontologies/tests/4.3/SWRLCoreTests.owl#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
-  xml:base="http://swrl.stanford.edu/ontologies/tests/3.5.1/SWRLCoreTests.owl">
+  xml:base="http://swrl.stanford.edu/ontologies/tests/4.3/SWRLCoreTests.owl">
   <owl:Ontology rdf:about="">
     <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.4/swrlm.owl"/>
     <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl"/>
@@ -548,7 +548,7 @@
                         <rdf:rest>
                           <rdf:List>
                             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
                             >2004-11-01T10:00:00.0</rdf:first>
                           </rdf:List>
                         </rdf:rest>
@@ -1205,7 +1205,7 @@
         <rdf:first>
           <swrl:DatavaluedPropertyAtom>
             <swrl:argument1 rdf:resource="#p7"/>
-            <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
             >2010-10-10</swrl:argument2>
             <swrl:propertyPredicate rdf:resource="#hasDOB"/>
           </swrl:DatavaluedPropertyAtom>
@@ -1536,7 +1536,7 @@
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
         <rdf:first>
           <swrl:DatavaluedPropertyAtom>
-            <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
             >2010-10-10T10:10:10</swrl:argument2>
             <swrl:argument1 rdf:resource="#p7"/>
             <swrl:propertyPredicate rdf:resource="#hasLastAccessTime"/>
@@ -2538,7 +2538,7 @@
           <swrl:DatavaluedPropertyAtom>
             <swrl:propertyPredicate rdf:resource="#hasDOB"/>
             <swrl:argument1 rdf:resource="#p"/>
-            <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
             >2010-10-10</swrl:argument2>
           </swrl:DatavaluedPropertyAtom>
         </rdf:first>
@@ -2647,7 +2647,7 @@
           <swrl:DatavaluedPropertyAtom>
             <swrl:propertyPredicate rdf:resource="#hasLastAccessTime"/>
             <swrl:argument1 rdf:resource="#p"/>
-            <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
             >2010-10-10T10:10:10</swrl:argument2>
           </swrl:DatavaluedPropertyAtom>
         </rdf:first>
@@ -4905,7 +4905,7 @@
                   <rdf:List>
                     <rdf:rest>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
                         >2003-11-01T10:00:00.0</rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                       </rdf:List>

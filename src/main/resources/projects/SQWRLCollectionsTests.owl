@@ -8,7 +8,7 @@
     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
     xmlns:temporal="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#"
     xmlns:tbox="http://swrl.stanford.edu/ontologies/built-ins/3.3/tbox.owl#"
-    xmlns="http://swrl.stanford.edu/ontologies/tests/3.5.1/SQWRLCollectionsTests.owl#"
+    xmlns="http://swrl.stanford.edu/ontologies/tests/4.3/SQWRLCollectionsTests.owl#"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:sqwrl="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#"
@@ -18,7 +18,7 @@
     xmlns:rdfb="http://swrl.stanford.edu/ontologies/built-ins/3.4/rdfb.owl#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
-  xml:base="http://swrl.stanford.edu/ontologies/tests/3.5.1/SQWRLCollectionsTests.owl">
+  xml:base="http://swrl.stanford.edu/ontologies/tests/4.3/SQWRLCollectionsTests.owl">
   <owl:Ontology rdf:about="">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >See http://protege.cim3.net/cgi-bin/wiki.pl?SWRLTab for documentation on the SWRLTab.
@@ -7434,8 +7434,8 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
                                     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                                   </rdf:List>
                                 </rdf:rest>
-                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                                >2007</rdf:first>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+                                >2007-01-01</rdf:first>
                               </rdf:List>
                             </rdf:rest>
                             <rdf:first rdf:resource="#start"/>
