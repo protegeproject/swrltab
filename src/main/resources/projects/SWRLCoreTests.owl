@@ -297,7 +297,7 @@
           <swrl:DatavaluedPropertyAtom>
             <swrl:propertyPredicate rdf:resource="#hasLastAccessTime"/>
             <swrl:argument1 rdf:resource="#p1"/>
-            <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
             >2011-11-11T23:21:00.0</swrl:argument2>
           </swrl:DatavaluedPropertyAtom>
         </rdf:first>
@@ -357,7 +357,7 @@
                 >p7ID</hasID>
               </Person>
             </swrl:argument1>
-            <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
             >44</swrl:argument2>
             <swrl:propertyPredicate rdf:resource="#hasAge"/>
           </swrl:DatavaluedPropertyAtom>
@@ -374,7 +374,7 @@
               <rdf:List>
                 <rdf:rest>
                   <rdf:List>
-                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                     >44</rdf:first>
                     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                   </rdf:List>
@@ -527,7 +527,7 @@
                                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                               </rdf:List>
                             </rdf:rest>
-                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                             >1</rdf:first>
                           </rdf:List>
                         </rdf:rest>
@@ -579,7 +579,7 @@
                             >Years</rdf:first>
                           </rdf:List>
                         </rdf:rest>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                         >4</rdf:first>
                       </rdf:List>
                     </rdf:rest>
@@ -968,7 +968,7 @@
         <rdf:first>
           <swrl:DatavaluedPropertyAtom>
             <swrl:propertyPredicate rdf:resource="#hasLastAccessTime"/>
-            <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
             >2011-11-11T23:21:00.0</swrl:argument2>
             <swrl:argument1 rdf:resource="#p1"/>
           </swrl:DatavaluedPropertyAtom>
@@ -1110,7 +1110,7 @@
               <swrl:BuiltinAtom>
                 <swrl:arguments>
                   <rdf:List>
-                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                     >66</rdf:first>
                     <rdf:rest>
                       <rdf:List>
@@ -2095,7 +2095,7 @@
         <rdf:first>
           <swrl:DatavaluedPropertyAtom>
             <swrl:propertyPredicate rdf:resource="#hasAge"/>
-            <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
             >44</swrl:argument2>
             <swrl:argument1 rdf:resource="#p"/>
           </swrl:DatavaluedPropertyAtom>
@@ -2217,7 +2217,7 @@
         <rdf:first>
           <swrl:DatavaluedPropertyAtom>
             <swrl:propertyPredicate rdf:resource="#hasDOB"/>
-            <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
             >2000-01-05</swrl:argument2>
             <swrl:argument1 rdf:resource="#p1"/>
           </swrl:DatavaluedPropertyAtom>
@@ -2340,7 +2340,7 @@
           <swrl:DatavaluedPropertyAtom>
             <swrl:propertyPredicate rdf:resource="#hasDOB"/>
             <swrl:argument1 rdf:resource="#p1"/>
-            <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
             >2000-01-05</swrl:argument2>
           </swrl:DatavaluedPropertyAtom>
         </rdf:first>
@@ -2462,12 +2462,12 @@
                   <rdf:List>
                     <rdf:rest>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                         >0</rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                       </rdf:List>
                     </rdf:rest>
-                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                     >22</rdf:first>
                   </rdf:List>
                 </rdf:rest>
@@ -2885,7 +2885,7 @@
       <swrl:AtomList>
         <rdf:first>
           <swrl:DatavaluedPropertyAtom>
-            <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
             >66</swrl:argument2>
             <swrl:argument1 rdf:resource="#p1"/>
             <swrl:propertyPredicate rdf:resource="#hasAge"/>
@@ -4079,11 +4079,11 @@ p10, "25.0"^^xsd:double</rdfs:comment>
                     <rdf:rest>
                       <rdf:List>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                         >2</rdf:first>
                       </rdf:List>
                     </rdf:rest>
-                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                     >2</rdf:first>
                   </rdf:List>
                 </rdf:rest>
@@ -4928,7 +4928,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
                   <rdf:List>
                     <rdf:rest>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                         >4</rdf:first>
                         <rdf:rest>
                           <rdf:List>
@@ -5049,7 +5049,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
                   <rdf:List>
                     <rdf:rest>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
                         >2000-01-05</rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                       </rdf:List>
@@ -5285,7 +5285,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
                             <rdf:first rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Years"/>
                           </rdf:List>
                         </rdf:rest>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                         >-2</rdf:first>
                       </rdf:List>
                     </rdf:rest>
@@ -5427,12 +5427,12 @@ p10, "25.0"^^xsd:double</rdfs:comment>
                   <rdf:List>
                     <rdf:rest>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                         >2</rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                       </rdf:List>
                     </rdf:rest>
-                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                     >2</rdf:first>
                   </rdf:List>
                 </rdf:rest>
@@ -5453,7 +5453,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
                         <rdf:first rdf:resource="#x"/>
                         <rdf:rest>
                           <rdf:List>
-                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                             >2</rdf:first>
                             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                           </rdf:List>
@@ -5972,7 +5972,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
         <rdf:first>
           <swrl:DatavaluedPropertyAtom>
-            <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
             >22</swrl:argument2>
             <swrl:argument1 rdf:resource="#p9"/>
             <swrl:propertyPredicate rdf:resource="#hasAge"/>
@@ -5991,7 +5991,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
               <rdf:List>
                 <rdf:rest>
                   <rdf:List>
-                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                     >22</rdf:first>
                     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                   </rdf:List>
@@ -6076,7 +6076,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
       <swrl:AtomList>
         <rdf:first>
           <swrl:DatavaluedPropertyAtom>
-            <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
             >2002-01-01</swrl:argument2>
             <swrl:argument1 rdf:resource="#p4"/>
             <swrl:propertyPredicate rdf:resource="#hasDOB"/>
@@ -6455,7 +6455,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
             <swrl:arguments>
               <rdf:List>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                 >4</rdf:first>
               </rdf:List>
             </swrl:arguments>
@@ -6472,18 +6472,18 @@ p10, "25.0"^^xsd:double</rdfs:comment>
               <rdf:List>
                 <rdf:rest>
                   <rdf:List>
-                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                     >2</rdf:first>
                     <rdf:rest>
                       <rdf:List>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                         >2</rdf:first>
                       </rdf:List>
                     </rdf:rest>
                   </rdf:List>
                 </rdf:rest>
-                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                 >4</rdf:first>
               </rdf:List>
             </swrl:arguments>
