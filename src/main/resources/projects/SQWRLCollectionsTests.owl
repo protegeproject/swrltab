@@ -328,7 +328,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F3</rdfs:comment>
+    >:F3</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:first>
@@ -460,13 +460,13 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1, DDI, "31"^^xsd:long
-F1, DDI, "304"^^xsd:long
-F1, DDI, "334"^^xsd:long
-F2, AZT, "28"^^xsd:long
-F2, AZT, "63"^^xsd:long
-F2, DDI, "30"^^xsd:long
-F2, DDI, "244"^^xsd:long</rdfs:comment>
+    >:F1, :DDI, "31"^^xsd:long
+:F1, :DDI, "304"^^xsd:long
+:F1, :DDI, "334"^^xsd:long
+:F2, :AZT, "28"^^xsd:long
+:F2, :AZT, "63"^^xsd:long
+:F2, :DDI, "30"^^xsd:long
+:F2, :DDI, "244"^^xsd:long</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <swrl:head>
@@ -834,7 +834,7 @@ F2, DDI, "244"^^xsd:long</rdfs:comment>
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F2, "4.3"^^xsd:double</rdfs:comment>
+    >:F2, "4.3"^^xsd:double</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:rest>
@@ -921,10 +921,10 @@ F2, DDI, "244"^^xsd:long</rdfs:comment>
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >FL, "67675.0"^^xsd:double
-ND, "8989.0"^^xsd:double
-NV, "3443.0"^^xsd:double
-NY, "786868.0"^^xsd:double</rdfs:comment>
+    >:FL, "67675.0"^^xsd:double
+:ND, "8989.0"^^xsd:double
+:NV, "3443.0"^^xsd:double
+:NY, "786868.0"^^xsd:double</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <swrl:body>
@@ -1168,7 +1168,7 @@ NY, "786868.0"^^xsd:double</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1, "285995.3333333333"^^xsd:double</rdfs:comment>
+    >:F1, "285995.3333333333"^^xsd:double</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:rest>
@@ -1360,14 +1360,14 @@ NY, "786868.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1, "285995.3333333333"^^xsd:double
-F2, "8989.0"^^xsd:double</rdfs:comment>
+    >:F1, "285995.3333333333"^^xsd:double
+:F2, "8989.0"^^xsd:double</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="AllAdultsWithCollections">
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1</rdfs:comment>
+    >:F1</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:first>
@@ -1541,7 +1541,7 @@ F2, "8989.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F2, "5.85"^^xsd:double, "11.34"^^xsd:double</rdfs:comment>
+    >:F2, "5.85"^^xsd:double, "11.34"^^xsd:double</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:first>
@@ -1719,7 +1719,7 @@ F2, "8989.0"^^xsd:double</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F2</rdfs:comment>
+    >:F2</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:first>
@@ -2209,8 +2209,8 @@ F2, "8989.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F2, "4.3"^^xsd:double
-F2, "7.4"^^xsd:double</rdfs:comment>
+    >:F2, "4.3"^^xsd:double
+:F2, "7.4"^^xsd:double</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="PersonsWithNonAZTTreatments">
     <swrl:body>
@@ -2345,7 +2345,7 @@ F2, "7.4"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1</rdfs:comment>
+    >:F1</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
   </swrl:Imp>
@@ -2698,7 +2698,7 @@ F2, "7.4"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1, "77"^^xsd:integer</rdfs:comment>
+    >:F1, "77"^^xsd:integer</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
   </swrl:Imp>
@@ -2910,8 +2910,8 @@ F2, "7.4"^^xsd:double</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1, "13.5"^^xsd:double
-F2, "5.85"^^xsd:double</rdfs:comment>
+    >:F1, "13.5"^^xsd:double
+:F2, "5.85"^^xsd:double</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:rest>
@@ -3089,9 +3089,9 @@ F2, "5.85"^^xsd:double</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1
-F2
-F3</rdfs:comment>
+    >:F1
+:F2
+:F3</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:rest>
@@ -3424,7 +3424,7 @@ F3</rdfs:comment>
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F2</rdfs:comment>
+    >:F2</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:first>
@@ -3857,10 +3857,10 @@ F3</rdfs:comment>
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1, DDI, "3.0"^^xsd:double
-F1, DDI, "9.0"^^xsd:double
-F2, DDI, "4.3"^^xsd:double
-F2, DDI, "7.4"^^xsd:double</rdfs:comment>
+    >:F1, :DDI, "3.0"^^xsd:double
+:F1, :DDI, "9.0"^^xsd:double
+:F2, :DDI, "4.3"^^xsd:double
+:F2, :DDI, "7.4"^^xsd:double</rdfs:comment>
   </swrl:Imp>
   <swrl:Variable rdf:ID="notThirdLastC"/>
   <swrl:Imp rdf:ID="AlphabeticallyFirstNameWithSets">
@@ -4139,7 +4139,7 @@ F2, DDI, "7.4"^^xsd:double</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F3, "7"^^xsd:integer, "42.0"^^xsd:double</rdfs:comment>
+    >:F3, "7"^^xsd:integer, "42.0"^^xsd:double</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="PersonsWithMaximumDosePerDrug">
     <swrl:head>
@@ -4300,10 +4300,10 @@ F2, DDI, "7.4"^^xsd:double</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1, DDI, "33.0"^^xsd:double
-F2, AZT, "7.4"^^xsd:double
-F2, DDI, "7.4"^^xsd:double
-F3, AZT, "33.0"^^xsd:double</rdfs:comment>
+    >:F1, :DDI, "33.0"^^xsd:double
+:F2, :AZT, "7.4"^^xsd:double
+:F2, :DDI, "7.4"^^xsd:double
+:F3, :AZT, "33.0"^^xsd:double</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="PersonsWithFirstTreatment">
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
@@ -4435,7 +4435,7 @@ F3, AZT, "33.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1</rdfs:comment>
+    >:F1</rdfs:comment>
   </swrl:Imp>
   <swrl:Variable rdf:ID="greatest2C"/>
   <swrl:Variable rdf:ID="sall"/>
@@ -4657,7 +4657,7 @@ F3, AZT, "33.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1, "15.0"^^xsd:double, "11.34"^^xsd:double</rdfs:comment>
+    >:F1, "15.0"^^xsd:double, "11.34"^^xsd:double</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
   </swrl:Imp>
@@ -4798,7 +4798,7 @@ F3, AZT, "33.0"^^xsd:double</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F3, "7"^^xsd:integer</rdfs:comment>
+    >:F3, "7"^^xsd:integer</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:first>
@@ -5158,8 +5158,8 @@ F3, AZT, "33.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1, "6.0"^^xsd:double, "21.0"^^xsd:double
-F2, "5.85"^^xsd:double, "5.85"^^xsd:double</rdfs:comment>
+    >:F1, "6.0"^^xsd:double, "21.0"^^xsd:double
+:F2, "5.85"^^xsd:double, "5.85"^^xsd:double</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="PersonAverageDDIDosesAndAverageAllDDIDoses">
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
@@ -5216,8 +5216,8 @@ F2, "5.85"^^xsd:double, "5.85"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1, "15.0"^^xsd:double, "11.34"^^xsd:double
-F2, "5.85"^^xsd:double, "11.34"^^xsd:double</rdfs:comment>
+    >:F1, "15.0"^^xsd:double, "11.34"^^xsd:double
+:F2, "5.85"^^xsd:double, "11.34"^^xsd:double</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:rest>
@@ -5514,10 +5514,10 @@ F2, "5.85"^^xsd:double, "11.34"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >BMW, "67675.0"^^xsd:double
-Beemer, "67675.0"^^xsd:double
-Honda, "6216.0"^^xsd:double
-Suzuki, "786868.0"^^xsd:double</rdfs:comment>
+    >:BMW, "67675.0"^^xsd:double
+:Beemer, "67675.0"^^xsd:double
+:Honda, "6216.0"^^xsd:double
+:Suzuki, "786868.0"^^xsd:double</rdfs:comment>
   </swrl:Imp>
   <swrl:AtomList>
     <rdf:rest>
@@ -6002,9 +6002,9 @@ Suzuki, "786868.0"^^xsd:double</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1, "3"^^xsd:integer
-F2, "3"^^xsd:integer
-F3, "4"^^xsd:integer</rdfs:comment>
+    >:F1, "3"^^xsd:integer
+:F2, "3"^^xsd:integer
+:F3, "4"^^xsd:integer</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:first>
@@ -6201,10 +6201,10 @@ F3, "4"^^xsd:integer</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="PersonsWithNumberOfDosesAndAverageDosePerDrug">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1, DDI, "3"^^xsd:integer, "15.0"^^xsd:double
-F2, AZT, "2"^^xsd:integer, "5.85"^^xsd:double
-F2, DDI, "2"^^xsd:integer, "5.85"^^xsd:double
-F3, AZT, "1"^^xsd:integer, "33.0"^^xsd:double</rdfs:comment>
+    >:F1, :DDI, "3"^^xsd:integer, "15.0"^^xsd:double
+:F2, :AZT, "2"^^xsd:integer, "5.85"^^xsd:double
+:F2, :DDI, "2"^^xsd:integer, "5.85"^^xsd:double
+:F3, :AZT, "1"^^xsd:integer, "33.0"^^xsd:double</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <swrl:head>
@@ -6548,11 +6548,11 @@ F3, AZT, "1"^^xsd:integer, "33.0"^^xsd:double</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F2, "2"^^xsd:integer</rdfs:comment>
+    >:F2, "2"^^xsd:integer</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="PersonsWithAverageDDIDoseMoreThan10PercentOfAverage">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1, "15.0"^^xsd:double, "11.34"^^xsd:double</rdfs:comment>
+    >:F1, "15.0"^^xsd:double, "11.34"^^xsd:double</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <swrl:head>
@@ -6966,7 +6966,7 @@ F3, AZT, "1"^^xsd:integer, "33.0"^^xsd:double</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F2</rdfs:comment>
+    >:F2</rdfs:comment>
   </swrl:Imp>
   <swrl:Variable rdf:ID="bag"/>
   <swrl:Imp rdf:ID="AlphabeticallyAllExceptThirdLastNameWithSets">
@@ -7101,7 +7101,7 @@ F3, AZT, "1"^^xsd:integer, "33.0"^^xsd:double</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1, "77"^^xsd:integer, "42.0"^^xsd:double</rdfs:comment>
+    >:F1, "77"^^xsd:integer, "42.0"^^xsd:double</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:first>
@@ -7487,7 +7487,7 @@ F3, AZT, "1"^^xsd:integer, "33.0"^^xsd:double</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1, DDI, "3.0"^^xsd:double</rdfs:comment>
+    >:F1, :DDI, "3.0"^^xsd:double</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="DifferenceTest">
     <swrl:body>
@@ -7810,14 +7810,14 @@ F3, AZT, "1"^^xsd:integer, "33.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >AZT
-DDI</rdfs:comment>
+    >:AZT
+:DDI</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
   </swrl:Imp>
   <swrl:Imp rdf:ID="PersonsWithLeastDoseGreaterThan3.0">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F2, "4.3"^^xsd:double</rdfs:comment>
+    >:F2, "4.3"^^xsd:double</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:rest>
@@ -8156,8 +8156,8 @@ DDI</rdfs:comment>
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1, "15.0"^^xsd:double, "3"^^xsd:integer
-F2, "5.85"^^xsd:double, "2"^^xsd:integer</rdfs:comment>
+    >:F1, "15.0"^^xsd:double, "3"^^xsd:integer
+:F2, "5.85"^^xsd:double, "2"^^xsd:integer</rdfs:comment>
   </swrl:Imp>
   <swrl:Variable rdf:ID="notFirst"/>
   <swrl:Variable rdf:ID="na"/>
@@ -8292,8 +8292,8 @@ F2, "5.85"^^xsd:double, "2"^^xsd:integer</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1
-F2</rdfs:comment>
+    >:F1
+:F2</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="AlphabeticallySecondAndThirdNamesWithSets">
     <swrl:head>
@@ -8611,8 +8611,8 @@ F2</rdfs:comment>
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1,
-F2</rdfs:comment>
+    >:F1,
+:F2</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="LowestDDIDosePerPatient">
     <swrl:head>
@@ -8659,8 +8659,8 @@ F2</rdfs:comment>
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1, "3.0"^^xsd:double
-F2, "4.3"^^xsd:double</rdfs:comment>
+    >:F1, "3.0"^^xsd:double
+:F2, "4.3"^^xsd:double</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <swrl:body>
@@ -8969,17 +8969,17 @@ F2, "4.3"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1, "3.0"^^xsd:double
-F1, "9.0"^^xsd:double
-F2, "4.3"^^xsd:double
-F2, "7.4"^^xsd:double</rdfs:comment>
+    >:F1, "3.0"^^xsd:double
+:F1, "9.0"^^xsd:double
+:F2, "4.3"^^xsd:double
+:F2, "7.4"^^xsd:double</rdfs:comment>
   </swrl:Imp>
   <swrl:Variable rdf:ID="area"/>
   <swrl:Imp rdf:ID="PersonsWithMoreThan2Cars">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1, "3"^^xsd:integer
-F2, "3"^^xsd:integer
-F3, "4"^^xsd:integer</rdfs:comment>
+    >:F1, "3"^^xsd:integer
+:F2, "3"^^xsd:integer
+:F3, "4"^^xsd:integer</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:rest>
@@ -9259,9 +9259,9 @@ F3, "4"^^xsd:integer</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="PersonsWithDrugTreatmentDurations">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1, DDI, "31"^^xsd:long
-F2, AZT, "28"^^xsd:long
-F2, DDI, "30"^^xsd:long</rdfs:comment>
+    >:F1, :DDI, "31"^^xsd:long
+:F2, :AZT, "28"^^xsd:long
+:F2, :DDI, "30"^^xsd:long</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <swrl:head>
@@ -9504,8 +9504,8 @@ F2, DDI, "30"^^xsd:long</rdfs:comment>
   <swrl:Variable rdf:ID="startPlus10Minutes"/>
   <swrl:Imp rdf:ID="PersonsWithAverageAndMinOfLowestTwoDDITreatmentDoses">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1, "6.0"^^xsd:double, "3.0"^^xsd:double
-F2, "5.85"^^xsd:double, "4.3"^^xsd:double</rdfs:comment>
+    >:F1, "6.0"^^xsd:double, "3.0"^^xsd:double
+:F2, "5.85"^^xsd:double, "4.3"^^xsd:double</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <swrl:head>
@@ -9711,10 +9711,10 @@ F2, "5.85"^^xsd:double, "4.3"^^xsd:double</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="PersonsWithTreatmentsLastingMoreThan1Month">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1, "10"^^xsd:long
-F1, "11"^^xsd:long
-F2, "2"^^xsd:long
-F2, "8"^^xsd:long</rdfs:comment>
+    >:F1, "10"^^xsd:long
+:F1, "11"^^xsd:long
+:F2, "2"^^xsd:long
+:F2, "8"^^xsd:long</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <swrl:body>
@@ -9879,8 +9879,8 @@ F2, "8"^^xsd:long</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="PersonsWithAverageOfLowestTwoDDITreatmentDoses">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1, "6.0"^^xsd:double
-F2, "5.85"^^xsd:double</rdfs:comment>
+    >:F1, "6.0"^^xsd:double
+:F2, "5.85"^^xsd:double</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <swrl:body>

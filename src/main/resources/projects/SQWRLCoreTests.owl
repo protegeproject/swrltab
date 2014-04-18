@@ -462,7 +462,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
             <temporal:hasGranularity rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Days"/>
           </Sale>
         </hasSales>
-        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
         >77</hasAge>
         <hasCar>
           <Car rdf:ID="Porsche">
@@ -588,7 +588,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
         >Claudi</hasName>
         <hasManufactureDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >1999-12-12</hasManufactureDate>
-        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
         >7</hasAge>
       </Female>
       <Male rdf:ID="M1">
@@ -607,7 +607,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
         <hasCar rdf:resource="#Suzuki"/>
         <hasManufactureDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >1999-12-12</hasManufactureDate>
-        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
         >66</hasAge>
       </Male>
       <Male rdf:ID="M3">
@@ -615,7 +615,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
         >Joe</hasName>
         <hasDOB rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
         >1988-07-25</hasDOB>
-        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
         >12</hasAge>
         <hasCar rdf:resource="#BMW"/>
         <hasCar rdf:resource="#Suzuki"/>
@@ -689,11 +689,11 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
                     <swrl:builtin rdf:resource="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#notNthLastSlice"/>
                     <swrl:arguments>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                         >3</rdf:first>
                         <rdf:rest>
                           <rdf:List>
-                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                             >2</rdf:first>
                             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                           </rdf:List>
@@ -768,12 +768,12 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
                   <swrl:BuiltinAtom>
                     <swrl:arguments>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                         >3</rdf:first>
                         <rdf:rest>
                           <rdf:List>
                             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                             >2</rdf:first>
                           </rdf:List>
                         </rdf:rest>
@@ -868,7 +868,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
                   <swrl:BuiltinAtom>
                     <swrl:arguments>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                         >1</rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                       </rdf:List>
@@ -930,7 +930,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
                     >1999-12-21T10:10:10.222</rdf:first>
                     <rdf:rest>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                         >0</rdf:first>
                         <rdf:rest>
                           <rdf:List>
@@ -1126,7 +1126,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
                     >1999-1-21T10:10:10</rdf:first>
                     <rdf:rest>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                         >1</rdf:first>
                         <rdf:rest>
                           <rdf:List>
@@ -1222,12 +1222,12 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1, "3"^^xsd:integer
-F2, "3"^^xsd:integer
-F3, "4"^^xsd:integer
-M1, "2"^^xsd:integer
-M2, "3"^^xsd:integer
-M3, "4"^^xsd:integer</rdfs:comment>
+    >:F1, "3"^^xsd:integer
+:F2, "3"^^xsd:integer
+:F3, "4"^^xsd:integer
+:M1, "2"^^xsd:integer
+:M2, "3"^^xsd:integer
+:M3, "4"^^xsd:integer</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <swrl:body>
@@ -1286,8 +1286,8 @@ M3, "4"^^xsd:integer</rdfs:comment>
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1,
-M2</rdfs:comment>
+    >:F1,
+:M2</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -1460,7 +1460,7 @@ M2</rdfs:comment>
                   <swrl:BuiltinAtom>
                     <swrl:arguments>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                         >2</rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                       </rdf:List>
@@ -1573,7 +1573,7 @@ M2</rdfs:comment>
                   <rdf:List>
                     <rdf:rest>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                         >10</rdf:first>
                         <rdf:rest>
                           <rdf:List>
@@ -1600,9 +1600,9 @@ M2</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1, BMW
-F1, Beemer
-F1, Porsche</rdfs:comment>
+    >:F1, :BMW
+:F1, :Beemer
+:F1, :Porsche</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -1740,7 +1740,7 @@ F1, Porsche</rdfs:comment>
                     <swrl:builtin rdf:resource="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#notLastN"/>
                     <swrl:arguments>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                         >1</rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                       </rdf:List>
@@ -1838,18 +1838,18 @@ F1, Porsche</rdfs:comment>
             <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#add"/>
             <swrl:arguments>
               <rdf:List>
-                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                 >4</rdf:first>
                 <rdf:rest>
                   <rdf:List>
                     <rdf:rest>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                         >2</rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                       </rdf:List>
                     </rdf:rest>
-                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                     >2</rdf:first>
                   </rdf:List>
                 </rdf:rest>
@@ -1919,7 +1919,7 @@ F1, Porsche</rdfs:comment>
                   <swrl:BuiltinAtom>
                     <swrl:arguments>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                         >2</rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                       </rdf:List>
@@ -2022,11 +2022,11 @@ F1, Porsche</rdfs:comment>
                     <swrl:builtin rdf:resource="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#nthSlice"/>
                     <swrl:arguments>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                         >2</rdf:first>
                         <rdf:rest>
                           <rdf:List>
-                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                             >3</rdf:first>
                             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                           </rdf:List>
@@ -2114,7 +2114,7 @@ F1, Porsche</rdfs:comment>
                     <swrl:arguments>
                       <rdf:List>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                         >2</rdf:first>
                       </rdf:List>
                     </swrl:arguments>
@@ -2228,7 +2228,7 @@ F1, Porsche</rdfs:comment>
                                     <rdf:first rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Minutes"/>
                                   </rdf:List>
                                 </rdf:rest>
-                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                                 >10</rdf:first>
                               </rdf:List>
                             </rdf:rest>
@@ -2401,14 +2401,14 @@ F1, Porsche</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1, DDI, "31"^^xsd:long
-F1, DDI, "304"^^xsd:long
-F1, DDI, "334"^^xsd:long
-F2, AZT, "28"^^xsd:long
-F2, AZT, "63"^^xsd:long
-F2, DDI, "30"^^xsd:long
-F2, DDI, "244"^^xsd:long
-F3, AZT, "365"^^xsd:long</rdfs:comment>
+    >:F1, :DDI, "31"^^xsd:long
+:F1, :DDI, "304"^^xsd:long
+:F1, :DDI, "334"^^xsd:long
+:F2, :AZT, "28"^^xsd:long
+:F2, :AZT, "63"^^xsd:long
+:F2, :DDI, "30"^^xsd:long
+:F2, :DDI, "244"^^xsd:long
+:F3, :AZT, "365"^^xsd:long</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="PersonsWithTreatmentsLastingMoreThan1Month">
     <swrl:head>
@@ -2475,11 +2475,11 @@ F3, AZT, "365"^^xsd:long</rdfs:comment>
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1, "10"^^xsd:long
-F1, "11"^^xsd:long
-F2, "2"^^xsd:long
-F2, "8"^^xsd:long
-F3, "12"^^xsd:long</rdfs:comment>
+    >:F1, "10"^^xsd:long
+:F1, "11"^^xsd:long
+:F2, "2"^^xsd:long
+:F2, "8"^^xsd:long
+:F3, "12"^^xsd:long</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <swrl:body>
@@ -2508,7 +2508,7 @@ F3, "12"^^xsd:long</rdfs:comment>
                                     <rdf:rest>
                                       <rdf:List>
                                         <rdf:first rdf:datatype=
-                                        "http://www.w3.org/2001/XMLSchema#int"
+                                        "http://www.w3.org/2001/XMLSchema#integer"
                                         >1</rdf:first>
                                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                                       </rdf:List>
@@ -2622,11 +2622,11 @@ F3, "12"^^xsd:long</rdfs:comment>
                   <swrl:BuiltinAtom>
                     <swrl:arguments>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                         >2</rdf:first>
                         <rdf:rest>
                           <rdf:List>
-                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                             >3</rdf:first>
                             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                           </rdf:List>
@@ -2723,8 +2723,8 @@ F3, "12"^^xsd:long</rdfs:comment>
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >M1, "Andy"^^xsd:string
-F1, "Anne"^^xsd:string</rdfs:comment>
+    >:M1, "Andy"^^xsd:string
+:F1, "Anne"^^xsd:string</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:rest>
@@ -2740,7 +2740,7 @@ F1, "Anne"^^xsd:string</rdfs:comment>
                         <swrl:arguments>
                           <rdf:List>
                             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                             >2</rdf:first>
                           </rdf:List>
                         </swrl:arguments>
@@ -2833,12 +2833,12 @@ F1, "Anne"^^xsd:string</rdfs:comment>
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >M1, "Andy"^^xsd:string
-F1, "Anne"^^xsd:string
-F2, "Batty"^^xsd:string
-M2, "Bob"^^xsd:string
-F3, "Claudi"^^xsd:string
-M3, "Joe"^^xsd:string</rdfs:comment>
+    >:M1, "Andy"^^xsd:string
+:F1, "Anne"^^xsd:string
+:F2, "Batty"^^xsd:string
+:M2, "Bob"^^xsd:string
+:F3, "Claudi"^^xsd:string
+:M3, "Joe"^^xsd:string</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <swrl:head>
@@ -3010,7 +3010,7 @@ M3, "Joe"^^xsd:string</rdfs:comment>
                   <swrl:BuiltinAtom>
                     <swrl:arguments>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                         >1</rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                       </rdf:List>

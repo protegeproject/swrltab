@@ -188,7 +188,7 @@
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-table5-prp-rng-op-query">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >i34</rdfs:comment>
+    >:i34</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <swrl:body>
@@ -223,7 +223,7 @@
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-table5-prp-ifp-query">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >i38, i39</rdfs:comment>
+    >:i38, :i39</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -265,7 +265,7 @@
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-table4-eq-trans-query">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >i6, i8</rdfs:comment>
+    >:i6, :i8</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <swrl:body>
@@ -344,7 +344,7 @@
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >i15, "44"^^xsd:integer</rdfs:comment>
+    >:i15, "44"^^xsd:integer</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:first>
@@ -388,7 +388,7 @@
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >i9</rdfs:comment>
+    >:i9</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:first>
@@ -441,7 +441,7 @@
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-table5-prp-fp-query">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >i36, i37</rdfs:comment>
+    >:i36, :i37</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:first>
@@ -518,7 +518,7 @@
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >i45, i47</rdfs:comment>
+    >:i45, :i47</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-table7-cax-eqc2-query">
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
@@ -553,11 +553,11 @@
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >i72</rdfs:comment>
+    >:i72</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-table6-cls-uni-query">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >sf</rdfs:comment>
+    >:sf</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <swrl:head>
@@ -639,7 +639,7 @@
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >i32</rdfs:comment>
+    >:i32</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -802,7 +802,7 @@
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >i54, i55</rdfs:comment>
+    >:i54, :i55</rdfs:comment>
   </swrl:Imp>
   <Prescription rdf:ID="prescription2"/>
   <swrl:Imp rdf:ID="test-table5-prp-eqp1-op-rule">
@@ -866,7 +866,7 @@
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >i1</rdfs:comment>
+    >:i1</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:first>
@@ -906,7 +906,7 @@
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >i71</rdfs:comment>
+    >:i71</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -921,7 +921,7 @@
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-table4-eq-rep-o-op-query">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >i16, i18</rdfs:comment>
+    >:i16, :i18</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -985,7 +985,7 @@
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >i62, i61</rdfs:comment>
+    >:i62, :i61</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <swrl:body>
@@ -1053,7 +1053,7 @@
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >i5, i4</rdfs:comment>
+    >:i5, :i4</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:first>
@@ -1091,7 +1091,7 @@
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-table5-prp-eqp1-op-query">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >i51, i52</rdfs:comment>
+    >:i51, :i52</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:first>
@@ -1161,7 +1161,7 @@
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >b1</rdfs:comment>
+    >:b1</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-table6-cls-int1-rule">
     <swrl:body>
@@ -1195,7 +1195,7 @@
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >b2</rdfs:comment>
+    >:b2</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:first>
@@ -1336,7 +1336,7 @@
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >i12, i13</rdfs:comment>
+    >:i12, :i13</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <swrl:head>
@@ -1424,7 +1424,7 @@
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >i50, "45"^^xsd:integer</rdfs:comment>
+    >:i50, "45"^^xsd:integer</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
   </swrl:Imp>
@@ -1480,7 +1480,7 @@
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-table4-eq-ref-dp-query">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >i4</rdfs:comment>
+    >:i4</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -1513,7 +1513,7 @@
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-table5-eqp2-dp-query">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >i56, "23.0"^^xsd:double</rdfs:comment>
+    >:i56, "23.0"^^xsd:double</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -1557,7 +1557,7 @@
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >i42, i41</rdfs:comment>
+    >:i42, :i41</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:first>
@@ -1710,7 +1710,7 @@
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >i50, i51</rdfs:comment>
+    >:i50, :i51</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -1763,7 +1763,7 @@
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >i48, i49</rdfs:comment>
+    >:i48, :i49</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <swrl:head>
@@ -1845,7 +1845,7 @@
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >i2, i3</rdfs:comment>
+    >:i2, :i3</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:first>
@@ -1913,7 +1913,7 @@
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >i53, "23.0"^^xsd:double</rdfs:comment>
+    >:i53, "23.0"^^xsd:double</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:first>
@@ -1983,7 +1983,7 @@
   <Person rdf:ID="i43"/>
   <swrl:Imp rdf:ID="test-table5-prp-eqp1-dp-query">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >i51, "34.0"^^xsd:double</rdfs:comment>
+    >:i51, "34.0"^^xsd:double</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <swrl:body>
@@ -2079,7 +2079,7 @@
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >i30</rdfs:comment>
+    >:i30</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -2148,7 +2148,7 @@
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >i60, i59</rdfs:comment>
+    >:i60, :i59</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-table7-cax-sco-query">
     <swrl:head>
@@ -2181,7 +2181,7 @@
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >i70</rdfs:comment>
+    >:i70</rdfs:comment>
   </swrl:Imp>
 </rdf:RDF>
 

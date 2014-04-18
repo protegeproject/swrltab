@@ -148,7 +148,7 @@
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p6</rdfs:comment>
+    >:p6</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:first>
@@ -248,7 +248,7 @@
   <swrl:Variable rdf:ID="age2"/>
   <swrl:Imp rdf:ID="test-datatype-datetime-query">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1</rdfs:comment>
+    >:p1</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -340,11 +340,11 @@
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p12</rdfs:comment>
+    >:p12</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-data-property-atom-in-consequent-with-variable-subject-and-integer-literal-object-query">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p7, "44"^^xsd:integer</rdfs:comment>
+    >:p7, "44"^^xsd:integer</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <swrl:body>
@@ -726,7 +726,7 @@
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >s8, s9</rdfs:comment>
+    >:s8, :s9</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:first>
@@ -940,7 +940,7 @@
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p4</rdfs:comment>
+    >:p4</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-data-property-atom-in-antecedent-with-named-subject-and-datetime-literal-object-query">
     <swrl:head>
@@ -962,7 +962,7 @@
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1</rdfs:comment>
+    >:p1</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:first>
@@ -1080,11 +1080,11 @@
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1</rdfs:comment>
+    >:p1</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-built-in-atom-with-variable-name-extraction-query">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1</rdfs:comment>
+    >:p1</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -1147,7 +1147,7 @@
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-data-property-atom-in-consequent-with-named-subject-and-integer-variable-object-query">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p4</rdfs:comment>
+    >:p4</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:first>
@@ -1213,7 +1213,7 @@
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p7</rdfs:comment>
+    >:p7</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-data-property-atom-in-consequent-with-named-subject-and-date-variable-object-rule">
     <swrl:head>
@@ -1321,7 +1321,7 @@
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >s10, s11</rdfs:comment>
+    >:s10, :s11</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:first>
@@ -1348,7 +1348,7 @@
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p7</rdfs:comment>
+    >:p7</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:first>
@@ -1508,7 +1508,7 @@
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1</rdfs:comment>
+    >:p1</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-data-property-atom-in-consequent-with-variable-subject-and-datetime-literal-object-query">
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
@@ -1530,7 +1530,7 @@
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p7</rdfs:comment>
+    >:p7</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -1627,7 +1627,7 @@
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-object-property-atom-with-named-subject-and-named-object-query">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >m1, m3</rdfs:comment>
+    >:m1, :m3</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -1712,7 +1712,7 @@
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-data-property-atom-in-antecedent-with-named-subject-and-double-variable-object-query">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1, "180.0"^^xsd:double</rdfs:comment>
+    >:p1, "180.0"^^xsd:double</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:first>
@@ -2029,7 +2029,7 @@
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1</rdfs:comment>
+    >:p1</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-data-property-atom-in-consequent-with-variable-subject-and-double-literal-object-query">
     <swrl:head>
@@ -2062,7 +2062,7 @@
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p7</rdfs:comment>
+    >:p7</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
   </swrl:Imp>
@@ -2138,7 +2138,7 @@
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-object-property-atom-with-variable-subject-and-variable-object-query">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >m4, m6</rdfs:comment>
+    >:m4, :m6</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <swrl:body>
@@ -2225,7 +2225,7 @@
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1</rdfs:comment>
+    >:p1</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-class-atom-in-antecedent-with-named-individual-query">
     <swrl:body>
@@ -2258,7 +2258,7 @@
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >m1</rdfs:comment>
+    >:m1</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-different-individual-atom-in-antecedent-with-named-individual1-and-variable-individual2-query">
     <swrl:head>
@@ -2329,7 +2329,7 @@
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >d5, d6</rdfs:comment>
+    >:d5, :d6</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-data-property-atom-in-antecedent-with-named-subject-and-date-literal-object-query">
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
@@ -2364,7 +2364,7 @@
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1</rdfs:comment>
+    >:p1</rdfs:comment>
   </swrl:Imp>
   <Person rdf:ID="p16">
     <hasFirstAccessTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
@@ -2403,13 +2403,13 @@
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1</rdfs:comment>
+    >:p1</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-data-property-atom-in-antecedent-with-variable-subject-and-string-literal-object-query">
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1</rdfs:comment>
+    >:p1</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:first>
@@ -2496,7 +2496,7 @@
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p9, "22"^^xsd:integer</rdfs:comment>
+    >:p9, "22"^^xsd:integer</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-class-atom-in-consequent-with-named-individual-query">
     <swrl:body>
@@ -2511,7 +2511,7 @@
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1</rdfs:comment>
+    >:p1</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <swrl:head>
@@ -2706,7 +2706,7 @@
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1, "Fred"^^xsd:string</rdfs:comment>
+    >:p1, "Fred"^^xsd:string</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -2795,7 +2795,7 @@
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1</rdfs:comment>
+    >:p1</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:first>
@@ -2878,7 +2878,7 @@
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p11, "Fred"^^xsd:string</rdfs:comment>
+    >:p11, "Fred"^^xsd:string</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-datatype-integer-query">
     <swrl:body>
@@ -2913,7 +2913,7 @@
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1</rdfs:comment>
+    >:p1</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-temporal-built-in-add-and-after-with-now-query">
     <swrl:head>
@@ -2972,7 +2972,7 @@
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p14</rdfs:comment>
+    >:p14</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-class-atom-in-consequent-with-variablel-query">
     <swrl:body>
@@ -3020,8 +3020,8 @@
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1
-p11</rdfs:comment>
+    >:p1
+:p11</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
   </swrl:Imp>
@@ -3077,12 +3077,12 @@ p11</rdfs:comment>
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1</rdfs:comment>
+    >:p1</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-data-property-atom-in-antecedent-with-variable-subject-and-double-variable-object-query">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1, "23.0"^^xsd:double
-p10, "25.0"^^xsd:double</rdfs:comment>
+    >:p1, "23.0"^^xsd:double
+:p10, "25.0"^^xsd:double</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <swrl:head>
@@ -3177,7 +3177,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1</rdfs:comment>
+    >:p1</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
   </swrl:Imp>
@@ -3185,7 +3185,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p6</rdfs:comment>
+    >:p6</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:first>
@@ -3261,7 +3261,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-built-in-atom-with-variable-double-argument-query">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1</rdfs:comment>
+    >:p1</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:rest>
@@ -3349,7 +3349,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1, "66"^^xsd:integer</rdfs:comment>
+    >:p1, "66"^^xsd:integer</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
   </swrl:Imp>
@@ -3434,7 +3434,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p10, "25.0"^^xsd:double</rdfs:comment>
+    >:p10, "25.0"^^xsd:double</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
   </swrl:Imp>
@@ -3502,7 +3502,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p6, "false"^^xsd:boolean</rdfs:comment>
+    >:p6, "false"^^xsd:boolean</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -3549,7 +3549,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1</rdfs:comment>
+    >:p1</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-built-in-atom-with-unbound-boolean-cascading-argument-query">
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
@@ -3678,7 +3678,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >d3, d4</rdfs:comment>
+    >:d3, :d4</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-data-property-atom-in-antecedent-with-variable-subject-and-integer-variable-object-query">
     <swrl:head>
@@ -3705,7 +3705,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1, "3"^^xsd:integer</rdfs:comment>
+    >:p1, "3"^^xsd:integer</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <swrl:body>
@@ -3801,7 +3801,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1</rdfs:comment>
+    >:p1</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:first>
@@ -3828,7 +3828,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p2</rdfs:comment>
+    >:p2</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -3895,7 +3895,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >d14, d15</rdfs:comment>
+    >:d14, :d15</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-data-property-atom-in-consequent-with-variable-subject-and-boolean-literal-object-query">
     <swrl:head>
@@ -3928,7 +3928,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p7</rdfs:comment>
+    >:p7</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
   </swrl:Imp>
@@ -4008,7 +4008,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-data-property-atom-in-antecedent-with-named-subject-and-double-literal-object-query">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1</rdfs:comment>
+    >:p1</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <swrl:head>
@@ -4143,13 +4143,13 @@ p10, "25.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >d7, d8</rdfs:comment>
+    >:d7, :d8</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-different-individual-atom-in-consequent-with-variable-individual1-and-named-individual2-query">
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >d10, d11</rdfs:comment>
+    >:d10, :d11</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:first>
@@ -4209,7 +4209,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p13</rdfs:comment>
+    >:p13</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:first>
@@ -4245,7 +4245,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p8, "true"^^xsd:boolean</rdfs:comment>
+    >:p8, "true"^^xsd:boolean</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <swrl:head>
@@ -4297,7 +4297,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1</rdfs:comment>
+    >:p1</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:first>
@@ -4338,7 +4338,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >d1, d2</rdfs:comment>
+    >:d1, :d2</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <swrl:body>
@@ -4399,7 +4399,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-object-property-atom-with-named-subject-and-variable-object-query">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >m7, m9</rdfs:comment>
+    >:m7, :m9</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:first>
@@ -4526,7 +4526,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p2</rdfs:comment>
+    >:p2</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <swrl:body>
@@ -4580,7 +4580,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1</rdfs:comment>
+    >:p1</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -4702,11 +4702,11 @@ p10, "25.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p4</rdfs:comment>
+    >:p4</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-data-property-atom-in-consequent-with-variable-subject-and-string-variable-object-query">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p6</rdfs:comment>
+    >:p6</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <swrl:body>
@@ -4741,7 +4741,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-same-individual-atom-in-consequent-with-named-individual1-and-variable-individual2-query">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >s12, s13</rdfs:comment>
+    >:s12, :s13</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:first>
@@ -4850,7 +4850,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >d12, d13</rdfs:comment>
+    >:d12, :d13</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -4955,7 +4955,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-data-property-atom-in-consequent-with-named-subject-and-boolean-literal-object-query">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p2</rdfs:comment>
+    >:p2</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <swrl:body>
@@ -5028,7 +5028,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-built-in-atom-with-variable-date-argument-query">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1</rdfs:comment>
+    >:p1</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <swrl:body>
@@ -5124,7 +5124,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1</rdfs:comment>
+    >:p1</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-data-property-atom-in-consequent-with-named-subject-and-built-in-bound-datetime-object-rule">
     <swrl:head>
@@ -5249,7 +5249,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1</rdfs:comment>
+    >:p1</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-temporal-built-in-add-and-after-with-now-rule">
     <swrl:head>
@@ -5369,7 +5369,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >s7, s8</rdfs:comment>
+    >:s7, :s8</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <swrl:head>
@@ -5524,7 +5524,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1</rdfs:comment>
+    >:p1</rdfs:comment>
   </swrl:Imp>
   <Female rdf:ID="f2"/>
   <swrl:Imp rdf:ID="test-data-property-atom-in-consequent-with-variable-subject-and-string-variable-object-rule">
@@ -5632,7 +5632,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p2</rdfs:comment>
+    >:p2</rdfs:comment>
   </swrl:Imp>
   <Person rdf:ID="d3">
     <owl:differentFrom rdf:resource="#d4"/>
@@ -5677,7 +5677,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
   </Person>
   <swrl:Imp rdf:ID="test-different-individual-atom-in-consequent-with-variable-individual1-and-variable-individual2-query">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >d8, d9</rdfs:comment>
+    >:d8, :d9</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:first>
@@ -5762,7 +5762,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >m10, m12</rdfs:comment>
+    >:m10, :m12</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-data-property-atom-in-antecedent-with-named-subject-and-boolean-variable-object-query">
     <swrl:head>
@@ -5782,7 +5782,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1</rdfs:comment>
+    >:p1</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:first>
@@ -5981,7 +5981,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p9, "22"^^xsd:integer</rdfs:comment>
+    >:p9, "22"^^xsd:integer</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -6086,7 +6086,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p4</rdfs:comment>
+    >:p4</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
   </swrl:Imp>
@@ -6141,7 +6141,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >s14, s15</rdfs:comment>
+    >:s14, :s15</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:first>
@@ -6242,7 +6242,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-data-property-atom-in-consequent-with-named-subject-and-boolean-variable-object-query">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p4</rdfs:comment>
+    >:p4</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:first>
@@ -6322,7 +6322,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1, "false"^^xsd:boolean</rdfs:comment>
+    >:p1, "false"^^xsd:boolean</rdfs:comment>
   </swrl:Imp>
   <swrl:Imp rdf:ID="test-data-property-atom-in-consequent-with-variable-subject-and-double-variable-object-rule">
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
@@ -6421,7 +6421,7 @@ p10, "25.0"^^xsd:double</rdfs:comment>
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >p1</rdfs:comment>
+    >:p1</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:first>
