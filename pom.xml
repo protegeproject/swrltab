@@ -12,7 +12,7 @@
 
     <owlapi.version>3.5.0</owlapi.version>
     <swrlapi.version>1.0</swrlapi.version>
-    <swrlapi.drools.version>1.0</swrlapi.drools.version>
+    <swrlapi.drools-engine.version>1.0</swrlapi.drools-engine.version>
     <log4j.version>1.2.16</log4j.version>
     <junit.version>3.8.1</junit.version>
     <jep.version>2.4.0</jep.version>
@@ -37,7 +37,7 @@
     <dependency>
       <groupId>org.swrlapi</groupId>
       <artifactId>swrlapi-drools-engine</artifactId>
-      <version>${swrlapi.drools.version}</version>
+      <version>${swrlapi.drools-engine.version}</version>
     </dependency>
 
 		<dependency>
