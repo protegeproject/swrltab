@@ -10,7 +10,6 @@
     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns="http://swrl.stanford.edu/ontologies/tests/4.3/SWRLInferenceTests.owl#"
-    xmlns:tbox="http://swrl.stanford.edu/ontologies/built-ins/3.3/tbox.owl#"
     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
   xml:base="http://swrl.stanford.edu/ontologies/tests/4.3/SWRLInferenceTests.owl">
   <owl:Ontology rdf:about="">
@@ -19,7 +18,6 @@
       A set of inference tests. These tests are structured around the 
       individual rules in the OWL 2 RL rule set.
     &lt;/p&gt;</rdfs:comment>
-    <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/tbox.owl"/>
     <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/3.3/swrla.owl"/>
     <owl:imports rdf:resource="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl"/>
   </owl:Ontology>

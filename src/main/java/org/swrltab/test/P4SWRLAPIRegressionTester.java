@@ -24,6 +24,9 @@ import org.swrlapi.test.SWRLAPIRegressionTester;
  */
 public class P4SWRLAPIRegressionTester
 {
+	private static String[] canned = { "swrl.owl", "swrlb.owl", "swrla.owl", "sqwrl.owl", "swrlm.owl", "temporal.owl",
+			"swrlx.owl", "swrlxml.owl" };
+
 	public static void main(String[] args)
 	{
 		String owlFileName = "";
@@ -35,6 +38,10 @@ public class P4SWRLAPIRegressionTester
 
 		try {
 			OWLOntologyManager ontologyManager = OWLManager.createOWLOntologyManager();
+			for (String can : canned) { // TODO Temporary
+				File f = new File("/tmp/" + can);
+				ontologyManager.loadOntologyFromOntologyDocument(f);
+			}
 			File file = new File(owlFileName);
 			OWLOntology ontology = ontologyManager.loadOntologyFromOntologyDocument(file);
 
@@ -49,7 +56,6 @@ public class P4SWRLAPIRegressionTester
 			prefixManager.setPrefix("sqwrl:", "http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#");
 			prefixManager.setPrefix("swrlm:", "http://swrl.stanford.edu/ontologies/built-ins/3.4/swrlm.owl#");
 			prefixManager.setPrefix("temporal:", "http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#");
-			prefixManager.setPrefix("tbox:", "http://swrl.stanford.edu/ontologies/built-ins/3.3/tbox.owl#");
 			prefixManager.setPrefix("swrlx:", "http://swrl.stanford.edu/ontologies/built-ins/3.3/swrlx.owl#");
 			prefixManager.setPrefix("swrlxml:", "http://swrl.stanford.edu/ontologies/built-ins/3.4/swrlxml.owl#");
 			prefixManager.setPrefix("swrla:", "http://swrl.stanford.edu/ontologies/3.3/swrla.owl#");
