@@ -40,11 +40,12 @@ public class SWRLTabRules extends JFrame
 		} else
 			Usage();
 
-		SWRLRuleEngine ruleEngine = createSWRLRuleEngine(owlFileName);
+		DefaultPrefixManager prefixManager = createPrefixManager();
+		SWRLRuleEngine ruleEngine = createSWRLRuleEngine(owlFileName, prefixManager);
 		if (ruleEngine == null) {
 			System.err.println("Could not create SWRL rule engine - quitting!");
 		}
-		SWRLTabRules panel = new SWRLTabRules(ruleEngine);
+		SWRLTabRules panel = new SWRLTabRules(ruleEngine, prefixManager);
 
 		// SQWRLQueryEngine queryEngine = createSWRLRuleEngine(owlFileName);
 		// if (queryEngine == null)
@@ -66,13 +67,13 @@ public class SWRLTabRules extends JFrame
 	// createAndAddSQWRLPanel(queryEngine);
 	// }
 
-	public SWRLTabRules(SWRLRuleEngine ruleEngine)
+	public SWRLTabRules(SWRLRuleEngine ruleEngine, DefaultPrefixManager prefixManager)
 	{
 		super(APPLICATION_NAME);
-		createAndAddRuleEnginePanel(ruleEngine);
+		createAndAddRuleEnginePanel(ruleEngine, prefixManager);
 	}
 
-	private void createAndAddRuleEnginePanel(SWRLRuleEngine ruleEngine)
+	private void createAndAddRuleEnginePanel(SWRLRuleEngine ruleEngine, DefaultPrefixManager prefixManager)
 	{
 		URL ruleEngineIconURL = SWRLTabRules.class.getResource("Drools.gif");
 		URL reasonerIconURL = SWRLTabRules.class.getResource("OWL2RL.gif");
@@ -80,7 +81,7 @@ public class SWRLTabRules extends JFrame
 		Icon ruleEngineIcon = new ImageIcon(ruleEngineIconURL);
 		Icon reasonerIcon = new ImageIcon(reasonerIconURL);
 
-		SWRLTabRulesPane swrlTabRulesPane = new SWRLTabRulesPane(ruleEngine, ruleEngineIcon, reasonerIcon);
+		SWRLTabRulesPane swrlTabRulesPane = new SWRLTabRulesPane(ruleEngine, prefixManager, ruleEngineIcon, reasonerIcon);
 
 		getContentPane().setLayout(new BorderLayout());
 		getContentPane().add(swrlTabRulesPane);
@@ -109,7 +110,7 @@ public class SWRLTabRules extends JFrame
 	private static String[] canned = { "swrl.owl", "swrlb.owl", "swrla.owl", "sqwrl.owl", "swrlm.owl", "temporal.owl",
 			"swrlx.owl", "swrlxml.owl" };
 
-	private static SWRLRuleEngine createSWRLRuleEngine(String owlFileName)
+	private static SWRLRuleEngine createSWRLRuleEngine(String owlFileName, DefaultPrefixManager prefixManager)
 	{
 		try {
 			OWLOntologyManager ontologyManager = OWLManager.createOWLOntologyManager();
@@ -119,21 +120,6 @@ public class SWRLTabRules extends JFrame
 			}
 			File file = new File(owlFileName);
 			OWLOntology ontology = ontologyManager.loadOntologyFromOntologyDocument(file);
-
-			DefaultPrefixManager prefixManager = new DefaultPrefixManager(
-			// "http://swrl.stanford.edu/ontologies/tests/4.3/SWRLSimple.owl#");
-			// "http://swrl.stanford.edu/ontologies/tests/4.3/SQWRLCollectionsTests.owl#");
-			// "http://swrl.stanford.edu/ontologies/tests/4.3/SQWRLCoreTests.owl#");
-			// "http://swrl.stanford.edu/ontologies/tests/4.3/SWRLInferenceTests.owl#");
-					"http://swrl.stanford.edu/ontologies/tests/4.3/SWRLCoreTests.owl#");
-			prefixManager.setPrefix("swrl:", "http://www.w3.org/2003/11/swrl#");
-			prefixManager.setPrefix("swrlb:", "http://www.w3.org/2003/11/swrlb#");
-			prefixManager.setPrefix("sqwrl:", "http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#");
-			prefixManager.setPrefix("swrlm:", "http://swrl.stanford.edu/ontologies/built-ins/3.4/swrlm.owl#");
-			prefixManager.setPrefix("temporal:", "http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#");
-			prefixManager.setPrefix("swrlx:", "http://swrl.stanford.edu/ontologies/built-ins/3.3/swrlx.owl#");
-			prefixManager.setPrefix("swrlxml:", "http://swrl.stanford.edu/ontologies/built-ins/3.4/swrlxml.owl#");
-			prefixManager.setPrefix("swrla:", "http://swrl.stanford.edu/ontologies/3.3/swrla.owl#");
 
 			SWRLAPIOWLOntology swrlapiOWLOntology = SWRLAPIFactory.createSWRLAPIOWLOntology(ontologyManager, ontology,
 					prefixManager);
@@ -156,6 +142,26 @@ public class SWRLTabRules extends JFrame
 			System.err.println("Error creating rule engine: " + e.getMessage());
 			return null;
 		}
+	}
+
+	private static DefaultPrefixManager createPrefixManager()
+	{
+		DefaultPrefixManager prefixManager = new DefaultPrefixManager(
+				"http://swrl.stanford.edu/ontologies/tests/4.3/SWRLSimple.owl#");
+		// "http://swrl.stanford.edu/ontologies/tests/4.3/SQWRLCollectionsTests.owl#");
+		// "http://swrl.stanford.edu/ontologies/tests/4.3/SQWRLCoreTests.owl#");
+		// "http://swrl.stanford.edu/ontologies/tests/4.3/SWRLInferenceTests.owl#");
+		// "http://swrl.stanford.edu/ontologies/tests/4.3/SWRLCoreTests.owl#");
+		prefixManager.setPrefix("swrl:", "http://www.w3.org/2003/11/swrl#");
+		prefixManager.setPrefix("swrlb:", "http://www.w3.org/2003/11/swrlb#");
+		prefixManager.setPrefix("sqwrl:", "http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#");
+		prefixManager.setPrefix("swrlm:", "http://swrl.stanford.edu/ontologies/built-ins/3.4/swrlm.owl#");
+		prefixManager.setPrefix("temporal:", "http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#");
+		prefixManager.setPrefix("swrlx:", "http://swrl.stanford.edu/ontologies/built-ins/3.3/swrlx.owl#");
+		prefixManager.setPrefix("swrlxml:", "http://swrl.stanford.edu/ontologies/built-ins/3.4/swrlxml.owl#");
+		prefixManager.setPrefix("swrla:", "http://swrl.stanford.edu/ontologies/3.3/swrla.owl#");
+
+		return prefixManager;
 	}
 
 	@Override

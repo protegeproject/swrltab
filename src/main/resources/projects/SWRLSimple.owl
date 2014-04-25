@@ -30,76 +30,19 @@
     <rdfs:domain rdf:resource="#Treatment"/>
     <rdfs:range rdf:resource="#Drug"/>
   </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="hasDose">
+    <rdfs:domain rdf:resource="#Treatment"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="hasHeight">
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
     <rdfs:domain rdf:resource="#Person"/>
   </owl:DatatypeProperty>
-  <owl:FunctionalProperty rdf:ID="hasDose">
-    <rdfs:domain rdf:resource="#Treatment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
-  </owl:FunctionalProperty>
-  <swrla:Entity rdf:ID="c2"/>
-  <swrl:Imp rdf:ID="Rule-3">
+  <swrl:Imp rdf:ID="Rule-1">
     <swrl:head>
       <swrl:AtomList>
-        <rdf:first>
-          <swrl:BuiltinAtom>
-            <swrl:arguments>
-              <rdf:List>
-                <rdf:first>
-                  <swrl:Variable rdf:ID="p"/>
-                </rdf:first>
-                <rdf:rest>
-                  <rdf:List>
-                    <rdf:rest>
-                      <rdf:List>
-                        <rdf:first>
-                          <swrl:Variable rdf:ID="dose"/>
-                        </rdf:first>
-                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                      </rdf:List>
-                    </rdf:rest>
-                    <rdf:first>
-                      <swrl:Variable rdf:ID="d"/>
-                    </rdf:first>
-                  </rdf:List>
-                </rdf:rest>
-              </rdf:List>
-            </swrl:arguments>
-            <swrl:builtin rdf:resource="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#selectDistinct"/>
-          </swrl:BuiltinAtom>
-        </rdf:first>
-        <rdf:rest>
-          <swrl:AtomList>
-            <rdf:first>
-              <swrl:BuiltinAtom>
-                <swrl:arguments>
-                  <rdf:List>
-                    <rdf:first rdf:resource="#p"/>
-                    <rdf:rest>
-                      <rdf:List>
-                        <rdf:rest>
-                          <rdf:List>
-                            <rdf:first rdf:resource="#dose"/>
-                            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                          </rdf:List>
-                        </rdf:rest>
-                        <rdf:first rdf:resource="#d"/>
-                      </rdf:List>
-                    </rdf:rest>
-                  </rdf:List>
-                </swrl:arguments>
-                <swrl:builtin rdf:resource="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#orderBy"/>
-              </swrl:BuiltinAtom>
-            </rdf:first>
-            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-          </swrl:AtomList>
-        </rdf:rest>
-      </swrl:AtomList>
-    </swrl:head>
-    <swrl:body>
-      <swrl:AtomList>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
         <rdf:first>
           <swrl:ClassAtom>
             <swrl:argument1>
@@ -108,15 +51,96 @@
             <swrl:classPredicate rdf:resource="#Person"/>
           </swrl:ClassAtom>
         </rdf:first>
+      </swrl:AtomList>
+    </swrl:head>
+    <swrl:body>
+      <swrl:AtomList>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:argument1 rdf:resource="#i"/>
+            <swrl:classPredicate rdf:resource="#Person"/>
+          </swrl:ClassAtom>
+        </rdf:first>
+      </swrl:AtomList>
+    </swrl:body>
+  </swrl:Imp>
+  <swrla:Entity rdf:ID="c2"/>
+  <swrl:Imp rdf:ID="Rule-3">
+    <swrl:head>
+      <swrl:AtomList>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:first>
+              <swrl:BuiltinAtom>
+                <swrl:builtin rdf:resource="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#orderBy"/>
+                <swrl:arguments>
+                  <rdf:List>
+                    <rdf:rest>
+                      <rdf:List>
+                        <rdf:first>
+                          <swrl:Variable rdf:ID="d"/>
+                        </rdf:first>
+                        <rdf:rest>
+                          <rdf:List>
+                            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            <rdf:first>
+                              <swrl:Variable rdf:ID="dose"/>
+                            </rdf:first>
+                          </rdf:List>
+                        </rdf:rest>
+                      </rdf:List>
+                    </rdf:rest>
+                    <rdf:first>
+                      <swrl:Variable rdf:ID="p"/>
+                    </rdf:first>
+                  </rdf:List>
+                </swrl:arguments>
+              </swrl:BuiltinAtom>
+            </rdf:first>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          </swrl:AtomList>
+        </rdf:rest>
+        <rdf:first>
+          <swrl:BuiltinAtom>
+            <swrl:builtin rdf:resource="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#selectDistinct"/>
+            <swrl:arguments>
+              <rdf:List>
+                <rdf:rest>
+                  <rdf:List>
+                    <rdf:first rdf:resource="#d"/>
+                    <rdf:rest>
+                      <rdf:List>
+                        <rdf:first rdf:resource="#dose"/>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                      </rdf:List>
+                    </rdf:rest>
+                  </rdf:List>
+                </rdf:rest>
+                <rdf:first rdf:resource="#p"/>
+              </rdf:List>
+            </swrl:arguments>
+          </swrl:BuiltinAtom>
+        </rdf:first>
+      </swrl:AtomList>
+    </swrl:head>
+    <swrl:body>
+      <swrl:AtomList>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:argument1 rdf:resource="#i"/>
+            <swrl:classPredicate rdf:resource="#Person"/>
+          </swrl:ClassAtom>
+        </rdf:first>
         <rdf:rest>
           <swrl:AtomList>
             <rdf:first>
               <swrl:IndividualPropertyAtom>
+                <swrl:argument1 rdf:resource="#p"/>
                 <swrl:propertyPredicate rdf:resource="#hasTreatment"/>
                 <swrl:argument2>
                   <swrl:Variable rdf:ID="t"/>
                 </swrl:argument2>
-                <swrl:argument1 rdf:resource="#p"/>
               </swrl:IndividualPropertyAtom>
             </rdf:first>
             <rdf:rest>
@@ -126,18 +150,18 @@
                     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                     <rdf:first>
                       <swrl:DatavaluedPropertyAtom>
-                        <swrl:propertyPredicate rdf:resource="#hasDose"/>
-                        <swrl:argument2 rdf:resource="#dose"/>
                         <swrl:argument1 rdf:resource="#t"/>
+                        <swrl:argument2 rdf:resource="#dose"/>
+                        <swrl:propertyPredicate rdf:resource="#hasDose"/>
                       </swrl:DatavaluedPropertyAtom>
                     </rdf:first>
                   </swrl:AtomList>
                 </rdf:rest>
                 <rdf:first>
                   <swrl:IndividualPropertyAtom>
+                    <swrl:propertyPredicate rdf:resource="#hasDrug"/>
                     <swrl:argument1 rdf:resource="#t"/>
                     <swrl:argument2 rdf:resource="#d"/>
-                    <swrl:propertyPredicate rdf:resource="#hasDrug"/>
                   </swrl:IndividualPropertyAtom>
                 </rdf:first>
               </swrl:AtomList>
@@ -149,28 +173,28 @@
   </swrl:Imp>
   <Person rdf:ID="i1">
     <hasTreatment>
+      <Treatment rdf:ID="t1">
+        <hasDrug>
+          <Drug rdf:ID="AZT"/>
+        </hasDrug>
+        <hasDose rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >54.9</hasDose>
+      </Treatment>
+    </hasTreatment>
+    <hasTreatment>
+      <Treatment rdf:ID="t2">
+        <hasDrug rdf:resource="#AZT"/>
+        <hasDose rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >23.0</hasDose>
+      </Treatment>
+    </hasTreatment>
+    <hasTreatment>
       <Treatment rdf:ID="t3">
         <hasDrug>
           <Drug rdf:ID="DDI"/>
         </hasDrug>
         <hasDose rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
         >21.9</hasDose>
-      </Treatment>
-    </hasTreatment>
-    <hasTreatment>
-      <Treatment rdf:ID="t2">
-        <hasDrug>
-          <Drug rdf:ID="AZT"/>
-        </hasDrug>
-        <hasDose rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
-        >23.0</hasDose>
-      </Treatment>
-    </hasTreatment>
-    <hasTreatment>
-      <Treatment rdf:ID="t1">
-        <hasDrug rdf:resource="#AZT"/>
-        <hasDose rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
-        >54.9</hasDose>
       </Treatment>
     </hasTreatment>
     <hasHeight rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
