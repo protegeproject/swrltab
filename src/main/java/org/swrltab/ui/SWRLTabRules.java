@@ -2,6 +2,7 @@ package org.swrltab.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.net.URL;
 
@@ -21,15 +22,14 @@ import org.swrlapi.drools.DroolsSWRLRuleEngineCreator;
 import org.swrlapi.exceptions.SWRLRuleEngineException;
 import org.swrlapi.ext.SWRLAPIOWLOntology;
 import org.swrlapi.sqwrl.SQWRLQueryEngine;
-import org.swrlapi.ui.panels.SWRLAPIRuleEnginePluginPanel;
-import org.swrlapi.ui.panels.SWRLAPISQWRLPluginPanel;
+import org.swrlapi.ui.SWRLTabQueriesPane;
+import org.swrlapi.ui.SWRLTabRulesPane;
 
 public class SWRLTabRules extends JFrame
 {
 	private static final long serialVersionUID = 1L;
 
-	private static final String PLUGIN_NAME = "SWRLTabRules";
-	private static final String RULE_ENGINE_NAME = "Drools";
+	private static final String APPLICATION_NAME = "SWRLTabRules";
 
 	public static void main(String[] args)
 	{
@@ -40,52 +40,54 @@ public class SWRLTabRules extends JFrame
 		} else
 			Usage();
 
-		// SWRLRuleEngine ruleEngine = createSWRLRuleEngine(owlFileName);
-		// if (ruleEngine == null) {
-		// System.err.println("Could not create SWRL rule engine - quitting!");
-		// }
-		// SWRLTabRules panel = new SWRLTabRules(ruleEngine);
-
-		SQWRLQueryEngine queryEngine = createSWRLRuleEngine(owlFileName);
-		if (queryEngine == null) {
-			System.err.println("Could not create SQWRL query engine - quitting!");
+		SWRLRuleEngine ruleEngine = createSWRLRuleEngine(owlFileName);
+		if (ruleEngine == null) {
+			System.err.println("Could not create SWRL rule engine - quitting!");
 		}
-		SWRLTabRules panel = new SWRLTabRules(queryEngine);
+		SWRLTabRules panel = new SWRLTabRules(ruleEngine);
+
+		// SQWRLQueryEngine queryEngine = createSWRLRuleEngine(owlFileName);
+		// if (queryEngine == null)
+		// System.err.println("Could not create SQWRL query engine - quitting!");
+		// SWRLTabRules panel = new SWRLTabRules(queryEngine);
 
 		panel.setVisible(true);
 	}
 
 	// public SWRLTabRules(SWRLRuleEngine ruleEngine)
 	// {
-	// super(PLUGIN_NAME);
+	// super(APPLICATION_NAME);
 	// createAndAddRuleEnginePanel(ruleEngine);
 	// }
 
-	public SWRLTabRules(SQWRLQueryEngine queryEngine)
+	// public SWRLTabRules(SQWRLQueryEngine queryEngine)
+	// {
+	// super(APPLICATION_NAME);
+	// createAndAddSQWRLPanel(queryEngine);
+	// }
+
+	public SWRLTabRules(SWRLRuleEngine ruleEngine)
 	{
-		super(PLUGIN_NAME);
-		createAndAddSQWRLPanel(queryEngine);
+		super(APPLICATION_NAME);
+		createAndAddRuleEnginePanel(ruleEngine);
 	}
 
 	private void createAndAddRuleEnginePanel(SWRLRuleEngine ruleEngine)
 	{
-		Container pane = getContentPane();
-		pane.setLayout(new BorderLayout());
-
 		URL ruleEngineIconURL = SWRLTabRules.class.getResource("Drools.gif");
 		URL reasonerIconURL = SWRLTabRules.class.getResource("OWL2RL.gif");
 
 		Icon ruleEngineIcon = new ImageIcon(ruleEngineIconURL);
 		Icon reasonerIcon = new ImageIcon(reasonerIconURL);
 
-		SWRLAPIRuleEnginePluginPanel panel = new SWRLAPIRuleEnginePluginPanel(PLUGIN_NAME, ruleEngine, RULE_ENGINE_NAME,
-				ruleEngineIcon, reasonerIcon);
+		SWRLTabRulesPane swrlTabRulesPane = new SWRLTabRulesPane(ruleEngine, ruleEngineIcon, reasonerIcon);
 
-		pane.add(panel);
-
-		setSize(600, 580);
+		getContentPane().setLayout(new BorderLayout());
+		getContentPane().add(swrlTabRulesPane);
+		setSize(1000, 580);
 	}
 
+	@SuppressWarnings("unused")
 	private void createAndAddSQWRLPanel(SQWRLQueryEngine queryEngine)
 	{
 		Container pane = getContentPane();
@@ -97,8 +99,7 @@ public class SWRLTabRules extends JFrame
 		Icon ruleEngineIcon = new ImageIcon(ruleEngineIconURL);
 		Icon reasonerIcon = new ImageIcon(reasonerIconURL);
 
-		SWRLAPISQWRLPluginPanel panel = new SWRLAPISQWRLPluginPanel(PLUGIN_NAME, queryEngine, ruleEngineIcon, reasonerIcon,
-				null);
+		SWRLTabQueriesPane panel = new SWRLTabQueriesPane(queryEngine, ruleEngineIcon, reasonerIcon, null);
 
 		pane.add(panel);
 
@@ -108,7 +109,7 @@ public class SWRLTabRules extends JFrame
 	private static String[] canned = { "swrl.owl", "swrlb.owl", "swrla.owl", "sqwrl.owl", "swrlm.owl", "temporal.owl",
 			"swrlx.owl", "swrlxml.owl" };
 
-	private static SQWRLQueryEngine createSWRLRuleEngine(String owlFileName)
+	private static SWRLRuleEngine createSWRLRuleEngine(String owlFileName)
 	{
 		try {
 			OWLOntologyManager ontologyManager = OWLManager.createOWLOntologyManager();
@@ -140,11 +141,11 @@ public class SWRLTabRules extends JFrame
 			SWRLRuleEngineFactory swrlRuleEngineFactory = SWRLAPIFactory.createSWRLRuleEngineFactory();
 			swrlRuleEngineFactory.registerRuleEngine(new DroolsSWRLRuleEngineCreator());
 
-			// SWRLRuleEngine swrlRuleEngine = swrlRuleEngineFactory.createSWRLRuleEngine(swrlapiOWLOntology);
-			// return swrlRuleEngine;
+			SWRLRuleEngine swrlRuleEngine = swrlRuleEngineFactory.createSWRLRuleEngine(swrlapiOWLOntology);
+			return swrlRuleEngine;
 
-			SQWRLQueryEngine sqwrlQueryEngine = swrlRuleEngineFactory.createSQWRLQueryEngine(swrlapiOWLOntology);
-			return sqwrlQueryEngine;
+			// SQWRLQueryEngine sqwrlQueryEngine = swrlRuleEngineFactory.createSQWRLQueryEngine(swrlapiOWLOntology);
+			// return sqwrlQueryEngine;
 		} catch (SWRLRuleEngineException e) {
 			System.err.println("Error creating rule engine: " + e.getMessage());
 			return null;
@@ -154,6 +155,17 @@ public class SWRLTabRules extends JFrame
 		} catch (RuntimeException e) {
 			System.err.println("Error creating rule engine: " + e.getMessage());
 			return null;
+		}
+	}
+
+	@Override
+	protected void processWindowEvent(WindowEvent e)
+	{
+		super.processWindowEvent(e);
+
+		if (e.getID() == WindowEvent.WINDOW_CLOSING) {
+			this.setVisible(false);
+			System.exit(0);
 		}
 	}
 
