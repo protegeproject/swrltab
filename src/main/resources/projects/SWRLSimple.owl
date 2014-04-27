@@ -1,19 +1,21 @@
 <?xml version="1.0"?>
 <rdf:RDF
-    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
     xmlns="http://swrl.stanford.edu/ontologies/tests/4.3/SWRLSimple.owl#"
+    xmlns:swrlx="http://swrl.stanford.edu/ontologies/built-ins/3.3/swrlx.owl#"
     xmlns:swrlm="http://swrl.stanford.edu/ontologies/built-ins/3.4/swrlm.owl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:sqwrl="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
-    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
   xml:base="http://swrl.stanford.edu/ontologies/tests/4.3/SWRLSimple.owl">
   <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/swrlx.owl"/>
     <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.4/swrlm.owl"/>
     <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/3.3/swrla.owl"/>
     <owl:imports rdf:resource="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl"/>
@@ -66,6 +68,7 @@
     </swrl:body>
   </swrl:Imp>
   <swrla:Entity rdf:ID="c2"/>
+  <swrl:Variable rdf:ID="r"/>
   <swrl:Imp rdf:ID="Rule-3">
     <swrl:head>
       <swrl:AtomList>
@@ -171,37 +174,71 @@
       </swrl:AtomList>
     </swrl:body>
   </swrl:Imp>
-  <Person rdf:ID="i1">
-    <hasTreatment>
-      <Treatment rdf:ID="t1">
-        <hasDrug>
-          <Drug rdf:ID="AZT"/>
-        </hasDrug>
-        <hasDose rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
-        >54.9</hasDose>
-      </Treatment>
-    </hasTreatment>
-    <hasTreatment>
-      <Treatment rdf:ID="t2">
-        <hasDrug rdf:resource="#AZT"/>
-        <hasDose rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
-        >23.0</hasDose>
-      </Treatment>
-    </hasTreatment>
-    <hasTreatment>
-      <Treatment rdf:ID="t3">
-        <hasDrug>
-          <Drug rdf:ID="DDI"/>
-        </hasDrug>
-        <hasDose rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
-        >21.9</hasDose>
-      </Treatment>
-    </hasTreatment>
-    <hasHeight rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
-    >56.0</hasHeight>
-  </Person>
   <swrla:Entity rdf:ID="c1"/>
-  <swrl:Variable rdf:ID="r"/>
+  <swrl:Imp rdf:ID="Rule-2">
+    <swrl:head>
+      <swrl:AtomList>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:argument1 rdf:resource="#i"/>
+            <swrl:classPredicate rdf:resource="#Person"/>
+          </swrl:ClassAtom>
+        </rdf:first>
+      </swrl:AtomList>
+    </swrl:head>
+    <swrl:body>
+      <swrl:AtomList>
+        <rdf:first>
+          <swrl:BuiltinAtom>
+            <swrl:builtin rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/swrlx.owl#makeOWLThing"/>
+            <swrl:arguments>
+              <rdf:List>
+                <rdf:first rdf:resource="#i"/>
+                <rdf:rest>
+                  <rdf:List>
+                    <rdf:first>
+                      <Person rdf:ID="i1">
+                        <hasTreatment>
+                          <Treatment rdf:ID="t1">
+                            <hasDrug>
+                              <Drug rdf:ID="AZT"/>
+                            </hasDrug>
+                            <hasDose rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                            >54.9</hasDose>
+                          </Treatment>
+                        </hasTreatment>
+                        <hasTreatment>
+                          <Treatment rdf:ID="t2">
+                            <hasDrug rdf:resource="#AZT"/>
+                            <hasDose rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                            >23.0</hasDose>
+                          </Treatment>
+                        </hasTreatment>
+                        <hasTreatment>
+                          <Treatment rdf:ID="t3">
+                            <hasDrug>
+                              <Drug rdf:ID="DDI"/>
+                            </hasDrug>
+                            <hasDose rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                            >21.9</hasDose>
+                          </Treatment>
+                        </hasTreatment>
+                        <hasHeight rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >56.0</hasHeight>
+                      </Person>
+                    </rdf:first>
+                    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                  </rdf:List>
+                </rdf:rest>
+              </rdf:List>
+            </swrl:arguments>
+          </swrl:BuiltinAtom>
+        </rdf:first>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+      </swrl:AtomList>
+    </swrl:body>
+  </swrl:Imp>
   <Person rdf:ID="i2"/>
 </rdf:RDF>
 
