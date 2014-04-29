@@ -1,6 +1,7 @@
 package org.swrltab.ui;
 
 import java.awt.BorderLayout;
+import java.awt.Container;
 import java.awt.event.WindowEvent;
 import java.io.File;
 import java.net.URL;
@@ -15,18 +16,18 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.util.DefaultPrefixManager;
 import org.swrlapi.core.SWRLAPIFactory;
-import org.swrlapi.core.SWRLRuleEngine;
 import org.swrlapi.core.SWRLRuleEngineFactory;
 import org.swrlapi.drools.DroolsSWRLRuleEngineCreator;
 import org.swrlapi.exceptions.SWRLRuleEngineException;
 import org.swrlapi.ext.SWRLAPIOWLOntology;
-import org.swrlapi.ui.SWRLTabRulesPane;
+import org.swrlapi.sqwrl.SQWRLQueryEngine;
+import org.swrlapi.ui.SWRLTabQueriesPane;
 
-public class SWRLTabRules extends JFrame
+public class SWRLTabQueries extends JFrame
 {
 	private static final long serialVersionUID = 1L;
 
-	private static final String APPLICATION_NAME = "SWRLTabRules";
+	private static final String APPLICATION_NAME = "SWRLTabQueries";
 
 	public static void main(String[] args)
 	{
@@ -38,40 +39,43 @@ public class SWRLTabRules extends JFrame
 			Usage();
 
 		DefaultPrefixManager prefixManager = createPrefixManager();
-		SWRLRuleEngine ruleEngine = createSWRLRuleEngine(owlFileName, prefixManager);
-		if (ruleEngine == null) {
-			System.err.println("Could not create SWRL rule engine - quitting!");
-		}
-		SWRLTabRules panel = new SWRLTabRules(ruleEngine, prefixManager);
+
+		SQWRLQueryEngine queryEngine = createSQWRLQueryEngine(owlFileName, prefixManager);
+		if (queryEngine == null)
+			System.err.println("Could not create SQWRL query engine - quitting!");
+		SWRLTabQueries panel = new SWRLTabQueries(queryEngine, prefixManager);
 
 		panel.setVisible(true);
 	}
 
-	public SWRLTabRules(SWRLRuleEngine ruleEngine, DefaultPrefixManager prefixManager)
+	public SWRLTabQueries(SQWRLQueryEngine queryEngine, DefaultPrefixManager prefixManager)
 	{
 		super(APPLICATION_NAME);
-		createAndAddRuleEnginePanel(ruleEngine, prefixManager);
+		createAndAddSQWRLPanel(queryEngine, prefixManager);
 	}
 
-	private void createAndAddRuleEnginePanel(SWRLRuleEngine ruleEngine, DefaultPrefixManager prefixManager)
+	private void createAndAddSQWRLPanel(SQWRLQueryEngine queryEngine, DefaultPrefixManager prefixManager)
 	{
+		Container pane = getContentPane();
+		pane.setLayout(new BorderLayout());
+
 		URL ruleEngineIconURL = SWRLTabRules.class.getResource("Drools.gif");
 		URL reasonerIconURL = SWRLTabRules.class.getResource("OWL2RL.gif");
 
 		Icon ruleEngineIcon = new ImageIcon(ruleEngineIconURL);
 		Icon reasonerIcon = new ImageIcon(reasonerIconURL);
 
-		SWRLTabRulesPane swrlTabRulesPane = new SWRLTabRulesPane(ruleEngine, prefixManager, ruleEngineIcon, reasonerIcon);
+		SWRLTabQueriesPane panel = new SWRLTabQueriesPane(queryEngine, prefixManager, ruleEngineIcon, reasonerIcon, null);
 
-		getContentPane().setLayout(new BorderLayout());
-		getContentPane().add(swrlTabRulesPane);
-		setSize(1000, 580);
+		pane.add(panel);
+
+		setSize(600, 580);
 	}
 
 	private static String[] canned = { "swrl.owl", "swrlb.owl", "swrla.owl", "sqwrl.owl", "swrlm.owl", "temporal.owl",
 			"swrlx.owl", "swrlxml.owl" };
 
-	private static SWRLRuleEngine createSWRLRuleEngine(String owlFileName, DefaultPrefixManager prefixManager)
+	private static SQWRLQueryEngine createSQWRLQueryEngine(String owlFileName, DefaultPrefixManager prefixManager)
 	{
 		try {
 			OWLOntologyManager ontologyManager = OWLManager.createOWLOntologyManager();
@@ -88,8 +92,8 @@ public class SWRLTabRules extends JFrame
 			SWRLRuleEngineFactory swrlRuleEngineFactory = SWRLAPIFactory.createSWRLRuleEngineFactory();
 			swrlRuleEngineFactory.registerRuleEngine(new DroolsSWRLRuleEngineCreator());
 
-			SWRLRuleEngine swrlRuleEngine = swrlRuleEngineFactory.createSWRLRuleEngine(swrlapiOWLOntology);
-			return swrlRuleEngine;
+			SQWRLQueryEngine sqwrlQueryEngine = swrlRuleEngineFactory.createSQWRLQueryEngine(swrlapiOWLOntology);
+			return sqwrlQueryEngine;
 		} catch (SWRLRuleEngineException e) {
 			System.err.println("Error creating rule engine: " + e.getMessage());
 			return null;
@@ -135,8 +139,7 @@ public class SWRLTabRules extends JFrame
 
 	private static void Usage()
 	{
-		System.err.println("Usage: " + SWRLTabRules.class.getName() + " <owlFileName>");
+		System.err.println("Usage: " + SWRLTabQueries.class.getName() + " <owlFileName>");
 		System.exit(1);
 	}
-
 }
