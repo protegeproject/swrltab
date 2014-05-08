@@ -22,7 +22,7 @@ import org.swrlapi.test.SWRLAPIRegressionTester;
  * 
  * @author martin
  */
-public class P4SWRLAPIRegressionTester
+public class P5SWRLAPIRegressionTester
 {
 	private static String[] canned = { "swrl.owl", "swrlb.owl", "swrla.owl", "sqwrl.owl", "swrlm.owl", "temporal.owl",
 			"swrlx.owl", "swrlxml.owl" };
@@ -81,7 +81,7 @@ public class P4SWRLAPIRegressionTester
 
 	private static void Usage()
 	{
-		System.err.println("Usage: " + P4SWRLAPIRegressionTester.class.getName() + " <owlFileName>");
+		System.err.println("Usage: " + P5SWRLAPIRegressionTester.class.getName() + " <owlFileName>");
 		System.exit(1);
 	}
 }
