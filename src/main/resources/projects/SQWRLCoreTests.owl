@@ -11,10 +11,8 @@
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:sqwrl="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#"
-    xmlns:abox="http://swrl.stanford.edu/ontologies/built-ins/3.3/abox.owl#"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
-    xmlns:rdfb="http://swrl.stanford.edu/ontologies/built-ins/3.4/rdfb.owl#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
   xml:base="http://swrl.stanford.edu/ontologies/tests/4.3/SQWRLCoreTests.owl">
@@ -33,20 +31,11 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
         >See http://protege.cim3.net/cgi-bin/wiki.pl?SWRLTab for documentation on the SWRLTab.</rdfs:comment>
       </rdf:Description>
     </owl:imports>
-    <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.4/rdfb.owl"/>
     <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.4/swrlxml.owl"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >See http://protege.cim3.net/cgi-bin/wiki.pl?SWRLTab for documentation on the SWRLTab.
 
 See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</rdfs:comment>
-    <owl:imports>
-      <rdf:Description rdf:about="http://swrl.stanford.edu/ontologies/built-ins/3.3/abox.owl">
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >See http://protege.cim3.net/cgi-bin/wiki.pl?SWRLTab for documentation on the SWRLTab.
-
-See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</rdfs:comment>
-      </rdf:Description>
-    </owl:imports>
     <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/swrlx.owl"/>
     <owl:imports rdf:resource="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl"/>
   </owl:Ontology>
