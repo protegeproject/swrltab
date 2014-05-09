@@ -46,8 +46,8 @@ public class P5SWRLAPIRegressionTester
 			OWLOntology ontology = ontologyManager.loadOntologyFromOntologyDocument(file);
 
 			DefaultPrefixManager prefixManager = new DefaultPrefixManager(
-			// "http://swrl.stanford.edu/ontologies/tests/4.3/SWRLSimple.owl#");
-					"http://swrl.stanford.edu/ontologies/tests/4.3/SQWRLCollectionsTests.owl#");
+					"http://swrl.stanford.edu/ontologies/tests/4.3/SWRLSimple.owl#");
+			// "http://swrl.stanford.edu/ontologies/tests/4.3/SQWRLCollectionsTests.owl#");
 			// "http://swrl.stanford.edu/ontologies/tests/4.3/SQWRLCoreTests.owl#");
 			// "http://swrl.stanford.edu/ontologies/tests/4.3/SWRLInferenceTests.owl#");
 			// "http://swrl.stanford.edu/ontologies/tests/4.3/SWRLCoreTests.owl#");
