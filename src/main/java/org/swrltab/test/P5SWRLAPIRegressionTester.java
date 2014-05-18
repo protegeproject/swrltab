@@ -3,6 +3,7 @@ package org.swrltab.test;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.IRI;
@@ -15,6 +16,7 @@ import org.semanticweb.owlapi.util.SimpleIRIMapper;
 import org.semanticweb.owlapi.vocab.PrefixOWLOntologyFormat;
 import org.swrlapi.core.SWRLAPIFactory;
 import org.swrlapi.ext.SWRLAPIOWLOntology;
+import org.swrlapi.parser.SWRLIncompleteRuleException;
 import org.swrlapi.parser.SWRLParseException;
 import org.swrlapi.parser.SWRLParser;
 
@@ -44,13 +46,18 @@ public class P5SWRLAPIRegressionTester
 
 			SWRLParser parser = new SWRLParser(swrlapiOWLOntology, prefixManager);
 
-			try {
-				parser.parseSWRLRule(
-						":hasName(?x, \"dd\", false, true, \"dsdsd\", 43, 545.34) ^ differentFrom(?y, ?f) -> sameAs(?x, ?x", true);
-			} catch (SWRLParseException e) {
-				System.err.println("e" + e.getMessage());
+			Scanner scanner = new Scanner(System.in);
+			while (true) {
+				String line = scanner.nextLine();
+				try {
+					System.out.println("Rule: " + line);
+					parser.parseSWRLRule(line, true);
+				} catch (SWRLIncompleteRuleException e) {
+					System.err.println("Incomplete " + e.getMessage());
+				} catch (SWRLParseException e) {
+					System.err.println("Error " + e.getMessage());
+				}
 			}
-
 			// SWRLRuleEngineFactory swrlRuleEngineFactory = SWRLAPIFactory.createSWRLRuleEngineFactory();
 			// swrlRuleEngineFactory.registerRuleEngine(new DroolsSWRLRuleEngineCreator());
 			//
