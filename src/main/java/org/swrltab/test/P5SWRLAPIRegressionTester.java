@@ -14,12 +14,9 @@ import org.semanticweb.owlapi.util.DefaultPrefixManager;
 import org.semanticweb.owlapi.util.SimpleIRIMapper;
 import org.semanticweb.owlapi.vocab.PrefixOWLOntologyFormat;
 import org.swrlapi.core.SWRLAPIFactory;
-import org.swrlapi.core.SWRLRuleEngineFactory;
-import org.swrlapi.drools.DroolsSWRLRuleEngineCreator;
-import org.swrlapi.exceptions.SWRLRuleEngineException;
 import org.swrlapi.ext.SWRLAPIOWLOntology;
-import org.swrlapi.sqwrl.SQWRLQueryEngine;
-import org.swrlapi.test.SWRLAPIRegressionTester;
+import org.swrlapi.parser.SWRLParseException;
+import org.swrlapi.parser.SWRLParser;
 
 /**
  * Example invocation: <code><pre>
@@ -45,15 +42,24 @@ public class P5SWRLAPIRegressionTester
 			SWRLAPIOWLOntology swrlapiOWLOntology = SWRLAPIFactory.createSWRLAPIOWLOntology(ontologyManager, ontology,
 					prefixManager);
 
-			SWRLRuleEngineFactory swrlRuleEngineFactory = SWRLAPIFactory.createSWRLRuleEngineFactory();
-			swrlRuleEngineFactory.registerRuleEngine(new DroolsSWRLRuleEngineCreator());
+			SWRLParser parser = new SWRLParser(swrlapiOWLOntology, prefixManager);
 
-			SQWRLQueryEngine sqwrlQueryEngine = swrlRuleEngineFactory.createSQWRLQueryEngine(swrlapiOWLOntology);
-			SWRLAPIRegressionTester swrlapiRegressionTester = new SWRLAPIRegressionTester(sqwrlQueryEngine);
+			try {
+				parser.parseSWRLRule(
+						":hasName(?x, \"dd\", false, true, \"dsdsd\", 43, 545.34) ^ differentFrom(?y, ?f) -> sameAs(?x, ?x", true);
+			} catch (SWRLParseException e) {
+				System.err.println("e" + e.getMessage());
+			}
 
-			swrlapiRegressionTester.run();
-		} catch (SWRLRuleEngineException e) {
-			e.printStackTrace();
+			// SWRLRuleEngineFactory swrlRuleEngineFactory = SWRLAPIFactory.createSWRLRuleEngineFactory();
+			// swrlRuleEngineFactory.registerRuleEngine(new DroolsSWRLRuleEngineCreator());
+			//
+			// SQWRLQueryEngine sqwrlQueryEngine = swrlRuleEngineFactory.createSQWRLQueryEngine(swrlapiOWLOntology);
+			// SWRLAPIRegressionTester swrlapiRegressionTester = new SWRLAPIRegressionTester(sqwrlQueryEngine);
+			//
+			// swrlapiRegressionTester.run();
+			// } catch (SWRLRuleEngineException e) {
+			// e.printStackTrace();
 		} catch (OWLOntologyCreationException e) {
 			e.printStackTrace();
 		} catch (RuntimeException e) {
