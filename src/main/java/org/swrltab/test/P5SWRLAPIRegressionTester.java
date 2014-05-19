@@ -52,6 +52,7 @@ public class P5SWRLAPIRegressionTester
 				try {
 					System.out.println("Rule: " + line);
 					parser.parseSWRLRule(line, true);
+					System.out.println("Foine");
 				} catch (SWRLIncompleteRuleException e) {
 					System.err.println("Incomplete " + e.getMessage());
 				} catch (SWRLParseException e) {
