@@ -21,8 +21,8 @@ import org.swrlapi.drools.DroolsSWRLRuleEngineCreator;
 import org.swrlapi.exceptions.SWRLRuleEngineException;
 import org.swrlapi.ext.SWRLAPIOWLOntology;
 import org.swrlapi.sqwrl.SQWRLQueryEngine;
-import org.swrlapi.ui.core.SWRLAPIApplicationModel;
-import org.swrlapi.ui.view.SWRLAPIQueriesView;
+import org.swrlapi.ui.model.SWRLAPIApplicationModel;
+import org.swrlapi.ui.view.queries.SWRLAPIQueriesView;
 
 public class SWRLTabQueriesApplicationView extends JFrame
 {
