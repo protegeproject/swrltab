@@ -1,6 +1,7 @@
 package org.swrltab.ui;
 
 import java.awt.BorderLayout;
+import java.awt.Container;
 import java.awt.event.WindowEvent;
 import java.io.File;
 import java.net.URL;
@@ -21,7 +22,7 @@ import org.swrlapi.drools.DroolsSWRLRuleEngineCreator;
 import org.swrlapi.exceptions.SWRLRuleEngineException;
 import org.swrlapi.ext.SWRLAPIOWLOntology;
 import org.swrlapi.ui.core.SWRLAPIApplicationModel;
-import org.swrlapi.ui.view.SWRLTabRulesView;
+import org.swrlapi.ui.view.SWRLAPIRulesView;
 
 public class SWRLTabRulesApplicationView extends JFrame
 {
@@ -41,29 +42,28 @@ public class SWRLTabRulesApplicationView extends JFrame
 		DefaultPrefixManager prefixManager = createPrefixManager();
 		SWRLRuleEngine ruleEngine = createSWRLRuleEngine(owlFileName, prefixManager);
 		SWRLAPIApplicationModel applicationModel = new SWRLAPIApplicationModel(ruleEngine, prefixManager);
-		SWRLTabRulesApplicationView panel = new SWRLTabRulesApplicationView(applicationModel);
+		SWRLTabRulesApplicationView applicationView = new SWRLTabRulesApplicationView(applicationModel);
 
-		panel.setVisible(true);
+		applicationView.setVisible(true);
 	}
 
 	public SWRLTabRulesApplicationView(SWRLAPIApplicationModel applicationModel)
 	{
 		super(APPLICATION_NAME);
-		createAndAddRuleEnginePanel(applicationModel);
+		createAndAddSWRLAPIRulesView(applicationModel);
 	}
 
-	private void createAndAddRuleEnginePanel(SWRLAPIApplicationModel applicationModel)
+	private void createAndAddSWRLAPIRulesView(SWRLAPIApplicationModel applicationModel)
 	{
 		URL ruleEngineIconURL = SWRLTabRulesApplicationView.class.getResource("Drools.gif");
 		URL reasonerIconURL = SWRLTabRulesApplicationView.class.getResource("OWL2RL.gif");
-
 		Icon ruleEngineIcon = new ImageIcon(ruleEngineIconURL);
 		Icon reasonerIcon = new ImageIcon(reasonerIconURL);
+		SWRLAPIRulesView rulesView = new SWRLAPIRulesView(applicationModel, ruleEngineIcon, reasonerIcon);
+		Container contentPane = getContentPane();
 
-		SWRLTabRulesView swrlTabRulesView = new SWRLTabRulesView(applicationModel, ruleEngineIcon, reasonerIcon);
-
-		getContentPane().setLayout(new BorderLayout());
-		getContentPane().add(swrlTabRulesView);
+		contentPane.setLayout(new BorderLayout());
+		contentPane.add(rulesView);
 		setSize(1000, 580);
 	}
 
@@ -80,7 +80,6 @@ public class SWRLTabRulesApplicationView extends JFrame
 			}
 			File file = new File(owlFileName);
 			OWLOntology ontology = ontologyManager.loadOntologyFromOntologyDocument(file);
-
 			SWRLAPIOWLOntology swrlapiOWLOntology = SWRLAPIFactory.createSWRLAPIOWLOntology(ontologyManager, ontology,
 					prefixManager);
 

@@ -22,7 +22,7 @@ import org.swrlapi.exceptions.SWRLRuleEngineException;
 import org.swrlapi.ext.SWRLAPIOWLOntology;
 import org.swrlapi.sqwrl.SQWRLQueryEngine;
 import org.swrlapi.ui.core.SWRLAPIApplicationModel;
-import org.swrlapi.ui.view.SWRLTabQueriesView;
+import org.swrlapi.ui.view.SWRLAPIQueriesView;
 
 public class SWRLTabQueriesApplicationView extends JFrame
 {
@@ -42,33 +42,29 @@ public class SWRLTabQueriesApplicationView extends JFrame
 		DefaultPrefixManager prefixManager = createPrefixManager();
 		SQWRLQueryEngine queryEngine = createSQWRLQueryEngine(owlFileName, prefixManager);
 		SWRLAPIApplicationModel applicationModel = new SWRLAPIApplicationModel(queryEngine, prefixManager);
-		SWRLTabQueriesApplicationView panel = new SWRLTabQueriesApplicationView(applicationModel);
+		SWRLTabQueriesApplicationView applicationView = new SWRLTabQueriesApplicationView(applicationModel);
 
-		panel.setVisible(true);
+		applicationView.setVisible(true);
 	}
 
 	public SWRLTabQueriesApplicationView(SWRLAPIApplicationModel applicationModel)
 	{
 		super(APPLICATION_NAME);
-		createAndAddSQWRLPanel(applicationModel);
+		createAndAddSWRLAPIQueriesView(applicationModel);
 	}
 
-	private void createAndAddSQWRLPanel(SWRLAPIApplicationModel applicationModel)
+	private void createAndAddSWRLAPIQueriesView(SWRLAPIApplicationModel applicationModel)
 	{
-		Container pane = getContentPane();
-		pane.setLayout(new BorderLayout());
-
 		URL ruleEngineIconURL = SWRLTabRulesApplicationView.class.getResource("Drools.gif");
 		URL reasonerIconURL = SWRLTabRulesApplicationView.class.getResource("OWL2RL.gif");
-
 		Icon ruleEngineIcon = new ImageIcon(ruleEngineIconURL);
 		Icon reasonerIcon = new ImageIcon(reasonerIconURL);
+		SWRLAPIQueriesView queriesView = new SWRLAPIQueriesView(applicationModel, ruleEngineIcon, reasonerIcon, null);
+		Container contentPane = getContentPane();
 
-		SWRLTabQueriesView panel = new SWRLTabQueriesView(applicationModel, ruleEngineIcon, reasonerIcon, null);
-
-		pane.add(panel);
-
-		setSize(600, 580);
+		contentPane.setLayout(new BorderLayout());
+		contentPane.add(queriesView);
+		setSize(1000, 580);
 	}
 
 	private static String[] canned = { "swrl.owl", "swrlb.owl", "swrla.owl", "sqwrl.owl", "swrlm.owl", "temporal.owl",
