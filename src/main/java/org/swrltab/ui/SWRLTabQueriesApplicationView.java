@@ -16,11 +16,11 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.util.DefaultPrefixManager;
 import org.swrlapi.core.SWRLAPIFactory;
+import org.swrlapi.core.SWRLRuleEngine;
 import org.swrlapi.core.SWRLRuleEngineFactory;
 import org.swrlapi.drools.DroolsSWRLRuleEngineCreator;
 import org.swrlapi.exceptions.SWRLRuleEngineException;
 import org.swrlapi.ext.SWRLAPIOWLOntology;
-import org.swrlapi.sqwrl.SQWRLQueryEngine;
 import org.swrlapi.ui.model.SWRLAPIApplicationModel;
 import org.swrlapi.ui.view.queries.SWRLAPIQueriesView;
 
@@ -40,7 +40,7 @@ public class SWRLTabQueriesApplicationView extends JFrame
 			Usage();
 
 		DefaultPrefixManager prefixManager = createPrefixManager();
-		SQWRLQueryEngine queryEngine = createSQWRLQueryEngine(owlFileName, prefixManager);
+		SWRLRuleEngine queryEngine = createSQWRLQueryEngine(owlFileName, prefixManager);
 		SWRLAPIApplicationModel applicationModel = new SWRLAPIApplicationModel(queryEngine, prefixManager);
 		SWRLTabQueriesApplicationView applicationView = new SWRLTabQueriesApplicationView(applicationModel);
 
@@ -70,7 +70,7 @@ public class SWRLTabQueriesApplicationView extends JFrame
 	private static String[] canned = { "swrl.owl", "swrlb.owl", "swrla.owl", "sqwrl.owl", "swrlm.owl", "temporal.owl",
 			"swrlx.owl", "swrlxml.owl" };
 
-	private static SQWRLQueryEngine createSQWRLQueryEngine(String owlFileName, DefaultPrefixManager prefixManager)
+	private static SWRLRuleEngine createSQWRLQueryEngine(String owlFileName, DefaultPrefixManager prefixManager)
 	{
 		try {
 			OWLOntologyManager ontologyManager = OWLManager.createOWLOntologyManager();
@@ -87,8 +87,7 @@ public class SWRLTabQueriesApplicationView extends JFrame
 			SWRLRuleEngineFactory swrlRuleEngineFactory = SWRLAPIFactory.createSWRLRuleEngineFactory();
 			swrlRuleEngineFactory.registerRuleEngine(new DroolsSWRLRuleEngineCreator());
 
-			SQWRLQueryEngine sqwrlQueryEngine = swrlRuleEngineFactory.createSQWRLQueryEngine(swrlapiOWLOntology);
-			return sqwrlQueryEngine;
+			return swrlRuleEngineFactory.createSWRLRuleEngine(swrlapiOWLOntology);
 		} catch (SWRLRuleEngineException e) {
 			System.err.println("Error creating rule engine: " + e.getMessage());
 			return null;
