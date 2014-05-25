@@ -15,7 +15,7 @@ import org.semanticweb.owlapi.util.DefaultPrefixManager;
 import org.semanticweb.owlapi.util.SimpleIRIMapper;
 import org.semanticweb.owlapi.vocab.PrefixOWLOntologyFormat;
 import org.swrlapi.core.SWRLAPIFactory;
-import org.swrlapi.ext.SWRLAPIOWLOntology;
+import org.swrlapi.core.SWRLAPIOWLOntology;
 import org.swrlapi.parser.SWRLIncompleteRuleException;
 import org.swrlapi.parser.SWRLParseException;
 import org.swrlapi.parser.SWRLParser;
