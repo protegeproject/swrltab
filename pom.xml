@@ -74,7 +74,7 @@
 				<configuration>
 					<archive> 
 						<manifest>
-							<mainClass>org.swrltab.test.P4SWRLAPIRegressionTester</mainClass>
+							<mainClass>org.swrltab.test.SWRLTabSWRLAPIRegressionTester</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
