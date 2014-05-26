@@ -12,8 +12,9 @@ import org.swrlapi.core.SWRLAPIFactory;
 import org.swrlapi.core.SWRLAPIOWLOntology;
 import org.swrlapi.core.SWRLRuleEngine;
 import org.swrlapi.drools.DroolsFactory;
+import org.swrlapi.ui.controller.SWRLAPIApplicationController;
 import org.swrlapi.ui.model.SWRLAPIApplicationModel;
-import org.swrlapi.ui.view.rules.SWRLAPIRulesView;
+import org.swrlapi.ui.view.rules.SWRLAPIRuleView;
 
 public class SWRLTabRulesApplicationView extends JFrame
 {
@@ -37,9 +38,12 @@ public class SWRLTabRulesApplicationView extends JFrame
 			SWRLAPIOWLOntology swrlapiOWLOntology = SWRLAPIFactory.createSWRLAPIOWLOntology(owlFileName, prefixManager);
 			SWRLRuleEngine queryEngine = SWRLAPIFactory.createSQWRLQueryEngine(swrlapiOWLOntology,
 					DroolsFactory.getSWRLRuleEngineCreator());
+
 			SWRLAPIApplicationModel applicationModel = SWRLAPIFactory.createSWRLAPIApplicationModel(swrlapiOWLOntology,
 					queryEngine, prefixManager);
-			SWRLTabRulesApplicationView applicationView = new SWRLTabRulesApplicationView(applicationModel);
+			SWRLAPIApplicationController applicationController = new SWRLAPIApplicationController(applicationModel);
+
+			SWRLTabRulesApplicationView applicationView = new SWRLTabRulesApplicationView(applicationController);
 
 			applicationView.setVisible(true);
 		} catch (RuntimeException e) {
@@ -48,16 +52,16 @@ public class SWRLTabRulesApplicationView extends JFrame
 		}
 	}
 
-	public SWRLTabRulesApplicationView(SWRLAPIApplicationModel applicationModel)
+	public SWRLTabRulesApplicationView(SWRLAPIApplicationController applicationController)
 	{
 		super(APPLICATION_NAME);
-		createAndAddSWRLAPIRulesView(applicationModel);
+		createAndAddSWRLAPIRulesView(applicationController);
 	}
 
-	private void createAndAddSWRLAPIRulesView(SWRLAPIApplicationModel applicationModel)
+	private void createAndAddSWRLAPIRulesView(SWRLAPIApplicationController applicationController)
 	{
 		Icon ruleEngineIcon = DroolsFactory.getSWRLRuleEngineIcon();
-		SWRLAPIRulesView rulesView = new SWRLAPIRulesView(applicationModel, ruleEngineIcon);
+		SWRLAPIRuleView rulesView = new SWRLAPIRuleView(applicationController, ruleEngineIcon);
 		Container contentPane = getContentPane();
 
 		contentPane.setLayout(new BorderLayout());

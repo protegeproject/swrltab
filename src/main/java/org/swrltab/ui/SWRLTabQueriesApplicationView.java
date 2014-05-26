@@ -13,8 +13,9 @@ import org.swrlapi.core.SWRLAPIOWLOntology;
 import org.swrlapi.core.SWRLRuleEngine;
 import org.swrlapi.drools.DroolsFactory;
 import org.swrlapi.drools.DroolsSWRLRuleEngineCreator;
+import org.swrlapi.ui.controller.SWRLAPIApplicationController;
 import org.swrlapi.ui.model.SWRLAPIApplicationModel;
-import org.swrlapi.ui.view.queries.SWRLAPIQueriesView;
+import org.swrlapi.ui.view.queries.SWRLAPIQueryView;
 
 public class SWRLTabQueriesApplicationView extends JFrame
 {
@@ -38,9 +39,12 @@ public class SWRLTabQueriesApplicationView extends JFrame
 			SWRLAPIOWLOntology swrlapiOWLOntology = SWRLAPIFactory.createSWRLAPIOWLOntology(owlFileName, prefixManager);
 			SWRLRuleEngine queryEngine = SWRLAPIFactory.createSQWRLQueryEngine(swrlapiOWLOntology,
 					new DroolsSWRLRuleEngineCreator());
+
 			SWRLAPIApplicationModel applicationModel = SWRLAPIFactory.createSWRLAPIApplicationModel(swrlapiOWLOntology,
 					queryEngine, prefixManager);
-			SWRLTabQueriesApplicationView applicationView = new SWRLTabQueriesApplicationView(applicationModel);
+			SWRLAPIApplicationController applicationController = new SWRLAPIApplicationController(applicationModel);
+
+			SWRLTabQueriesApplicationView applicationView = new SWRLTabQueriesApplicationView(applicationController);
 
 			applicationView.setVisible(true);
 		} catch (RuntimeException e) {
@@ -49,20 +53,20 @@ public class SWRLTabQueriesApplicationView extends JFrame
 		}
 	}
 
-	public SWRLTabQueriesApplicationView(SWRLAPIApplicationModel applicationModel)
+	public SWRLTabQueriesApplicationView(SWRLAPIApplicationController applicationController)
 	{
 		super(APPLICATION_NAME);
-		createAndAddSWRLAPIQueriesView(applicationModel);
+		createAndAddSWRLAPIQueriesView(applicationController);
 	}
 
-	private void createAndAddSWRLAPIQueriesView(SWRLAPIApplicationModel applicationModel)
+	private void createAndAddSWRLAPIQueriesView(SWRLAPIApplicationController applicationController)
 	{
 		Icon ruleEngineIcon = DroolsFactory.getSWRLRuleEngineIcon();
-		SWRLAPIQueriesView queriesView = new SWRLAPIQueriesView(applicationModel, ruleEngineIcon, null);
+		SWRLAPIQueryView queryView = new SWRLAPIQueryView(applicationController, ruleEngineIcon);
 		Container contentPane = getContentPane();
 
 		contentPane.setLayout(new BorderLayout());
-		contentPane.add(queriesView);
+		contentPane.add(queryView);
 		setSize(APPLICATION_WIDTH, APPLICATION_HEIGHT);
 	}
 
