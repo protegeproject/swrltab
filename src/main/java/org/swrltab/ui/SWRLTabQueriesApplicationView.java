@@ -15,15 +15,24 @@ import org.swrlapi.drools.DroolsFactory;
 import org.swrlapi.drools.DroolsSWRLRuleEngineCreator;
 import org.swrlapi.ui.controller.SWRLAPIApplicationController;
 import org.swrlapi.ui.model.SWRLAPIApplicationModel;
-import org.swrlapi.ui.view.queries.SWRLAPIQueryView;
+import org.swrlapi.ui.view.SWRLAPIApplicationView;
+import org.swrlapi.ui.view.queries.SWRLAPIQueriesView;
 
-public class SWRLTabQueriesApplicationView extends JFrame
+/**
+ * Standalone application that presents a SQWRL editor and query execution graphical interface. The Drools rule engine
+ * is used for query execution.
+ * 
+ * @see SWRLTabRulesApplicationView, SWRLAPIQueriesView
+ */
+public class SWRLTabQueriesApplicationView extends JFrame implements SWRLAPIApplicationView
 {
 	private static final long serialVersionUID = 1L;
 
 	private static final String APPLICATION_NAME = "SWRLTabQueries";
 	private static final int APPLICATION_WIDTH = 1000;
 	private static final int APPLICATION_HEIGHT = 580;
+
+	private final SWRLAPIQueriesView queriesView;
 
 	public static void main(String[] args)
 	{
@@ -42,7 +51,8 @@ public class SWRLTabQueriesApplicationView extends JFrame
 
 			SWRLAPIApplicationModel applicationModel = SWRLAPIFactory.createSWRLAPIApplicationModel(swrlapiOWLOntology,
 					queryEngine, prefixManager);
-			SWRLAPIApplicationController applicationController = new SWRLAPIApplicationController(applicationModel);
+			SWRLAPIApplicationController applicationController = SWRLAPIFactory
+					.createSWRLAPIApplicationController(applicationModel);
 
 			SWRLTabQueriesApplicationView applicationView = new SWRLTabQueriesApplicationView(applicationController);
 
@@ -56,18 +66,26 @@ public class SWRLTabQueriesApplicationView extends JFrame
 	public SWRLTabQueriesApplicationView(SWRLAPIApplicationController applicationController)
 	{
 		super(APPLICATION_NAME);
-		createAndAddSWRLAPIQueriesView(applicationController);
+		this.queriesView = createAndAddSWRLAPIQueriesView(applicationController);
 	}
 
-	private void createAndAddSWRLAPIQueriesView(SWRLAPIApplicationController applicationController)
+	@Override
+	public void update()
+	{
+		this.queriesView.update();
+	}
+
+	private SWRLAPIQueriesView createAndAddSWRLAPIQueriesView(SWRLAPIApplicationController applicationController)
 	{
 		Icon ruleEngineIcon = DroolsFactory.getSWRLRuleEngineIcon();
-		SWRLAPIQueryView queryView = new SWRLAPIQueryView(applicationController, ruleEngineIcon);
+		SWRLAPIQueriesView queriesView = new SWRLAPIQueriesView(applicationController, ruleEngineIcon);
 		Container contentPane = getContentPane();
 
 		contentPane.setLayout(new BorderLayout());
-		contentPane.add(queryView);
+		contentPane.add(queriesView);
 		setSize(APPLICATION_WIDTH, APPLICATION_HEIGHT);
+
+		return queriesView;
 	}
 
 	@Override

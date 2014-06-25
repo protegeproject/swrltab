@@ -14,15 +14,24 @@ import org.swrlapi.core.SWRLRuleEngine;
 import org.swrlapi.drools.DroolsFactory;
 import org.swrlapi.ui.controller.SWRLAPIApplicationController;
 import org.swrlapi.ui.model.SWRLAPIApplicationModel;
-import org.swrlapi.ui.view.rules.SWRLAPIRuleView;
+import org.swrlapi.ui.view.SWRLAPIApplicationView;
+import org.swrlapi.ui.view.rules.SWRLAPIRulesView;
 
-public class SWRLTabRulesApplicationView extends JFrame
+/**
+ * Standalone application that presents a SWRL editor and rule execution graphical interface. The Drools rule engine is
+ * used for rule execution.
+ * 
+ * @see SWRLTabQueriesApplicationView, SWRLAPIRulesView
+ */
+public class SWRLTabRulesApplicationView extends JFrame implements SWRLAPIApplicationView
 {
 	private static final long serialVersionUID = 1L;
 
 	private static final String APPLICATION_NAME = "SWRLTabRules";
 	private static final int APPLICATION_WIDTH = 1000;
 	private static final int APPLICATION_HEIGHT = 580;
+
+	private final SWRLAPIRulesView rulesView;
 
 	public static void main(String[] args)
 	{
@@ -39,10 +48,15 @@ public class SWRLTabRulesApplicationView extends JFrame
 			SWRLRuleEngine queryEngine = SWRLAPIFactory.createSQWRLQueryEngine(swrlapiOWLOntology,
 					DroolsFactory.getSWRLRuleEngineCreator());
 
+			// Create application model
 			SWRLAPIApplicationModel applicationModel = SWRLAPIFactory.createSWRLAPIApplicationModel(swrlapiOWLOntology,
 					queryEngine, prefixManager);
-			SWRLAPIApplicationController applicationController = new SWRLAPIApplicationController(applicationModel);
 
+			// Create application controller
+			SWRLAPIApplicationController applicationController = SWRLAPIFactory
+					.createSWRLAPIApplicationController(applicationModel);
+
+			// Create application view
 			SWRLTabRulesApplicationView applicationView = new SWRLTabRulesApplicationView(applicationController);
 
 			applicationView.setVisible(true);
@@ -55,18 +69,27 @@ public class SWRLTabRulesApplicationView extends JFrame
 	public SWRLTabRulesApplicationView(SWRLAPIApplicationController applicationController)
 	{
 		super(APPLICATION_NAME);
-		createAndAddSWRLAPIRulesView(applicationController);
+
+		this.rulesView = createAndAddSWRLAPIRulesView(applicationController);
 	}
 
-	private void createAndAddSWRLAPIRulesView(SWRLAPIApplicationController applicationController)
+	@Override
+	public void update()
+	{
+		this.rulesView.update();
+	}
+
+	private SWRLAPIRulesView createAndAddSWRLAPIRulesView(SWRLAPIApplicationController applicationController)
 	{
 		Icon ruleEngineIcon = DroolsFactory.getSWRLRuleEngineIcon();
-		SWRLAPIRuleView rulesView = new SWRLAPIRuleView(applicationController, ruleEngineIcon);
+		SWRLAPIRulesView rulesView = new SWRLAPIRulesView(applicationController, ruleEngineIcon);
 		Container contentPane = getContentPane();
 
 		contentPane.setLayout(new BorderLayout());
 		contentPane.add(rulesView);
 		setSize(APPLICATION_WIDTH, APPLICATION_HEIGHT);
+
+		return rulesView;
 	}
 
 	@Override
