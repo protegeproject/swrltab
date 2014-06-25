@@ -7,7 +7,6 @@ import java.awt.event.WindowEvent;
 import javax.swing.Icon;
 import javax.swing.JFrame;
 
-import org.semanticweb.owlapi.util.DefaultPrefixManager;
 import org.swrlapi.core.SWRLAPIFactory;
 import org.swrlapi.core.SWRLAPIOWLOntology;
 import org.swrlapi.core.SWRLRuleEngine;
@@ -43,22 +42,25 @@ public class SWRLTabRulesApplicationView extends JFrame implements SWRLAPIApplic
 			Usage();
 
 		try {
-			DefaultPrefixManager prefixManager = SWRLAPIFactory.createPrefixManager();
-			SWRLAPIOWLOntology swrlapiOWLOntology = SWRLAPIFactory.createSWRLAPIOWLOntology(owlFileName, prefixManager);
+			// Create the SWRLAPI OWL ontology from the supplied file
+			SWRLAPIOWLOntology swrlapiOWLOntology = SWRLAPIFactory.createSWRLAPIOWLOntology(owlFileName);
+
+			// Create a Drools-based rule engine
 			SWRLRuleEngine queryEngine = SWRLAPIFactory.createSQWRLQueryEngine(swrlapiOWLOntology,
 					DroolsFactory.getSWRLRuleEngineCreator());
 
-			// Create application model
+			// Create the application model, supplying it with the ontology and query engine
 			SWRLAPIApplicationModel applicationModel = SWRLAPIFactory.createSWRLAPIApplicationModel(swrlapiOWLOntology,
-					queryEngine, prefixManager);
+					queryEngine);
 
-			// Create application controller
+			// Create the application controller
 			SWRLAPIApplicationController applicationController = SWRLAPIFactory
 					.createSWRLAPIApplicationController(applicationModel);
 
-			// Create application view
+			// Create the application view
 			SWRLTabRulesApplicationView applicationView = new SWRLTabRulesApplicationView(applicationController);
 
+			// Make the view visible
 			applicationView.setVisible(true);
 		} catch (RuntimeException e) {
 			System.err.println("Error starting application: " + e.getMessage());
