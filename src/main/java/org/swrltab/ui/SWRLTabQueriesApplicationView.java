@@ -63,6 +63,7 @@ public class SWRLTabQueriesApplicationView extends JFrame implements SWRLAPIAppl
 
 			// Make the view visible
 			applicationView.setVisible(true);
+
 		} catch (RuntimeException e) {
 			System.err.println("Error starting application: " + e.getMessage());
 			System.exit(-1);
