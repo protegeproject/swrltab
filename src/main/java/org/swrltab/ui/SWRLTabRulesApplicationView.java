@@ -17,8 +17,9 @@ import org.swrlapi.ui.view.SWRLAPIApplicationView;
 import org.swrlapi.ui.view.rules.SWRLAPIRulesView;
 
 /**
- * Standalone application that presents a SWRL editor and rule execution graphical interface. The Drools rule engine is
- * used for rule execution.
+ * Standalone SWRLAPI-based application that presents a SWRL editor and rule execution graphical interface.
+ * <p>
+ * The Drools rule engine is used for rule execution.
  * 
  * @see SWRLTabQueriesApplicationView, SWRLAPIRulesView
  */
@@ -42,16 +43,16 @@ public class SWRLTabRulesApplicationView extends JFrame implements SWRLAPIApplic
 			Usage();
 
 		try {
-			// Create the SWRLAPI OWL ontology from the supplied file
+			// Create a SWRLAPI OWL ontology from the OWL ontology in the supplied file
 			SWRLAPIOWLOntology swrlapiOWLOntology = SWRLAPIFactory.createSWRLAPIOWLOntology(owlFileName);
 
 			// Create a Drools-based rule engine
-			SWRLRuleEngine queryEngine = SWRLAPIFactory.createSQWRLQueryEngine(swrlapiOWLOntology,
+			SWRLRuleEngine ruleEngine = SWRLAPIFactory.createSQWRLQueryEngine(swrlapiOWLOntology,
 					DroolsFactory.getSWRLRuleEngineCreator());
 
 			// Create the application model, supplying it with the ontology and query engine
 			SWRLAPIApplicationModel applicationModel = SWRLAPIFactory.createSWRLAPIApplicationModel(swrlapiOWLOntology,
-					queryEngine);
+					ruleEngine);
 
 			// Create the application controller
 			SWRLAPIApplicationController applicationController = SWRLAPIFactory
@@ -79,6 +80,12 @@ public class SWRLTabRulesApplicationView extends JFrame implements SWRLAPIApplic
 	public void update()
 	{
 		this.rulesView.update();
+	}
+
+	@Override
+	public String getApplicationName()
+	{
+		return APPLICATION_NAME;
 	}
 
 	private SWRLAPIRulesView createAndAddSWRLAPIRulesView(SWRLAPIApplicationController applicationController)

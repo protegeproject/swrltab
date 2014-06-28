@@ -18,8 +18,9 @@ import org.swrlapi.ui.view.SWRLAPIApplicationView;
 import org.swrlapi.ui.view.queries.SWRLAPIQueriesView;
 
 /**
- * Standalone application that presents a SQWRL editor and query execution graphical interface. The Drools rule engine
- * is used for query execution.
+ * Standalone SWRLAPI-based application that presents a SQWRL editor and query execution graphical interface.
+ * <p>
+ * The Drools rule engine is used for query execution.
  * 
  * @see SWRLTabRulesApplicationView, SWRLAPIQueriesView
  */
@@ -43,7 +44,7 @@ public class SWRLTabQueriesApplicationView extends JFrame implements SWRLAPIAppl
 			Usage();
 
 		try {
-			// Create a SWRLAPI OWL ontology from the supplied file
+			// Create a SWRLAPI OWL ontology from the OWL ontology in the supplied file
 			SWRLAPIOWLOntology swrlapiOWLOntology = SWRLAPIFactory.createSWRLAPIOWLOntology(owlFileName);
 
 			// Create a Drools-based query engine
@@ -74,6 +75,12 @@ public class SWRLTabQueriesApplicationView extends JFrame implements SWRLAPIAppl
 	{
 		super(APPLICATION_NAME);
 		this.queriesView = createAndAddSWRLAPIQueriesView(applicationController);
+	}
+
+	@Override
+	public String getApplicationName()
+	{
+		return APPLICATION_NAME;
 	}
 
 	@Override
