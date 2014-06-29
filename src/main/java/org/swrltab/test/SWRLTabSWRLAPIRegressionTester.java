@@ -26,21 +26,6 @@ public class SWRLTabSWRLAPIRegressionTester
 
 		try {
 			SWRLAPIOWLOntology swrlapiOWLOntology = SWRLAPIFactory.createSWRLAPIOWLOntology(owlFileName);
-			// SWRLParser parser = new SWRLParser(swrlapiOWLOntology);
-
-			// Scanner scanner = new Scanner(System.in);
-			// while (true) {
-			// String line = scanner.nextLine();
-			// try {
-			// System.out.println("Rule: " + line);
-			// parser.parseSWRLRule(line, true);
-			// System.out.println("Foine");
-			// } catch (SWRLIncompleteRuleException e) {
-			// System.err.println("Incomplete " + e.getMessage());
-			// } catch (SWRLParseException e) {
-			// System.err.println("Error " + e.getMessage());
-			// }
-			// }
 			SWRLRuleEngineFactory swrlRuleEngineFactory = SWRLAPIFactory.createSWRLRuleEngineFactory();
 			swrlRuleEngineFactory.registerRuleEngine(new DroolsSWRLRuleEngineCreator());
 
@@ -62,3 +47,18 @@ public class SWRLTabSWRLAPIRegressionTester
 		System.exit(1);
 	}
 }
+
+// SWRLParser parser = new SWRLParser(swrlapiOWLOntology);
+// Scanner scanner = new Scanner(System.in);
+// while (true) {
+// String line = scanner.nextLine();
+// try {
+// System.out.println("Rule: " + line);
+// parser.parseSWRLRule(line, true);
+// System.out.println("Foine");
+// } catch (SWRLIncompleteRuleException e) {
+// System.err.println("Incomplete " + e.getMessage());
+// } catch (SWRLParseException e) {
+// System.err.println("Error " + e.getMessage());
+// }
+// }

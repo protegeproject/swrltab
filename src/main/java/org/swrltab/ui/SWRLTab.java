@@ -23,7 +23,7 @@ import org.swrlapi.ui.view.rules.SWRLAPIRulesView;
  * 
  * @see SWRLTabQueriesApplicationView, SWRLAPIRulesView
  */
-public class SWRLTabRulesApplicationView extends JFrame implements SWRLAPIApplicationView
+public class SWRLTab extends JFrame implements SWRLAPIApplicationView
 {
 	private static final long serialVersionUID = 1L;
 
@@ -50,7 +50,7 @@ public class SWRLTabRulesApplicationView extends JFrame implements SWRLAPIApplic
 			SWRLRuleEngine ruleEngine = SWRLAPIFactory.createSQWRLQueryEngine(swrlapiOWLOntology,
 					DroolsFactory.getSWRLRuleEngineCreator());
 
-			// Create the application model, supplying it with the ontology and query engine
+			// Create the application model, supplying it with the ontology and rule engine
 			SWRLAPIApplicationModel applicationModel = SWRLAPIFactory.createSWRLAPIApplicationModel(swrlapiOWLOntology,
 					ruleEngine);
 
@@ -59,7 +59,7 @@ public class SWRLTabRulesApplicationView extends JFrame implements SWRLAPIApplic
 					.createSWRLAPIApplicationController(applicationModel);
 
 			// Create the application view
-			SWRLTabRulesApplicationView applicationView = new SWRLTabRulesApplicationView(applicationController);
+			SWRLTab applicationView = new SWRLTab(applicationController);
 
 			// Make the view visible
 			applicationView.setVisible(true);
@@ -69,7 +69,7 @@ public class SWRLTabRulesApplicationView extends JFrame implements SWRLAPIApplic
 		}
 	}
 
-	public SWRLTabRulesApplicationView(SWRLAPIApplicationController applicationController)
+	public SWRLTab(SWRLAPIApplicationController applicationController)
 	{
 		super(APPLICATION_NAME);
 
@@ -114,7 +114,7 @@ public class SWRLTabRulesApplicationView extends JFrame implements SWRLAPIApplic
 
 	private static void Usage()
 	{
-		System.err.println("Usage: " + SWRLTabRulesApplicationView.class.getName() + " <owlFileName>");
+		System.err.println("Usage: " + SWRLTab.class.getName() + " <owlFileName>");
 		System.exit(1);
 	}
 }

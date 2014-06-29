@@ -24,7 +24,7 @@ import org.swrlapi.ui.view.queries.SWRLAPIQueriesView;
  * 
  * @see SWRLTabRulesApplicationView, SWRLAPIQueriesView
  */
-public class SWRLTabQueriesApplicationView extends JFrame implements SWRLAPIApplicationView
+public class SQWRLTab extends JFrame implements SWRLAPIApplicationView
 {
 	private static final long serialVersionUID = 1L;
 
@@ -60,7 +60,7 @@ public class SWRLTabQueriesApplicationView extends JFrame implements SWRLAPIAppl
 					.createSWRLAPIApplicationController(applicationModel);
 
 			// Create the application view
-			SWRLTabQueriesApplicationView applicationView = new SWRLTabQueriesApplicationView(applicationController);
+			SQWRLTab applicationView = new SQWRLTab(applicationController);
 
 			// Make the view visible
 			applicationView.setVisible(true);
@@ -71,7 +71,7 @@ public class SWRLTabQueriesApplicationView extends JFrame implements SWRLAPIAppl
 		}
 	}
 
-	public SWRLTabQueriesApplicationView(SWRLAPIApplicationController applicationController)
+	public SQWRLTab(SWRLAPIApplicationController applicationController)
 	{
 		super(APPLICATION_NAME);
 		this.queriesView = createAndAddSWRLAPIQueriesView(applicationController);
@@ -115,7 +115,7 @@ public class SWRLTabQueriesApplicationView extends JFrame implements SWRLAPIAppl
 
 	private static void Usage()
 	{
-		System.err.println("Usage: " + SWRLTabQueriesApplicationView.class.getName() + " <owlFileName>");
+		System.err.println("Usage: " + SQWRLTab.class.getName() + " <owlFileName>");
 		System.exit(1);
 	}
 }
