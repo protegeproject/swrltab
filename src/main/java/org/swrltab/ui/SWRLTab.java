@@ -11,6 +11,7 @@ import org.swrlapi.core.SWRLAPIFactory;
 import org.swrlapi.core.SWRLAPIOWLOntology;
 import org.swrlapi.core.SWRLRuleEngine;
 import org.swrlapi.drools.DroolsFactory;
+import org.swrlapi.exceptions.SWRLAPIException;
 import org.swrlapi.ui.controller.SWRLAPIApplicationController;
 import org.swrlapi.ui.model.SWRLAPIApplicationModel;
 import org.swrlapi.ui.view.SWRLAPIApplicationView;
@@ -61,13 +62,13 @@ public class SWRLTab extends JFrame implements SWRLAPIApplicationView
 
 			// Make the view visible
 			applicationView.setVisible(true);
-		} catch (RuntimeException e) {
+		} catch (SWRLAPIException e) {
 			System.err.println("Error starting application: " + e.getMessage());
 			System.exit(-1);
 		}
 	}
 
-	public SWRLTab(SWRLAPIApplicationController applicationController)
+	public SWRLTab(SWRLAPIApplicationController applicationController) throws SWRLAPIException
 	{
 		super(APPLICATION_NAME);
 
@@ -87,6 +88,7 @@ public class SWRLTab extends JFrame implements SWRLAPIApplicationView
 	}
 
 	private SWRLAPIRulesView createAndAddSWRLAPIRulesView(SWRLAPIApplicationController applicationController)
+			throws SWRLAPIException
 	{
 		Icon ruleEngineIcon = DroolsFactory.getSWRLRuleEngineIcon();
 		SWRLAPIRulesView rulesView = new SWRLAPIRulesView(applicationController, ruleEngineIcon);
