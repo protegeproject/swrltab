@@ -14,6 +14,9 @@ target/*
 .
 /target
 
+
+*.iml
+
 *.pyc
 
 # Protege 3 project and repository files

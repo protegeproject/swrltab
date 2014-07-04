@@ -1,12 +1,5 @@
 package org.swrltab.ui;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.event.WindowEvent;
-
-import javax.swing.Icon;
-import javax.swing.JFrame;
-
 import org.swrlapi.core.SWRLAPIFactory;
 import org.swrlapi.core.SWRLAPIOWLOntology;
 import org.swrlapi.core.SWRLRuleEngine;
@@ -18,18 +11,27 @@ import org.swrlapi.ui.model.SWRLAPIApplicationModel;
 import org.swrlapi.ui.view.SWRLAPIApplicationView;
 import org.swrlapi.ui.view.queries.SWRLAPIQueriesView;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.WindowEvent;
+import java.io.File;
+
 /**
  * Standalone SWRLAPI-based application that presents a SQWRL editor and query execution graphical interface.
- * <p>
+ * <p/>
  * The Drools rule engine is used for query execution.
- * 
- * @see SWRLTabRulesApplicationView, SWRLAPIQueriesView
+ * <p/>
+ * To invoke from Maven put <code>org.swrltab.ui.SQWRLTab</code> in the <code>mainClass</code> element of
+ * the <code>exec-maven-plugin</code> plugin configuration in the Maven project POM and run with
+ * the <code>exec:java</code> goal.
+ *
+ * @see SWRLTab, SWRLAPIQueriesView
  */
 public class SQWRLTab extends JFrame implements SWRLAPIApplicationView
 {
 	private static final long serialVersionUID = 1L;
 
-	private static final String APPLICATION_NAME = "SWRLTabQueries";
+	private static final String APPLICATION_NAME = "SQWRLTab";
 	private static final int APPLICATION_WIDTH = 1000;
 	private static final int APPLICATION_HEIGHT = 580;
 
@@ -37,16 +39,13 @@ public class SQWRLTab extends JFrame implements SWRLAPIApplicationView
 
 	public static void main(String[] args)
 	{
-		String owlFileName = "";
-
-		if (args.length == 1) {
-			owlFileName = args[0];
-		} else
-			Usage();
+		// TODO Hard code temporarily for testing. SWRLCoreTests, SQWRLCollectionsTests, SQWRLCoreTests, SWRLInferenceTests
+		String owlFileName = SWRLTab.class.getClassLoader().getResource("projects/SWRLInferenceTests.owl").getFile();
+		File owlFile = new File(owlFileName);
 
 		try {
 			// Create a SWRLAPI OWL ontology from the OWL ontology in the supplied file
-			SWRLAPIOWLOntology swrlapiOWLOntology = SWRLAPIFactory.createOntology(owlFileName);
+			SWRLAPIOWLOntology swrlapiOWLOntology = SWRLAPIFactory.createOntology(owlFile);
 
 			// Create a Drools-based query engine
 			SWRLRuleEngine queryEngine = SWRLAPIFactory.createQueryEngine(swrlapiOWLOntology,

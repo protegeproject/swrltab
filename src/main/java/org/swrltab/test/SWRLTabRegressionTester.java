@@ -8,24 +8,24 @@ import org.swrlapi.exceptions.SWRLRuleEngineException;
 import org.swrlapi.sqwrl.SQWRLQueryEngine;
 import org.swrlapi.test.SWRLAPIRegressionTester;
 
+import java.io.File;
+
 /**
- * Example invocation: <code><pre>
- * java -jar ~/workspace/swrlapi/swrltab/target/swrltab-1.0-jar-with-dependencies.jar ~/workspace/swrlapi/swrltab/src/main/resources/projects/SWRLCoreTests.owl 
- * </pre></code>
+ * To invoke from Maven put <code>org.swrltab.test.SWRLTabRegressionTester</code> in the <code>mainClass</code> element
+ * of the <code>exec-maven-plugin</code> plugin configuration in the Maven project POM and run with
+ * the <code>exec:java</code> goal.
  */
-public class SWRLTabSWRLAPIRegressionTester
+public class SWRLTabRegressionTester
 {
 	public static void main(String[] args)
 	{
-		String testBase = "/Users/martin/workspace/swrlapi/swrltab/src/main/resources/projects/";
-		// String owlFileName = testBase + "SWRLSimple.owl";
-		// String owlFileName = testBase + "SQWRLCollectionsTests.owl";
-		// String owlFileName = testBase + "SQWRLCoreTests.owl";
-		// String owlFileName = testBase + "SWRLInferenceTests.owl";
-		String owlFileName = testBase + "SWRLCoreTests.owl";
+		// TODO Hard code temporarily for testing. SWRLCoreTests, SQWRLCollectionsTests, SQWRLCoreTests, SWRLInferenceTests
+		String owlFileName = SWRLTabRegressionTester.class.getClassLoader()
+				.getResource("projects/SQWRLCollectionsTests.owl").getFile();
+		File owlFile = new File(owlFileName);
 
 		try {
-			SWRLAPIOWLOntology swrlapiOWLOntology = SWRLAPIFactory.createOntology(owlFileName);
+			SWRLAPIOWLOntology swrlapiOWLOntology = SWRLAPIFactory.createOntology(owlFile);
 			SWRLRuleEngineFactory swrlRuleEngineFactory = SWRLAPIFactory.createSWRLRuleEngineFactory();
 			swrlRuleEngineFactory.registerRuleEngine(new DroolsSWRLRuleEngineCreator());
 
@@ -43,7 +43,7 @@ public class SWRLTabSWRLAPIRegressionTester
 	@SuppressWarnings("unused")
 	private static void Usage()
 	{
-		System.err.println("Usage: " + SWRLTabSWRLAPIRegressionTester.class.getName() + " <owlFileName>");
+		System.err.println("Usage: " + SWRLTabRegressionTester.class.getName() + " <owlFileName>");
 		System.exit(1);
 	}
 }

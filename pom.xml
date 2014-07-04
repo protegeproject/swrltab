@@ -57,7 +57,7 @@
 				<configuration>
 					<archive> 
 						<manifest>
-							<mainClass>org.swrltab.test.SWRLTabSWRLAPIRegressionTester</mainClass>
+							<mainClass>org.swrltab.test.SWRLTabRegressionTester</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>

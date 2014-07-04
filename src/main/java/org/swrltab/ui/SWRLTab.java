@@ -1,12 +1,5 @@
 package org.swrltab.ui;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.event.WindowEvent;
-
-import javax.swing.Icon;
-import javax.swing.JFrame;
-
 import org.swrlapi.core.SWRLAPIFactory;
 import org.swrlapi.core.SWRLAPIOWLOntology;
 import org.swrlapi.core.SWRLRuleEngine;
@@ -17,12 +10,21 @@ import org.swrlapi.ui.model.SWRLAPIApplicationModel;
 import org.swrlapi.ui.view.SWRLAPIApplicationView;
 import org.swrlapi.ui.view.rules.SWRLAPIRulesView;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.WindowEvent;
+import java.io.File;
+
 /**
  * Standalone SWRLAPI-based application that presents a SWRL editor and rule execution graphical interface.
  * <p>
  * The Drools rule engine is used for rule execution.
- * 
- * @see SWRLTabQueriesApplicationView, SWRLAPIRulesView
+ * <p>
+ * To invoke from Maven put <code>org.swrltab.ui.SWRLTab</code> in the <code>mainClass</code> element of
+ * the <code>exec-maven-plugin</code> plugin configuration in the Maven project POM and run with
+ * the <code>exec:java</code> goal.
+ *
+ * @see SQWRLTab, SWRLAPIRulesView
  */
 public class SWRLTab extends JFrame implements SWRLAPIApplicationView
 {
@@ -36,16 +38,13 @@ public class SWRLTab extends JFrame implements SWRLAPIApplicationView
 
 	public static void main(String[] args)
 	{
-		String owlFileName = "";
-
-		if (args.length == 1) {
-			owlFileName = args[0];
-		} else
-			Usage();
+		// TODO Hard code temporarily for testing. SWRLCoreTests, SQWRLCollectionsTests, SQWRLCoreTests, SWRLInferenceTests
+		String owlFileName = SWRLTab.class.getClassLoader().getResource("projects/SQWRLCoreTests.owl").getFile();
+		File owlFile = new File(owlFileName);
 
 		try {
 			// Create a SWRLAPI OWL ontology from the OWL ontology in the supplied file
-			SWRLAPIOWLOntology swrlapiOWLOntology = SWRLAPIFactory.createOntology(owlFileName);
+			SWRLAPIOWLOntology swrlapiOWLOntology = SWRLAPIFactory.createOntology(owlFile);
 
 			// Create a Drools-based rule engine
 			SWRLRuleEngine ruleEngine = SWRLAPIFactory.createQueryEngine(swrlapiOWLOntology,
