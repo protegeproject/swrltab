@@ -1,19 +1,19 @@
 package org.swrltab.test;
 
+import java.io.File;
+
 import org.swrlapi.core.SWRLAPIFactory;
 import org.swrlapi.core.SWRLAPIOWLOntology;
 import org.swrlapi.core.SWRLRuleEngineFactory;
 import org.swrlapi.drools.DroolsSWRLRuleEngineCreator;
-import org.swrlapi.exceptions.SWRLRuleEngineException;
+import org.swrlapi.exceptions.SWRLAPIException;
 import org.swrlapi.sqwrl.SQWRLQueryEngine;
 import org.swrlapi.test.SWRLAPIRegressionTester;
 
-import java.io.File;
-
 /**
  * To invoke from Maven put <code>org.swrltab.test.SWRLTabRegressionTester</code> in the <code>mainClass</code> element
- * of the <code>exec-maven-plugin</code> plugin configuration in the Maven project POM and run with
- * the <code>exec:java</code> goal.
+ * of the <code>exec-maven-plugin</code> plugin configuration in the Maven project POM and run with the
+ * <code>exec:java</code> goal.
  */
 public class SWRLTabRegressionTester
 {
@@ -33,7 +33,7 @@ public class SWRLTabRegressionTester
 			SWRLAPIRegressionTester swrlapiRegressionTester = new SWRLAPIRegressionTester(sqwrlQueryEngine);
 
 			swrlapiRegressionTester.run();
-		} catch (SWRLRuleEngineException e) {
+		} catch (SWRLAPIException e) {
 			e.printStackTrace();
 		} catch (RuntimeException e) {
 			e.printStackTrace();

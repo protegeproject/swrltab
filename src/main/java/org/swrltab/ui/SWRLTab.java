@@ -1,29 +1,32 @@
 package org.swrltab.ui;
 
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.event.WindowEvent;
+import java.io.File;
+
+import javax.swing.Icon;
+import javax.swing.JFrame;
+
 import org.swrlapi.core.SWRLAPIFactory;
 import org.swrlapi.core.SWRLAPIOWLOntology;
 import org.swrlapi.core.SWRLRuleEngine;
 import org.swrlapi.drools.DroolsFactory;
 import org.swrlapi.exceptions.SWRLAPIException;
-import org.swrlapi.ui.controller.SWRLAPIApplicationController;
+import org.swrlapi.ui.dialog.SWRLAPIApplicationDialogManager;
 import org.swrlapi.ui.model.SWRLAPIApplicationModel;
 import org.swrlapi.ui.view.SWRLAPIApplicationView;
 import org.swrlapi.ui.view.rules.SWRLAPIRulesView;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.WindowEvent;
-import java.io.File;
 
 /**
  * Standalone SWRLAPI-based application that presents a SWRL editor and rule execution graphical interface.
  * <p>
  * The Drools rule engine is used for rule execution.
  * <p>
- * To invoke from Maven put <code>org.swrltab.ui.SWRLTab</code> in the <code>mainClass</code> element of
- * the <code>exec-maven-plugin</code> plugin configuration in the Maven project POM and run with
- * the <code>exec:java</code> goal.
- *
+ * To invoke from Maven put <code>org.swrltab.ui.SWRLTab</code> in the <code>mainClass</code> element of the
+ * <code>exec-maven-plugin</code> plugin configuration in the Maven project POM and run with the <code>exec:java</code>
+ * goal.
+ * 
  * @see SQWRLTab, SWRLAPIRulesView
  */
 public class SWRLTab extends JFrame implements SWRLAPIApplicationView
@@ -54,10 +57,10 @@ public class SWRLTab extends JFrame implements SWRLAPIApplicationView
 			SWRLAPIApplicationModel applicationModel = SWRLAPIFactory.createApplicationModel(swrlapiOWLOntology, ruleEngine);
 
 			// Create the application controller
-			SWRLAPIApplicationController applicationController = SWRLAPIFactory.createApplicationController(applicationModel);
+			SWRLAPIApplicationDialogManager dialogManager = SWRLAPIFactory.createApplicationDialogManager(applicationModel);
 
 			// Create the application view
-			SWRLTab applicationView = new SWRLTab(applicationController);
+			SWRLTab applicationView = new SWRLTab(applicationModel, dialogManager);
 
 			// Make the view visible
 			applicationView.setVisible(true);
@@ -67,11 +70,12 @@ public class SWRLTab extends JFrame implements SWRLAPIApplicationView
 		}
 	}
 
-	public SWRLTab(SWRLAPIApplicationController applicationController) throws SWRLAPIException
+	public SWRLTab(SWRLAPIApplicationModel applicationModel, SWRLAPIApplicationDialogManager applicationDialogManager)
+			throws SWRLAPIException
 	{
 		super(APPLICATION_NAME);
 
-		this.rulesView = createAndAddSWRLAPIRulesView(applicationController);
+		this.rulesView = createAndAddSWRLAPIRulesView(applicationModel, applicationDialogManager);
 	}
 
 	@Override
@@ -86,11 +90,11 @@ public class SWRLTab extends JFrame implements SWRLAPIApplicationView
 		return APPLICATION_NAME;
 	}
 
-	private SWRLAPIRulesView createAndAddSWRLAPIRulesView(SWRLAPIApplicationController applicationController)
-			throws SWRLAPIException
+	private SWRLAPIRulesView createAndAddSWRLAPIRulesView(SWRLAPIApplicationModel applicationModel,
+			SWRLAPIApplicationDialogManager applicationDialogManager) throws SWRLAPIException
 	{
 		Icon ruleEngineIcon = DroolsFactory.getSWRLRuleEngineIcon();
-		SWRLAPIRulesView rulesView = new SWRLAPIRulesView(applicationController, ruleEngineIcon);
+		SWRLAPIRulesView rulesView = new SWRLAPIRulesView(applicationModel, applicationDialogManager, ruleEngineIcon);
 		Container contentPane = getContentPane();
 
 		contentPane.setLayout(new BorderLayout());
@@ -111,6 +115,7 @@ public class SWRLTab extends JFrame implements SWRLAPIApplicationView
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private static void Usage()
 	{
 		System.err.println("Usage: " + SWRLTab.class.getName() + " <owlFileName>");

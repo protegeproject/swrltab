@@ -1,30 +1,33 @@
 package org.swrltab.ui;
 
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.event.WindowEvent;
+import java.io.File;
+
+import javax.swing.Icon;
+import javax.swing.JFrame;
+
 import org.swrlapi.core.SWRLAPIFactory;
 import org.swrlapi.core.SWRLAPIOWLOntology;
 import org.swrlapi.core.SWRLRuleEngine;
 import org.swrlapi.drools.DroolsFactory;
 import org.swrlapi.drools.DroolsSWRLRuleEngineCreator;
 import org.swrlapi.exceptions.SWRLAPIException;
-import org.swrlapi.ui.controller.SWRLAPIApplicationController;
+import org.swrlapi.ui.dialog.SWRLAPIApplicationDialogManager;
 import org.swrlapi.ui.model.SWRLAPIApplicationModel;
 import org.swrlapi.ui.view.SWRLAPIApplicationView;
 import org.swrlapi.ui.view.queries.SWRLAPIQueriesView;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.WindowEvent;
-import java.io.File;
 
 /**
  * Standalone SWRLAPI-based application that presents a SQWRL editor and query execution graphical interface.
  * <p/>
  * The Drools rule engine is used for query execution.
  * <p/>
- * To invoke from Maven put <code>org.swrltab.ui.SQWRLTab</code> in the <code>mainClass</code> element of
- * the <code>exec-maven-plugin</code> plugin configuration in the Maven project POM and run with
- * the <code>exec:java</code> goal.
- *
+ * To invoke from Maven put <code>org.swrltab.ui.SQWRLTab</code> in the <code>mainClass</code> element of the
+ * <code>exec-maven-plugin</code> plugin configuration in the Maven project POM and run with the <code>exec:java</code>
+ * goal.
+ * 
  * @see SWRLTab, SWRLAPIQueriesView
  */
 public class SQWRLTab extends JFrame implements SWRLAPIApplicationView
@@ -55,10 +58,11 @@ public class SQWRLTab extends JFrame implements SWRLAPIApplicationView
 			SWRLAPIApplicationModel applicationModel = SWRLAPIFactory.createApplicationModel(swrlapiOWLOntology, queryEngine);
 
 			// Create the application controller
-			SWRLAPIApplicationController applicationController = SWRLAPIFactory.createApplicationController(applicationModel);
+			SWRLAPIApplicationDialogManager applicationDialogManager = SWRLAPIFactory
+					.createApplicationDialogManager(applicationModel);
 
 			// Create the application view
-			SQWRLTab applicationView = new SQWRLTab(applicationController);
+			SQWRLTab applicationView = new SQWRLTab(applicationModel, applicationDialogManager);
 
 			// Make the view visible
 			applicationView.setVisible(true);
@@ -69,10 +73,11 @@ public class SQWRLTab extends JFrame implements SWRLAPIApplicationView
 		}
 	}
 
-	public SQWRLTab(SWRLAPIApplicationController applicationController) throws SWRLAPIException
+	public SQWRLTab(SWRLAPIApplicationModel applicationModel, SWRLAPIApplicationDialogManager applicationDialogManager)
+			throws SWRLAPIException
 	{
 		super(APPLICATION_NAME);
-		this.queriesView = createAndAddSWRLAPIQueriesView(applicationController);
+		this.queriesView = createAndAddSWRLAPIQueriesView(applicationModel, applicationDialogManager);
 	}
 
 	@Override
@@ -87,11 +92,11 @@ public class SQWRLTab extends JFrame implements SWRLAPIApplicationView
 		this.queriesView.update();
 	}
 
-	private SWRLAPIQueriesView createAndAddSWRLAPIQueriesView(SWRLAPIApplicationController applicationController)
-			throws SWRLAPIException
+	private SWRLAPIQueriesView createAndAddSWRLAPIQueriesView(SWRLAPIApplicationModel applicationModel,
+			SWRLAPIApplicationDialogManager applicationDialogManager) throws SWRLAPIException
 	{
 		Icon ruleEngineIcon = DroolsFactory.getSWRLRuleEngineIcon();
-		SWRLAPIQueriesView queriesView = new SWRLAPIQueriesView(applicationController, ruleEngineIcon);
+		SWRLAPIQueriesView queriesView = new SWRLAPIQueriesView(applicationModel, applicationDialogManager, ruleEngineIcon);
 		Container contentPane = getContentPane();
 
 		contentPane.setLayout(new BorderLayout());
@@ -112,6 +117,7 @@ public class SQWRLTab extends JFrame implements SWRLAPIApplicationView
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private static void Usage()
 	{
 		System.err.println("Usage: " + SQWRLTab.class.getName() + " <owlFileName>");
