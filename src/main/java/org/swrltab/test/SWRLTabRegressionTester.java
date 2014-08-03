@@ -5,7 +5,7 @@ import java.io.File;
 import org.swrlapi.core.SWRLAPIFactory;
 import org.swrlapi.core.SWRLAPIOWLOntology;
 import org.swrlapi.core.SWRLRuleEngineFactory;
-import org.swrlapi.drools.DroolsSWRLRuleEngineCreator;
+import org.swrlapi.drools.core.DroolsSWRLRuleEngineCreator;
 import org.swrlapi.exceptions.SWRLAPIException;
 import org.swrlapi.sqwrl.SQWRLQueryEngine;
 import org.swrlapi.test.SWRLAPIRegressionTester;
@@ -21,7 +21,7 @@ public class SWRLTabRegressionTester
 	{
 		// TODO Hard code temporarily for testing. SWRLCoreTests, SQWRLCollectionsTests, SQWRLCoreTests, SWRLInferenceTests
 		String owlFileName = SWRLTabRegressionTester.class.getClassLoader().getResource(
-				"projects/SWRLCoreTests.owl").getFile();
+				"projects/SQWRLCollectionsTests.owl").getFile();
 		File owlFile = new File(owlFileName);
 
 		try {
