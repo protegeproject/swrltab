@@ -27,7 +27,7 @@ import org.swrlapi.ui.view.rules.SWRLAPIRulesView;
  * <code>exec-maven-plugin</code> plugin configuration in the Maven project POM and run with the <code>exec:java</code>
  * goal.
  *
- * @see SQWRLTab, SWRLAPIRulesView
+ * @see org.swrlapi.ui.view.rules.SWRLAPIRulesView
  */
 public class SWRLTab extends JFrame implements SWRLAPIApplicationView
 {

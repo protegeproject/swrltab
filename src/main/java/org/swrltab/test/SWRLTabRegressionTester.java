@@ -33,8 +33,6 @@ public class SWRLTabRegressionTester
 			SWRLAPIRegressionTester swrlapiRegressionTester = new SWRLAPIRegressionTester(sqwrlQueryEngine);
 
 			swrlapiRegressionTester.run();
-		} catch (SWRLAPIException e) {
-			e.printStackTrace();
 		} catch (RuntimeException e) {
 			e.printStackTrace();
 		}

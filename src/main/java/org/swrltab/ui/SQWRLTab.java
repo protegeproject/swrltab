@@ -27,8 +27,8 @@ import org.swrlapi.ui.view.queries.SWRLAPIQueriesView;
  * To invoke from Maven put <code>org.swrltab.ui.SQWRLTab</code> in the <code>mainClass</code> element of the
  * <code>exec-maven-plugin</code> plugin configuration in the Maven project POM and run with the <code>exec:java</code>
  * goal.
- * 
- * @see SWRLTab, SWRLAPIQueriesView
+ *
+ * @see org.swrlapi.ui.view.queries.SWRLAPIQueriesView
  */
 public class SQWRLTab extends JFrame implements SWRLAPIApplicationView
 {
