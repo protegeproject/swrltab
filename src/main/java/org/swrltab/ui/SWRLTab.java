@@ -20,13 +20,13 @@ import org.swrlapi.ui.view.rules.SWRLAPIRulesView;
 
 /**
  * Standalone SWRLAPI-based application that presents a SWRL editor and rule execution graphical interface.
- * <p>
+ * <p/>
  * The Drools rule engine is used for rule execution.
- * <p>
+ * <p/>
  * To invoke from Maven put <code>org.swrltab.ui.SWRLTab</code> in the <code>mainClass</code> element of the
  * <code>exec-maven-plugin</code> plugin configuration in the Maven project POM and run with the <code>exec:java</code>
  * goal.
- * 
+ *
  * @see SQWRLTab, SWRLAPIRulesView
  */
 public class SWRLTab extends JFrame implements SWRLAPIApplicationView
@@ -64,7 +64,7 @@ public class SWRLTab extends JFrame implements SWRLAPIApplicationView
 
 			// Make the view visible
 			applicationView.setVisible(true);
-		} catch (SWRLAPIException e) {
+		} catch (RuntimeException e) {
 			System.err.println("Error starting application: " + e.getMessage());
 			System.exit(-1);
 		}

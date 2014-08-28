@@ -67,7 +67,7 @@ public class SQWRLTab extends JFrame implements SWRLAPIApplicationView
 			// Make the view visible
 			applicationView.setVisible(true);
 
-		} catch (SWRLAPIException e) {
+		} catch (RuntimeException e) {
 			System.err.println("Error starting application: " + e.getMessage());
 			System.exit(-1);
 		}
