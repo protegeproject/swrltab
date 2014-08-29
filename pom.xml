@@ -87,9 +87,9 @@
 					</execution>
 				</executions>
 				<configuration>
-					<!-- <mainClass>org.swrltab.ui.SWRLTab</mainClass> -->
+					<mainClass>org.swrltab.ui.SWRLTab</mainClass> 
 					 <!-- <mainClass>org.swrltab.ui.SQWRLTab</mainClass> -->
-					 <mainClass>org.swrltab.test.SWRLTabRegressionTester</mainClass> 
+					 <!-- <mainClass>org.swrltab.test.SWRLTabRegressionTester</mainClass> -->
 					<arguments>
 					  <argument>foo</argument>
           </arguments>
