@@ -10,6 +10,8 @@ import javax.swing.JFrame;
 
 import org.swrlapi.core.SWRLAPIFactory;
 import org.swrlapi.core.SWRLAPIOWLOntology;
+import org.swrlapi.core.SWRLAPIRule;
+import org.swrlapi.core.SWRLAPIRuleRenderer;
 import org.swrlapi.core.SWRLRuleEngine;
 import org.swrlapi.drools.core.DroolsFactory;
 import org.swrlapi.exceptions.SWRLAPIException;
@@ -42,7 +44,7 @@ public class SWRLTab extends JFrame implements SWRLAPIApplicationView
 	public static void main(String[] args)
 	{
 		// TODO Hard code temporarily for testing. SWRLCoreTests, SQWRLCollectionsTests, SQWRLCoreTests, SWRLInferenceTests
-		String owlFileName = SWRLTab.class.getClassLoader().getResource("projects/SWRLInferenceTests.owl").getFile();
+		String owlFileName = SWRLTab.class.getClassLoader().getResource("projects/SQWRLCollectionsTests.owl").getFile();
 		File owlFile = new File(owlFileName);
 
 		try {
