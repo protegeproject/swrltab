@@ -1,18 +1,11 @@
 SWRLTab
 =======
 
-Provides a standalone version of the old [Protege-OWL SWRLTab](http://protege.cim3.net/cgi-bin/wiki.pl?SWRLTab) 
-that is built on the [OWLAPI-based version of the SWRLAPI](https://github.com/protegeproject/swrlapi.git).
+The SWRLTab is a [SWRLAPI](https://github.com/protegeproject/swrlapi/wiki)-based environment that provides a set of standalone graphical interfaces for managing SWRL rules. These interfaces are designed to be embeddable into third party Java applications.
 
-The [SWRLTab Plugin]((https://github.com/protegeproject/swrlapi-plugin.git) provides a version that is 
-integrated with the latest release of [Protege](http://protege.stanford.edu).
+Documentation can be found at the [SWRLTab Wiki](https://github.com/protegeproject/swrltab/wiki).
 
-To build:
+A [Protege Desktop Ontology Editor](http://protege.stanford.edu)-based [SWRLTab Plugin](https://github.com/protegeproject/swrltab-plugin/wiki) is also available.
 
-mvn clean install
-
-To run:
-
-mvn exec:java
 
 

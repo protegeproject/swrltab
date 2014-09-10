@@ -21,7 +21,7 @@ public class SWRLTabRegressionTester
 	{
 		// TODO Hard code temporarily for testing. SWRLCoreTests, SQWRLCollectionsTests, SQWRLCoreTests, SWRLInferenceTests
 		String owlFileName = SWRLTabRegressionTester.class.getClassLoader().getResource(
-				"projects/SQWRLCollectionsTests.owl").getFile();
+				"projects/SWRLCoreTests.owl").getFile();
 		File owlFile = new File(owlFileName);
 
 		try {
