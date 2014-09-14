@@ -52,7 +52,7 @@ public class SWRLTab extends JFrame implements SWRLAPIApplicationView
 			SWRLAPIOWLOntology swrlapiOWLOntology = SWRLAPIFactory.createOntology(owlFile);
 
 			// Create a Drools-based rule engine
-			SWRLRuleEngine ruleEngine = SWRLAPIFactory.createQueryEngine(swrlapiOWLOntology,
+			SWRLRuleEngine ruleEngine = SWRLAPIFactory.createSWRLRuleEngine(swrlapiOWLOntology,
 					DroolsFactory.getSWRLRuleEngineCreator());
 
 			// Create the application model, supplying it with the ontology and rule engine

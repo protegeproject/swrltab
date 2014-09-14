@@ -14,6 +14,7 @@ import org.swrlapi.core.SWRLRuleEngine;
 import org.swrlapi.drools.core.DroolsFactory;
 import org.swrlapi.drools.core.DroolsSWRLRuleEngineCreator;
 import org.swrlapi.exceptions.SWRLAPIException;
+import org.swrlapi.sqwrl.SQWRLQueryEngine;
 import org.swrlapi.ui.dialog.SWRLAPIApplicationDialogManager;
 import org.swrlapi.ui.model.SWRLAPIApplicationModel;
 import org.swrlapi.ui.view.SWRLAPIApplicationView;
@@ -51,7 +52,7 @@ public class SQWRLTab extends JFrame implements SWRLAPIApplicationView
 			SWRLAPIOWLOntology swrlapiOWLOntology = SWRLAPIFactory.createOntology(owlFile);
 
 			// Create a Drools-based query engine
-			SWRLRuleEngine queryEngine = SWRLAPIFactory.createQueryEngine(swrlapiOWLOntology,
+			SWRLRuleEngine queryEngine = SWRLAPIFactory.createSWRLRuleEngine(swrlapiOWLOntology,
 					new DroolsSWRLRuleEngineCreator());
 
 			// Create the application model, supplying it with the ontology and query engine
