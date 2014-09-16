@@ -102,7 +102,6 @@ public class SQWRLCoreTestCase extends SWRLAPITestBase
 		}
 	}
 
-
 	@Test
 	public void TestSWRLBAddWithQualifiedDoubleLiterals() throws SWRLParseException, SQWRLException
 	{
@@ -137,6 +136,120 @@ public class SQWRLCoreTestCase extends SWRLAPITestBase
 			List<SQWRLResultValue> row = result.getRow();
 			SQWRLLiteralResultValue l = row.get(0).asLiteralResult();
 			result.next(); // TODO Returns a float
+		}
+	}
+
+	// TODO Move to Collections tests
+	@Test
+	public void TestSQWRLUnion() throws SWRLParseException, SQWRLException
+	{
+		declareOWLNamedIndividuals("DDI", "AZT");
+
+		SQWRLResult result = executeSQWRLQuery("q1", ". sqwrl:makeSet(?s1, DDI) ^ sqwrl:makeSet(?s2, AZT) "
+				+ " . sqwrl:union(?u, ?s1, ?s2) ^ sqwrl:element(?e, ?u) + -> sqwrl:select(?e) ^ sqwrl:orderBy(?e)");
+
+		while (result.hasNext()) {
+			List<SQWRLResultValue> row = result.getRow();
+			SQWRLNamedResultValue l = row.get(0).asNamedResult();
+			result.next();
+		}
+	}
+
+	// TODO Move to Collections tests
+	@Test
+	public void TestSQWRLCollectionsEqual() throws SWRLParseException, SQWRLException
+	{
+		declareOWLNamedIndividuals("DDI", "AZT");
+
+		SQWRLResult result = executeSQWRLQuery("q1", ". sqwrl:makeBag(?s1, DDI) ^ sqwrl:makeBag(?s1, AZT)"
+				+ " ^ sqwrl:makeBag(?s2, AZT) ^ sqwrl:makeBag(?s2, AZT) . sqwrl:equal(?s1, ?s2) -> sqwrl:select(\"Yes\")");
+
+		while (result.hasNext()) {
+			List<SQWRLResultValue> row = result.getRow();
+			SQWRLLiteralResultValue l = row.get(0).asLiteralResult();
+			result.next();
+		}
+	}
+
+	// TODO Move to Collections tests
+	@Test
+	public void TestSQWRLCollectionSize() throws SWRLParseException, SQWRLException
+	{
+		declareOWLNamedIndividuals("DDI", "AZT");
+
+		SQWRLResult result = executeSQWRLQuery("q1",
+				". sqwrl:makeBag(?s1, DDI) ^ sqwrl:makeBag(?s1, AZT) . sqwrl:size(?size, ?s1) -> sqwrl:select(?size)");
+
+		while (result.hasNext()) {
+			List<SQWRLResultValue> row = result.getRow();
+			SQWRLLiteralResultValue l = row.get(0).asLiteralResult();
+			result.next(); // TODO xsd:integer - should be long?
+		}
+	}
+
+	// TODO Move to Collections tests
+	@Test
+	public void TestSQWRLFirst() throws SWRLParseException, SQWRLException
+	{
+		declareOWLNamedIndividuals("DDI", "AZT");
+
+		SQWRLResult result = executeSQWRLQuery("q1",
+				". sqwrl:makeBag(?s1, DDI) ^ sqwrl:makeBag(?s1, AZT) . sqwrl:first(?first, ?s1) -> sqwrl:select(?first)");
+
+		while (result.hasNext()) {
+			List<SQWRLResultValue> row = result.getRow();
+			SQWRLNamedResultValue l = row.get(0).asNamedResult();
+			result.next();
+		}
+	}
+
+	// TODO Move to Collections tests
+	@Test
+	public void TestSQWRLLast() throws SWRLParseException, SQWRLException
+	{
+		declareOWLNamedIndividuals("DDI", "AZT");
+
+		SQWRLResult result = executeSQWRLQuery("q1",
+				". sqwrl:makeBag(?s1, DDI) ^ sqwrl:makeBag(?s1, AZT) . sqwrl:last(?last, ?s1) -> sqwrl:select(?last)");
+
+		while (result.hasNext()) {
+			List<SQWRLResultValue> row = result.getRow();
+			SQWRLNamedResultValue l = row.get(0).asNamedResult();
+			result.next();
+		}
+	}
+
+	// TODO Move to Collections tests
+	@Test
+	public void TestSQWRLNth() throws SWRLParseException, SQWRLException
+	{
+		declareOWLNamedIndividuals("DDI", "AZT", "BBT");
+
+		SQWRLResult result = executeSQWRLQuery("q1",
+				" . sqwrl:makeBag(?s1, DDI) ^ sqwrl:makeBag(?s1, AZT) ^ sqwrl:makeBag(?s1, BBT) "
+						+ " . sqwrl:nth(?second, ?s1, 2) -> sqwrl:select(?second)");
+
+		while (result.hasNext()) {
+			List<SQWRLResultValue> row = result.getRow();
+			SQWRLNamedResultValue l = row.get(0).asNamedResult();
+			result.next();
+		}
+	}
+
+	// TODO Move to Collections tests
+	@Test
+	public void TestSQWRLNthLast() throws SWRLParseException, SQWRLException
+	{
+		declareOWLNamedIndividuals("DDI", "AZT", "BBT");
+
+		SQWRLResult result = executeSQWRLQuery("q1",
+				" . sqwrl:makeBag(?s1, DDI) ^ sqwrl:makeBag(?s1, AZT) ^ sqwrl:makeBag(?s1, BBT) "
+						+ " . sqwrl:nthLast(?secondLast, ?s1, 2) -> sqwrl:select(?secondLast)");
+
+		while (result.hasNext()) {
+			List<SQWRLResultValue> row = result.getRow();
+			SQWRLNamedResultValue l = row.get(0).asNamedResult();
+			result.next();
 		}
 	}
 
