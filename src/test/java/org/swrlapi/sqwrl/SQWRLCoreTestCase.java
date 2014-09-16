@@ -98,7 +98,7 @@ public class SQWRLCoreTestCase extends SWRLAPITestBase
 		while (result.hasNext()) {
 			List<SQWRLResultValue> row = result.getRow();
 			SQWRLLiteralResultValue l = row.get(0).asLiteralResult();
-			result.next(); // TODO Returns a float
+			result.next();
 		}
 	}
 
@@ -135,7 +135,7 @@ public class SQWRLCoreTestCase extends SWRLAPITestBase
 		while (result.hasNext()) {
 			List<SQWRLResultValue> row = result.getRow();
 			SQWRLLiteralResultValue l = row.get(0).asLiteralResult();
-			result.next(); // TODO Returns a float
+			result.next();
 		}
 	}
 
@@ -179,6 +179,27 @@ public class SQWRLCoreTestCase extends SWRLAPITestBase
 
 		SQWRLResult result = executeSQWRLQuery("q1",
 				". sqwrl:makeBag(?s1, DDI) ^ sqwrl:makeBag(?s1, AZT) . sqwrl:size(?size, ?s1) -> sqwrl:select(?size)");
+		while (result.hasNext()) {
+			List<SQWRLResultValue> row = result.getRow();
+			SQWRLLiteralResultValue l = row.get(0).asLiteralResult();
+			result.next();
+		}
+	}
+
+	// TODO Move to Collections tests
+	@Test
+	public void TestSQWRLCollectionSizeEqual() throws SWRLParseException, SQWRLException
+	{
+		declareOWLNamedIndividuals("DDI", "AZT");
+
+		SQWRLResult result = executeSQWRLQuery("q1",
+				". sqwrl:makeBag(?s1, DDI) ^ sqwrl:makeBag(?s1, AZT) . sqwrl:size(?size, ?s1) "
+						+ " ^ swrlb:equal(?size, 2) -> sqwrl:select(\"Yes!\")");
+		while (result.hasNext()) {
+			List<SQWRLResultValue> row = result.getRow();
+			SQWRLLiteralResultValue l = row.get(0).asLiteralResult();
+			result.next();
+		}
 	}
 
 	// TODO Move to Collections tests
