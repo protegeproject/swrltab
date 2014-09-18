@@ -105,7 +105,8 @@ public class SQWRLCoreTestCase extends SWRLAPITestBase
 	@Test
 	public void TestSWRLBAddWithQualifiedDoubleLiterals() throws SWRLParseException, SQWRLException
 	{
-		String query = "swrlb:add(\"4.0\"^^\"xsd:double\", \"2.0\"^^\"xsd:double\", \"2.0\"^^\"xsd:double\") -> sqwrl:select(\"Yes!)\")";
+		String query = "swrlb:add(\"4.0\"^^\"xsd:double\", \"2.0\"^^\"xsd:double\", \"2.0\"^^\"xsd:double\")"
+				+ " -> sqwrl:select(\"Yes!)\")";
 		SQWRLResult result = executeSQWRLQuery("q1", query);
 
 		while (result.hasNext()) {
@@ -137,112 +138,6 @@ public class SQWRLCoreTestCase extends SWRLAPITestBase
 			SQWRLLiteralResultValue l = row.get(0).asLiteralResult();
 			result.next();
 		}
-	}
-
-	// TODO Move to Collections tests
-	@Test
-	public void TestSQWRLUnion() throws SWRLParseException, SQWRLException
-	{
-		declareOWLNamedIndividuals("DDI", "AZT");
-
-		SQWRLResult result = executeSQWRLQuery("q1", ". sqwrl:makeSet(?s1, DDI) ^ sqwrl:makeSet(?s2, AZT) "
-				+ " . sqwrl:union(?u, ?s1, ?s2) ^ sqwrl:element(?e, ?u) -> sqwrl:select(?e) ^ sqwrl:orderBy(?e)");
-
-		while (result.hasNext()) {
-			List<SQWRLResultValue> row = result.getRow();
-			SQWRLNamedResultValue l = row.get(0).asNamedResult();
-			result.next();
-		}
-	}
-
-	// TODO Move to Collections tests
-	@Test
-	public void TestSQWRLCollectionsEqual() throws SWRLParseException, SQWRLException
-	{
-		declareOWLNamedIndividuals("DDI", "AZT");
-
-		SQWRLResult result = executeSQWRLQuery("q1", ". sqwrl:makeBag(?s1, DDI) ^ sqwrl:makeBag(?s1, AZT)"
-				+ " ^ sqwrl:makeBag(?s2, AZT) ^ sqwrl:makeBag(?s2, AZT) . sqwrl:equal(?s1, ?s2) -> sqwrl:select(\"Yes\")");
-
-		while (result.hasNext()) {
-			List<SQWRLResultValue> row = result.getRow();
-			SQWRLLiteralResultValue l = row.get(0).asLiteralResult();
-			result.next();
-		}
-	}
-
-	// TODO Move to Collections tests
-	@Test
-	public void TestSQWRLCollectionSize() throws SWRLParseException, SQWRLException
-	{
-		declareOWLNamedIndividuals("DDI", "AZT");
-
-		SQWRLResult result = executeSQWRLQuery("q1",
-				". sqwrl:makeBag(?s1, DDI) ^ sqwrl:makeBag(?s1, AZT) . sqwrl:size(?size, ?s1) -> sqwrl:select(?size)");
-		while (result.hasNext()) {
-			List<SQWRLResultValue> row = result.getRow();
-			SQWRLLiteralResultValue l = row.get(0).asLiteralResult();
-			result.next();
-		}
-	}
-
-	// TODO Move to Collections tests
-	@Test
-	public void TestSQWRLCollectionSizeEqual() throws SWRLParseException, SQWRLException
-	{
-		declareOWLNamedIndividuals("DDI", "AZT");
-
-		SQWRLResult result = executeSQWRLQuery("q1",
-				". sqwrl:makeBag(?s1, DDI) ^ sqwrl:makeBag(?s1, AZT) . sqwrl:size(?size, ?s1) "
-						+ " ^ swrlb:equal(?size, 2) -> sqwrl:select(\"Yes!\")");
-		while (result.hasNext()) {
-			List<SQWRLResultValue> row = result.getRow();
-			SQWRLLiteralResultValue l = row.get(0).asLiteralResult();
-			result.next();
-		}
-	}
-
-	// TODO Move to Collections tests
-	@Test
-	public void TestSQWRLFirst() throws SWRLParseException, SQWRLException
-	{
-		declareOWLNamedIndividuals("DDI", "AZT");
-
-		SQWRLResult result = executeSQWRLQuery("q1",
-				". sqwrl:makeBag(?s1, DDI) ^ sqwrl:makeBag(?s1, AZT) . sqwrl:first(?first, ?s1) -> sqwrl:select(?first)");
-	}
-
-	// TODO Move to Collections tests
-	@Test
-	public void TestSQWRLLast() throws SWRLParseException, SQWRLException
-	{
-		declareOWLNamedIndividuals("DDI", "AZT");
-
-		SQWRLResult result = executeSQWRLQuery("q1",
-				". sqwrl:makeBag(?s1, DDI) ^ sqwrl:makeBag(?s1, AZT) . sqwrl:last(?last, ?s1) -> sqwrl:select(?last)");
-
-	}
-
-	// TODO 2 is detected to be float; Move to Collections tests
-	public void TestSQWRLNth() throws SWRLParseException, SQWRLException
-	{
-		declareOWLNamedIndividuals("DDI", "AZT", "BBT");
-
-		SQWRLResult result = executeSQWRLQuery("q1",
-				" . sqwrl:makeBag(?s1, DDI) ^ sqwrl:makeBag(?s1, AZT) ^ sqwrl:makeBag(?s1, BBT) "
-						+ " . sqwrl:nth(?second, ?s1, 2) -> sqwrl:select(?second)");
-
-	}
-
-	// TODO  2 is detected to be float;  Move to Collections tests
-	public void TestSQWRLNthLast() throws SWRLParseException, SQWRLException
-	{
-		declareOWLNamedIndividuals("DDI", "AZT", "BBT");
-
-		SQWRLResult result = executeSQWRLQuery("q1",
-				" . sqwrl:makeBag(?s1, DDI) ^ sqwrl:makeBag(?s1, AZT) ^ sqwrl:makeBag(?s1, BBT) "
-						+ " . sqwrl:nthLast(?secondLast, ?s1, 2) -> sqwrl:select(?secondLast)");
-
 	}
 
 	private SQWRLResult executeSQWRLQuery(String queryName) throws SQWRLException

@@ -10,8 +10,6 @@ import javax.swing.JFrame;
 
 import org.swrlapi.core.SWRLAPIFactory;
 import org.swrlapi.core.SWRLAPIOWLOntology;
-import org.swrlapi.core.SWRLAPIRule;
-import org.swrlapi.core.SWRLAPIRuleRenderer;
 import org.swrlapi.core.SWRLRuleEngine;
 import org.swrlapi.drools.core.DroolsFactory;
 import org.swrlapi.exceptions.SWRLAPIException;
@@ -36,8 +34,8 @@ public class SWRLTab extends JFrame implements SWRLAPIApplicationView
 	private static final long serialVersionUID = 1L;
 
 	private static final String APPLICATION_NAME = "SWRLTabRules";
-	private static final int APPLICATION_WIDTH = 1000;
-	private static final int APPLICATION_HEIGHT = 580;
+	private static final int APPLICATION_WINDOW_WIDTH = 1000;
+	private static final int APPLICATION_WINDOW_HEIGHT = 580;
 
 	private final SWRLAPIRulesView rulesView;
 
@@ -101,7 +99,7 @@ public class SWRLTab extends JFrame implements SWRLAPIApplicationView
 
 		contentPane.setLayout(new BorderLayout());
 		contentPane.add(rulesView);
-		setSize(APPLICATION_WIDTH, APPLICATION_HEIGHT);
+		setSize(APPLICATION_WINDOW_WIDTH, APPLICATION_WINDOW_HEIGHT);
 
 		return rulesView;
 	}

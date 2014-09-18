@@ -14,7 +14,6 @@ import org.swrlapi.core.SWRLRuleEngine;
 import org.swrlapi.drools.core.DroolsFactory;
 import org.swrlapi.drools.core.DroolsSWRLRuleEngineCreator;
 import org.swrlapi.exceptions.SWRLAPIException;
-import org.swrlapi.sqwrl.SQWRLQueryEngine;
 import org.swrlapi.ui.dialog.SWRLAPIApplicationDialogManager;
 import org.swrlapi.ui.model.SWRLAPIApplicationModel;
 import org.swrlapi.ui.view.SWRLAPIApplicationView;
@@ -36,15 +35,15 @@ public class SQWRLTab extends JFrame implements SWRLAPIApplicationView
 	private static final long serialVersionUID = 1L;
 
 	private static final String APPLICATION_NAME = "SQWRLTab";
-	private static final int APPLICATION_WIDTH = 1000;
-	private static final int APPLICATION_HEIGHT = 580;
+	private static final int APPLICATION_WINDOW_WIDTH = 1000;
+	private static final int APPLICATION_WINDOW_HEIGHT = 580;
 
 	private final SWRLAPIQueriesView queriesView;
 
 	public static void main(String[] args)
 	{
 		// TODO Hard code temporarily for testing. SWRLCoreTests, SQWRLCollectionsTests, SQWRLCoreTests, SWRLInferenceTests
-		String owlFileName = SQWRLTab.class.getClassLoader().getResource("projects/SWRLSimple.owl").getFile();
+		String owlFileName = SQWRLTab.class.getClassLoader().getResource("projects/SQWRLCollectionsTests.owl").getFile();
 		File owlFile = new File(owlFileName);
 
 		try {
@@ -102,7 +101,7 @@ public class SQWRLTab extends JFrame implements SWRLAPIApplicationView
 
 		contentPane.setLayout(new BorderLayout());
 		contentPane.add(queriesView);
-		setSize(APPLICATION_WIDTH, APPLICATION_HEIGHT);
+		setSize(APPLICATION_WINDOW_WIDTH, APPLICATION_WINDOW_HEIGHT);
 
 		return queriesView;
 	}
