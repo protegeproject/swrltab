@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <rdf:RDF
     xmlns="http://swrl.stanford.edu/ontologies/tests/4.3/SQWRLCoreTests.owl#"
-    xmlns:swrlxml="http://swrl.stanford.edu/ontologies/built-ins/3.4/swrlxml.owl#"
     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
     xmlns:swrlx="http://swrl.stanford.edu/ontologies/built-ins/3.3/swrlx.owl#"
@@ -31,7 +30,6 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
         >See http://protege.cim3.net/cgi-bin/wiki.pl?SWRLTab for documentation on the SWRLTab.</rdfs:comment>
       </rdf:Description>
     </owl:imports>
-    <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.4/swrlxml.owl"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >See http://protege.cim3.net/cgi-bin/wiki.pl?SWRLTab for documentation on the SWRLTab.
 
