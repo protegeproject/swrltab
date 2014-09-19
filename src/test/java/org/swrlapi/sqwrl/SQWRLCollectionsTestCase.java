@@ -16,6 +16,8 @@ import org.swrlapi.test.SWRLAPITestBase;
 
 import java.util.List;
 
+// TODO Need to wire up the result tests
+
 public class SQWRLCollectionsTestCase extends SWRLAPITestBase
 {
 	String Namespace = "http://swrlapi.org/ontologies/SQWRLCoreTests.owl#";
