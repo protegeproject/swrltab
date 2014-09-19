@@ -164,7 +164,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
   <owl:DatatypeProperty rdf:ID="hasRadius">
     <rdfs:domain rdf:resource="#Circle"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="hasAge">
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
@@ -183,7 +183,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
   </owl:FunctionalProperty>
   <owl:FunctionalProperty rdf:ID="hasAmount">
     <rdfs:domain rdf:resource="#Sale"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
   </owl:FunctionalProperty>
   <owl:FunctionalProperty rdf:ID="hasDrug">
@@ -194,7 +194,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
   <owl:FunctionalProperty rdf:ID="hasDose">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:domain rdf:resource="#Treatment"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
   </owl:FunctionalProperty>
   <owl:FunctionalProperty rdf:ID="hasProduct">
     <rdfs:domain rdf:resource="#Sale"/>
@@ -270,7 +270,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
   <swrl:Variable rdf:ID="sp"/>
   <swrl:Variable rdf:ID="s2"/>
   <Circle rdf:ID="circle1">
-    <hasRadius rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    <hasRadius rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
     >12.5</hasRadius>
   </Circle>
   <State rdf:ID="CA"/>
@@ -361,7 +361,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
       <Female rdf:ID="F1">
         <hasTreatment>
           <Treatment rdf:ID="t5">
-            <hasDose rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+            <hasDose rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
             >9.0</hasDose>
             <temporal:hasGranularity rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Hours"/>
             <temporal:hasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
@@ -388,7 +388,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
                 >2000-06-08</hasManufactureDate>
               </Car>
             </hasProduct>
-            <hasAmount rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+            <hasAmount rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
             >67675.0</hasAmount>
             <temporal:hasTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
             >2009-07-21T00:00:00</temporal:hasTime>
@@ -408,13 +408,13 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
             <temporal:hasFinishTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
             >2009-11-28T00:00:00</temporal:hasFinishTime>
             <temporal:hasGranularity rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Seconds"/>
-            <hasDose rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+            <hasDose rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
             >33.0</hasDose>
           </Treatment>
         </hasTreatment>
         <hasTreatment>
           <Treatment rdf:ID="t1">
-            <hasDose rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+            <hasDose rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
             >3.0</hasDose>
             <temporal:hasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
             >2007-05-15T00:00:00</temporal:hasStartTime>
@@ -426,7 +426,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
         </hasTreatment>
         <hasSales>
           <Sale rdf:ID="sale2">
-            <hasAmount rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+            <hasAmount rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
             >786868.0</hasAmount>
             <hasState>
               <State rdf:ID="NY"/>
@@ -442,7 +442,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
             <temporal:hasGranularity rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Days"/>
           </Sale>
         </hasSales>
-        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >77</hasAge>
         <hasCar>
           <Car rdf:ID="Porsche">
@@ -466,7 +466,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
                 >2004-11-08</hasManufactureDate>
               </Car>
             </hasProduct>
-            <hasAmount rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+            <hasAmount rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
             >3443.0</hasAmount>
           </Sale>
         </hasSales>
@@ -479,7 +479,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
                 <hasDrug>
                   <Drug rdf:ID="AZT"/>
                 </hasDrug>
-                <hasDose rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+                <hasDose rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
                 >7.4</hasDose>
                 <temporal:hasGranularity rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Seconds"/>
                 <temporal:hasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
@@ -496,7 +496,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
                 <temporal:hasTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
                 >2009-09-21T00:00:00</temporal:hasTime>
                 <temporal:hasGranularity rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Days"/>
-                <hasAmount rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+                <hasAmount rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
                 >8989.0</hasAmount>
                 <hasState>
                   <State rdf:ID="ND"/>
@@ -510,7 +510,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
                 <temporal:hasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
                 >2008-12-19T00:00:00</temporal:hasStartTime>
                 <hasDrug rdf:resource="#DDI"/>
-                <hasDose rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+                <hasDose rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
                 >4.3</hasDose>
                 <temporal:hasGranularity rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Minutes"/>
               </Treatment>
@@ -525,7 +525,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
                 <temporal:hasGranularity rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Days"/>
                 <temporal:hasFinishTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
                 >2009-11-28T00:00:00</temporal:hasFinishTime>
-                <hasDose rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+                <hasDose rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
                 >7.4</hasDose>
                 <temporal:hasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
                 >2009-10-29T00:00:00</temporal:hasStartTime>
@@ -533,7 +533,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
             </hasTreatment>
             <hasTreatment>
               <Treatment rdf:ID="t2">
-                <hasDose rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+                <hasDose rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
                 >4.3</hasDose>
                 <temporal:hasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
                 >2008-02-25T00:00:00</temporal:hasStartTime>
@@ -560,7 +560,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
             >2014-02-17T00:00:00</temporal:hasFinishTime>
             <temporal:hasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
             >2013-02-17T00:00:00</temporal:hasStartTime>
-            <hasDose rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+            <hasDose rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
             >33.0</hasDose>
           </Treatment>
         </hasTreatment>
@@ -568,7 +568,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
         >Claudi</hasName>
         <hasManufactureDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >1999-12-12</hasManufactureDate>
-        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >7</hasAge>
       </Female>
       <Male rdf:ID="M1">
@@ -587,7 +587,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
         <hasCar rdf:resource="#Suzuki"/>
         <hasManufactureDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >1999-12-12</hasManufactureDate>
-        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >66</hasAge>
       </Male>
       <Male rdf:ID="M3">
@@ -595,7 +595,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
         >Joe</hasName>
         <hasDOB rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
         >1988-07-25</hasDOB>
-        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >12</hasAge>
         <hasCar rdf:resource="#BMW"/>
         <hasCar rdf:resource="#Suzuki"/>
@@ -669,11 +669,11 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
                     <swrl:builtin rdf:resource="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#notNthLastSlice"/>
                     <swrl:arguments>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
                         >3</rdf:first>
                         <rdf:rest>
                           <rdf:List>
-                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
                             >2</rdf:first>
                             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                           </rdf:List>
@@ -748,12 +748,12 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
                   <swrl:BuiltinAtom>
                     <swrl:arguments>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
                         >3</rdf:first>
                         <rdf:rest>
                           <rdf:List>
                             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
                             >2</rdf:first>
                           </rdf:List>
                         </rdf:rest>
@@ -848,7 +848,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
                   <swrl:BuiltinAtom>
                     <swrl:arguments>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
                         >1</rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                       </rdf:List>
@@ -910,7 +910,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
                     >1999-12-21T10:10:10.222</rdf:first>
                     <rdf:rest>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
                         >0</rdf:first>
                         <rdf:rest>
                           <rdf:List>
@@ -1024,7 +1024,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >"40.5"^^xsd:double</rdfs:comment>
+    >"40.5"^^xsd:float</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:rest>
@@ -1106,7 +1106,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
                     >1999-1-21T10:10:10</rdf:first>
                     <rdf:rest>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
                         >1</rdf:first>
                         <rdf:rest>
                           <rdf:List>
@@ -1202,12 +1202,12 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
       </swrl:AtomList>
     </swrl:head>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >:F1, "3"^^xsd:integer
-:F2, "3"^^xsd:integer
-:F3, "4"^^xsd:integer
-:M1, "2"^^xsd:integer
-:M2, "3"^^xsd:integer
-:M3, "4"^^xsd:integer</rdfs:comment>
+    >:F1, "3"^^xsd:int
+:F2, "3"^^xsd:int
+:F3, "4"^^xsd:int
+:M1, "2"^^xsd:int
+:M2, "3"^^xsd:int
+:M3, "4"^^xsd:int</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</swrla:isRuleEnabled>
     <swrl:body>
@@ -1284,7 +1284,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
   </swrl:Imp>
   <swrl:Imp rdf:ID="PowerCalculation">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >"0.6597539553864471"^^xsd:double</rdfs:comment>
+    >"0.6597539553864471"^^xsd:float</rdfs:comment>
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <swrl:body>
@@ -1299,12 +1299,12 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
                   <rdf:List>
                     <rdf:rest>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
                         >-0.6</rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                       </rdf:List>
                     </rdf:rest>
-                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
                     >2.0</rdf:first>
                   </rdf:List>
                 </rdf:rest>
@@ -1356,7 +1356,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >"77"^^xsd:integer</rdfs:comment>
+    >"77"^^xsd:int</rdfs:comment>
     <swrl:body>
       <swrl:AtomList>
         <rdf:rest>
@@ -1440,7 +1440,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
                   <swrl:BuiltinAtom>
                     <swrl:arguments>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
                         >2</rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                       </rdf:List>
@@ -1553,7 +1553,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
                   <rdf:List>
                     <rdf:rest>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
                         >10</rdf:first>
                         <rdf:rest>
                           <rdf:List>
@@ -1640,7 +1640,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
     <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >false</swrla:isRuleEnabled>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >"12.5"^^xsd:double</rdfs:comment>
+    >"12.5"^^xsd:float</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:first>
@@ -1720,7 +1720,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
                     <swrl:builtin rdf:resource="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#notLastN"/>
                     <swrl:arguments>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
                         >1</rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                       </rdf:List>
@@ -1818,18 +1818,18 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
             <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#add"/>
             <swrl:arguments>
               <rdf:List>
-                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
                 >4</rdf:first>
                 <rdf:rest>
                   <rdf:List>
                     <rdf:rest>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
                         >2</rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                       </rdf:List>
                     </rdf:rest>
-                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
                     >2</rdf:first>
                   </rdf:List>
                 </rdf:rest>
@@ -1899,7 +1899,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
                   <swrl:BuiltinAtom>
                     <swrl:arguments>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
                         >2</rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                       </rdf:List>
@@ -2002,11 +2002,11 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
                     <swrl:builtin rdf:resource="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#nthSlice"/>
                     <swrl:arguments>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
                         >2</rdf:first>
                         <rdf:rest>
                           <rdf:List>
-                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
                             >3</rdf:first>
                             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                           </rdf:List>
@@ -2094,7 +2094,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
                     <swrl:arguments>
                       <rdf:List>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
                         >2</rdf:first>
                       </rdf:List>
                     </swrl:arguments>
@@ -2208,7 +2208,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
                                     <rdf:first rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Minutes"/>
                                   </rdf:List>
                                 </rdf:rest>
-                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
                                 >10</rdf:first>
                               </rdf:List>
                             </rdf:rest>
@@ -2488,7 +2488,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
                                     <rdf:rest>
                                       <rdf:List>
                                         <rdf:first rdf:datatype=
-                                        "http://www.w3.org/2001/XMLSchema#integer"
+                                        "http://www.w3.org/2001/XMLSchema#int"
                                         >1</rdf:first>
                                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                                       </rdf:List>
@@ -2602,11 +2602,11 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
                   <swrl:BuiltinAtom>
                     <swrl:arguments>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
                         >2</rdf:first>
                         <rdf:rest>
                           <rdf:List>
-                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
                             >3</rdf:first>
                             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                           </rdf:List>
@@ -2720,7 +2720,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
                         <swrl:arguments>
                           <rdf:List>
                             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
                             >2</rdf:first>
                           </rdf:List>
                         </swrl:arguments>
@@ -2912,7 +2912,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
       </swrl:AtomList>
     </swrl:body>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >"5"^^xsd:integer</rdfs:comment>
+    >"5"^^xsd:int</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
         <rdf:first>
@@ -2990,7 +2990,7 @@ See http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL for documentation on SQWRL.</r
                   <swrl:BuiltinAtom>
                     <swrl:arguments>
                       <rdf:List>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
                         >1</rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                       </rdf:List>

@@ -96,6 +96,7 @@ public class SQWRLCollectionsTestCase extends SWRLAPITestBase
 
 	}
 
+	@Test
 	public void TestSQWRLNth() throws SWRLParseException, SQWRLException
 	{
 		declareOWLNamedIndividuals("DDI", "AZT", "BBT");
@@ -106,6 +107,7 @@ public class SQWRLCollectionsTestCase extends SWRLAPITestBase
 
 	}
 
+	@Test
 	public void TestSQWRLNthLast() throws SWRLParseException, SQWRLException
 	{
 		declareOWLNamedIndividuals("DDI", "AZT", "BBT");
@@ -113,6 +115,12 @@ public class SQWRLCollectionsTestCase extends SWRLAPITestBase
 		SQWRLResult result = executeSQWRLQuery("q1",
 				" . sqwrl:makeBag(?s1, DDI) ^ sqwrl:makeBag(?s1, AZT) ^ sqwrl:makeBag(?s1, BBT) "
 						+ " . sqwrl:nthLast(?secondLast, ?s1, 2) -> sqwrl:select(?secondLast)");
+
+		while (result.hasNext()) {
+			List<SQWRLResultValue> row = result.getRow();
+			SQWRLNamedResultValue l = row.get(0).asNamedResult();
+			result.next();
+		}
 
 	}
 
