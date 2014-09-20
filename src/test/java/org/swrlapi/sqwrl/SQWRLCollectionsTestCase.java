@@ -10,11 +10,14 @@ import org.swrlapi.drools.core.DroolsSWRLRuleEngineCreator;
 import org.swrlapi.parser.SWRLParseException;
 import org.swrlapi.sqwrl.exceptions.SQWRLException;
 import org.swrlapi.sqwrl.values.SQWRLLiteralResultValue;
-import org.swrlapi.sqwrl.values.SQWRLNamedResultValue;
+import org.swrlapi.sqwrl.values.SQWRLEntityResultValue;
 import org.swrlapi.sqwrl.values.SQWRLResultValue;
 import org.swrlapi.test.SWRLAPITestBase;
 
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 // TODO Need to wire up the result tests
 
@@ -43,11 +46,10 @@ public class SQWRLCollectionsTestCase extends SWRLAPITestBase
 		SQWRLResult result = executeSQWRLQuery("q1", ". sqwrl:makeBag(?s1, DDI) ^ sqwrl:makeBag(?s1, AZT)"
 				+ " ^ sqwrl:makeBag(?s2, AZT) ^ sqwrl:makeBag(?s2, AZT) . sqwrl:equal(?s1, ?s2) -> sqwrl:select(\"Yes\")");
 
-		while (result.hasNext()) {
-			List<SQWRLResultValue> row = result.getRow();
-			SQWRLLiteralResultValue l = row.get(0).asLiteralResult();
-			result.next();
-		}
+		assertTrue(result.next());
+		SQWRLLiteralResultValue literal = result.getLiteral(0);
+		assertTrue(literal.isString());
+		assertEquals(literal.getString(), "Yes");
 	}
 
 	@Test
@@ -57,11 +59,11 @@ public class SQWRLCollectionsTestCase extends SWRLAPITestBase
 
 		SQWRLResult result = executeSQWRLQuery("q1",
 				". sqwrl:makeBag(?s1, DDI) ^ sqwrl:makeBag(?s1, AZT) . sqwrl:size(?size, ?s1) -> sqwrl:select(?size)");
-		while (result.hasNext()) {
-			List<SQWRLResultValue> row = result.getRow();
-			SQWRLLiteralResultValue l = row.get(0).asLiteralResult();
-			result.next();
-		}
+
+		assertTrue(result.next());
+		SQWRLLiteralResultValue literal = result.getLiteral("size");
+		assertTrue(literal.isLong()); // TODO This should be xsd:int
+		assertEquals(literal.getLong(), 2);
 	}
 
 	@Test
@@ -71,12 +73,12 @@ public class SQWRLCollectionsTestCase extends SWRLAPITestBase
 
 		SQWRLResult result = executeSQWRLQuery("q1",
 				". sqwrl:makeBag(?s1, DDI) ^ sqwrl:makeBag(?s1, AZT) . sqwrl:size(?size, ?s1) "
-						+ " ^ swrlb:equal(?size, 2) -> sqwrl:select(\"Yes!\")");
-		while (result.hasNext()) {
-			List<SQWRLResultValue> row = result.getRow();
-			SQWRLLiteralResultValue l = row.get(0).asLiteralResult();
-			result.next();
-		}
+						+ " ^ swrlb:equal(?size, 2) -> sqwrl:select(\"Yes\")");
+
+		assertTrue(result.next());
+		SQWRLLiteralResultValue literal = result.getLiteral(0);
+		assertTrue(literal.isString());
+		assertEquals(literal.getString(), "Yes");
 	}
 
 	@Test
@@ -86,6 +88,9 @@ public class SQWRLCollectionsTestCase extends SWRLAPITestBase
 
 		SQWRLResult result = executeSQWRLQuery("q1",
 				". sqwrl:makeBag(?s1, DDI) ^ sqwrl:makeBag(?s1, AZT) . sqwrl:first(?first, ?s1) -> sqwrl:select(?first)");
+
+		assertTrue(result.next());
+		assertEquals(result.getIndividual("first").getShortName(), "AZT");
 	}
 
 	@Test
@@ -96,6 +101,8 @@ public class SQWRLCollectionsTestCase extends SWRLAPITestBase
 		SQWRLResult result = executeSQWRLQuery("q1",
 				". sqwrl:makeBag(?s1, DDI) ^ sqwrl:makeBag(?s1, AZT) . sqwrl:last(?last, ?s1) -> sqwrl:select(?last)");
 
+		assertTrue(result.next());
+		assertEquals(result.getIndividual("last").getShortName(), "DDI");
 	}
 
 	@Test
@@ -107,6 +114,8 @@ public class SQWRLCollectionsTestCase extends SWRLAPITestBase
 				" . sqwrl:makeBag(?s1, DDI) ^ sqwrl:makeBag(?s1, AZT) ^ sqwrl:makeBag(?s1, BBT) "
 						+ " . sqwrl:nth(?second, ?s1, 2) -> sqwrl:select(?second)");
 
+		assertTrue(result.next());
+		assertEquals(result.getIndividual("second").getShortName(), "BBT");
 	}
 
 	@Test
@@ -118,12 +127,8 @@ public class SQWRLCollectionsTestCase extends SWRLAPITestBase
 				" . sqwrl:makeBag(?s1, DDI) ^ sqwrl:makeBag(?s1, AZT) ^ sqwrl:makeBag(?s1, BBT) "
 						+ " . sqwrl:nthLast(?secondLast, ?s1, 2) -> sqwrl:select(?secondLast)");
 
-		while (result.hasNext()) {
-			List<SQWRLResultValue> row = result.getRow();
-			SQWRLNamedResultValue l = row.get(0).asNamedResult();
-			result.next();
-		}
-
+		assertTrue(result.next());
+		assertEquals(result.getIndividual("secondLast").getShortName(), "BBT");
 	}
 
 	private SQWRLResult executeSQWRLQuery(String queryName) throws SQWRLException

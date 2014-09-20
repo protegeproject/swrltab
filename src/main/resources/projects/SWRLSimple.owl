@@ -26,56 +26,14 @@
   <owl:ObjectProperty rdf:ID="hasUncle"/>
   <owl:ObjectProperty rdf:ID="hasTreatment"/>
   <owl:ObjectProperty rdf:ID="hasDrug"/>
-  <owl:DatatypeProperty rdf:ID="hasDose">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
-  </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="hasHeight">
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
   </owl:DatatypeProperty>
-  <swrl:Imp rdf:ID="Rule-1">
-    <swrl:head>
-      <swrl:AtomList>
-        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-        <rdf:first>
-          <swrl:BuiltinAtom>
-            <swrl:builtin rdf:resource="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#select"/>
-            <swrl:arguments>
-              <rdf:List>
-                <rdf:rest>
-                  <rdf:List>
-                    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                    <rdf:first>
-                      <C rdf:ID="i2"/>
-                    </rdf:first>
-                  </rdf:List>
-                </rdf:rest>
-                <rdf:first>
-                  <C rdf:ID="i1"/>
-                </rdf:first>
-              </rdf:List>
-            </swrl:arguments>
-          </swrl:BuiltinAtom>
-        </rdf:first>
-      </swrl:AtomList>
-    </swrl:head>
-    <swrl:body>
-      <swrl:AtomList>
-        <rdf:first>
-          <swrl:DifferentIndividualsAtom>
-            <swrl:argument1 rdf:resource="#i1"/>
-            <swrl:argument2 rdf:resource="#i2"/>
-          </swrl:DifferentIndividualsAtom>
-        </rdf:first>
-        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-      </swrl:AtomList>
-    </swrl:body>
-  </swrl:Imp>
-  <swrla:Entity rdf:ID="c2"/>
-  <swrl:Variable rdf:ID="start"/>
-  <swrl:Imp rdf:about="http://swrl.stanford.edu/ontologies/tests/4.3/MyRuleName">
-    <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
-    >false</swrla:isRuleEnabled>
+  <owl:FunctionalProperty rdf:ID="hasDose">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:FunctionalProperty>
+  <swrl:Imp rdf:about="MyRuleName">
     <swrl:body>
       <swrl:AtomList>
         <rdf:first>
@@ -88,20 +46,20 @@
                 </rdf:first>
                 <rdf:rest>
                   <rdf:List>
-                    <rdf:rest>
-                      <rdf:List>
-                        <rdf:rest>
-                          <rdf:List>
-                            <rdf:first rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Minutes"/>
-                            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                          </rdf:List>
-                        </rdf:rest>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-                        >10</rdf:first>
-                      </rdf:List>
-                    </rdf:rest>
                     <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                     >2013-02-17T00:10:00.0</rdf:first>
+                    <rdf:rest>
+                      <rdf:List>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        >10</rdf:first>
+                        <rdf:rest>
+                          <rdf:List>
+                            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            <rdf:first rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Minutes"/>
+                          </rdf:List>
+                        </rdf:rest>
+                      </rdf:List>
+                    </rdf:rest>
                   </rdf:List>
                 </rdf:rest>
               </rdf:List>
@@ -111,8 +69,11 @@
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
       </swrl:AtomList>
     </swrl:body>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Another RDFS comment</rdfs:comment>
     <swrl:head>
       <swrl:AtomList>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
         <rdf:first>
           <swrl:BuiltinAtom>
             <swrl:builtin rdf:resource="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#select"/>
@@ -124,15 +85,18 @@
             </swrl:arguments>
           </swrl:BuiltinAtom>
         </rdf:first>
-        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
       </swrl:AtomList>
     </swrl:head>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Another RDFS comment</rdfs:comment>
+    <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</swrla:isRuleEnabled>
   </swrl:Imp>
+  <swrla:Entity rdf:ID="c2"/>
+  <swrl:Variable rdf:ID="start"/>
+  <C rdf:ID="i1"/>
   <swrla:Entity rdf:ID="c1"/>
   <swrl:Variable rdf:ID="r"/>
   <swrl:Variable rdf:ID="p"/>
+  <C rdf:ID="i2"/>
 </rdf:RDF>
 
 <!-- Created with Protege (with OWL Plugin 3.5, Build 663)  http://protege.stanford.edu -->
