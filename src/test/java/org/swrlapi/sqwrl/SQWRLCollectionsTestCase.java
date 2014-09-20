@@ -33,12 +33,24 @@ public class SQWRLCollectionsTestCase extends SWRLAPITestBase
 	}
 
 	@Test
-	public void TestSQWRLCollectionsEqual() throws SWRLParseException, SQWRLException
+	public void TestSQWRLIndividualCollectionsEqual() throws SWRLParseException, SQWRLException
 	{
 		declareOWLNamedIndividuals("DDI", "AZT");
 
 		SQWRLResult result = executeSQWRLQuery("q1", ". sqwrl:makeBag(?s1, DDI) ^ sqwrl:makeBag(?s1, AZT)"
 				+ " ^ sqwrl:makeBag(?s2, AZT) ^ sqwrl:makeBag(?s2, AZT) . sqwrl:equal(?s1, ?s2) -> sqwrl:select(\"Yes\")");
+
+		assertTrue(result.next());
+		SQWRLLiteralResultValue literal = result.getLiteral(0);
+		assertTrue(literal.isString());
+		assertEquals(literal.getString(), "Yes");
+	}
+
+	@Test
+	public void TestSQWRLIntCollectionsEqual() throws SWRLParseException, SQWRLException
+	{
+		SQWRLResult result = executeSQWRLQuery("q1", ". sqwrl:makeBag(?s1, 3) ^ sqwrl:makeBag(?s1, 5)"
+				+ " ^ sqwrl:makeBag(?s2, 3) ^ sqwrl:makeBag(?s2, 5) . sqwrl:equal(?s1, ?s2) -> sqwrl:select(\"Yes\")");
 
 		assertTrue(result.next());
 		SQWRLLiteralResultValue literal = result.getLiteral(0);

@@ -19,6 +19,8 @@ target/*
 
 *.pyc
 
+.DS_Store
+
 # Protege 3 project and repository files
 *.repository
 *.pprj
