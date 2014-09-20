@@ -10,16 +10,10 @@ import org.swrlapi.drools.core.DroolsSWRLRuleEngineCreator;
 import org.swrlapi.parser.SWRLParseException;
 import org.swrlapi.sqwrl.exceptions.SQWRLException;
 import org.swrlapi.sqwrl.values.SQWRLLiteralResultValue;
-import org.swrlapi.sqwrl.values.SQWRLEntityResultValue;
-import org.swrlapi.sqwrl.values.SQWRLResultValue;
 import org.swrlapi.test.SWRLAPITestBase;
-
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-
-// TODO Need to wire up the result tests
 
 public class SQWRLCollectionsTestCase extends SWRLAPITestBase
 {
@@ -62,8 +56,8 @@ public class SQWRLCollectionsTestCase extends SWRLAPITestBase
 
 		assertTrue(result.next());
 		SQWRLLiteralResultValue literal = result.getLiteral("size");
-		assertTrue(literal.isLong()); // TODO This should be xsd:int
-		assertEquals(literal.getLong(), 2);
+		assertTrue(literal.isInt());
+		assertEquals(literal.getInt(), 2);
 	}
 
 	@Test
