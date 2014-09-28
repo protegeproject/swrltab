@@ -71,6 +71,20 @@ public class SQWRLCoreTestCase extends SWRLAPITestBase
 	}
 
 	@Test
+	public void TestSameAs() throws SWRLParseException, SQWRLException
+	{
+//		declareOWLNamedIndividual("p1");
+		declareOWLClassAssertion("Male", "p1");
+
+		SQWRLResult result = executeSQWRLQuery("q1", "sameAs(p1, p1) -> sqwrl:select(\"Yes\")");
+
+		assertTrue(result.next());
+		SQWRLLiteralResultValue literal = result.getLiteral(0);
+		assertTrue(literal.isString());
+		assertEquals(literal.getString(), "Yes");
+	}
+
+	@Test
 	public void TestSQWRLAvg() throws SWRLParseException, SQWRLException
 	{
 		declareOWLDataPropertyAssertion("p1", "hasAge", "10", "xsd:int");

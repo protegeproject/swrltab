@@ -42,7 +42,7 @@ public class SWRLTab extends JFrame implements SWRLAPIApplicationView
 	public static void main(String[] args)
 	{
 		// TODO Hard code temporarily for testing. SWRLCoreTests, SQWRLCollectionsTests, SQWRLCoreTests, SWRLInferenceTests
-		String owlFileName = SWRLTab.class.getClassLoader().getResource("projects/SWRLSimple.owl").getFile();
+		String owlFileName = SWRLTab.class.getClassLoader().getResource("projects/SQWRLCollectionsTests.owl").getFile();
 		File owlFile = new File(owlFileName);
 
 		try {

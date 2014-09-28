@@ -2,14 +2,12 @@ package org.swrltab.test;
 
 import java.io.File;
 
-import org.semanticweb.owlapi.util.DefaultPrefixManager;
 import org.swrlapi.core.SWRLAPIFactory;
 import org.swrlapi.core.SWRLAPIOWLOntology;
 import org.swrlapi.core.SWRLAPIRule;
 import org.swrlapi.core.SWRLAPIRuleRenderer;
 import org.swrlapi.core.SWRLRuleEngineFactory;
 import org.swrlapi.drools.core.DroolsSWRLRuleEngineCreator;
-import org.swrlapi.exceptions.SWRLAPIException;
 import org.swrlapi.sqwrl.SQWRLQueryEngine;
 import org.swrlapi.test.SWRLAPIRegressionTester;
 
@@ -37,7 +35,7 @@ public class SWRLTabRegressionTester
 
 			SWRLAPIRuleRenderer renderer = SWRLAPIFactory.createSWRLRuleRenderer(swrlapiOWLOntology);
 
-			for (SWRLAPIRule rule : swrlapiOWLOntology.getSWRLRules()) {
+			for (SWRLAPIRule rule : swrlapiOWLOntology.getSWRLAPIRules()) {
 				System.out.println(renderer.render(rule));
 			}
 
