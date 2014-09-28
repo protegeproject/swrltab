@@ -4,8 +4,8 @@ import java.io.File;
 
 import org.swrlapi.core.SWRLAPIFactory;
 import org.swrlapi.core.SWRLAPIOWLOntology;
+import org.swrlapi.core.SWRLAPIRenderer;
 import org.swrlapi.core.SWRLAPIRule;
-import org.swrlapi.core.SWRLAPIRuleRenderer;
 import org.swrlapi.core.SWRLRuleEngineFactory;
 import org.swrlapi.drools.core.DroolsSWRLRuleEngineCreator;
 import org.swrlapi.sqwrl.SQWRLQueryEngine;
@@ -21,8 +21,8 @@ public class SWRLTabRegressionTester
 	public static void main(String[] args)
 	{
 		// TODO Hard code temporarily for testing. SWRLCoreTests, SQWRLCollectionsTests, SQWRLCoreTests, SWRLInferenceTests
-		String owlFileName = SWRLTabRegressionTester.class.getClassLoader().getResource(
-				"projects/SWRLCoreTests.owl").getFile();
+		String owlFileName = SWRLTabRegressionTester.class.getClassLoader().getResource("projects/SQWRLCoreTests.owl")
+				.getFile();
 		File owlFile = new File(owlFileName);
 
 		try {
@@ -31,15 +31,14 @@ public class SWRLTabRegressionTester
 			swrlRuleEngineFactory.registerRuleEngine(new DroolsSWRLRuleEngineCreator());
 
 			SQWRLQueryEngine sqwrlQueryEngine = swrlRuleEngineFactory.createSQWRLQueryEngine(swrlapiOWLOntology);
-			SWRLAPIRegressionTester swrlapiRegressionTester = new SWRLAPIRegressionTester(sqwrlQueryEngine);
+			SWRLAPIRegressionTester swrlapiRegressionTester = new SWRLAPIRegressionTester(swrlapiOWLOntology,
+					sqwrlQueryEngine);
 
-			SWRLAPIRuleRenderer renderer = SWRLAPIFactory.createSWRLRuleRenderer(swrlapiOWLOntology);
+			//			SWRLAPIRenderer renderer = SWRLAPIFactory.createSWRLAPIRenderer(swrlapiOWLOntology);
+			//			for (SWRLAPIRule rule : swrlapiOWLOntology.getSWRLAPIRules())
+			//				System.out.println(renderer.renderSWRLRule(rule));
 
-			for (SWRLAPIRule rule : swrlapiOWLOntology.getSWRLAPIRules()) {
-				System.out.println(renderer.render(rule));
-			}
-
-			//swrlapiRegressionTester.run();
+			swrlapiRegressionTester.run();
 		} catch (RuntimeException e) {
 			e.printStackTrace();
 		}
