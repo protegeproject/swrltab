@@ -17,7 +17,7 @@ import static org.junit.Assert.assertTrue;
 
 public class SQWRLCoreTestCase extends SWRLAPITestBase
 {
-	String Namespace = "http://swrlapi.org/ontologies/SQWRLCoreTests.owl#";
+	String Namespace = "http://swrlapi.org/ontologies/SQWRLCoreTestCase.owl#";
 	double DELTA = 1e-6;
 
 	SQWRLQueryEngine sqwrlQueryEngine;
@@ -73,7 +73,7 @@ public class SQWRLCoreTestCase extends SWRLAPITestBase
 	@Test
 	public void TestSameAs() throws SWRLParseException, SQWRLException
 	{
-//		declareOWLNamedIndividual("p1");
+		//		declareOWLNamedIndividual("p1");
 		declareOWLClassAssertion("Male", "p1");
 
 		SQWRLResult result = executeSQWRLQuery("q1", "sameAs(p1, p1) -> sqwrl:select(\"Yes\")");

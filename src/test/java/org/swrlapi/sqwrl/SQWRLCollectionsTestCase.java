@@ -17,7 +17,7 @@ import static org.junit.Assert.assertTrue;
 
 public class SQWRLCollectionsTestCase extends SWRLAPITestBase
 {
-	String Namespace = "http://swrlapi.org/ontologies/SQWRLCoreTests.owl#";
+	String Namespace = "http://swrlapi.org/ontologies/SQWRLCollectionsTestCase.owl#";
 
 	SQWRLQueryEngine sqwrlQueryEngine;
 
