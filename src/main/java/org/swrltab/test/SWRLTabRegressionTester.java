@@ -4,8 +4,6 @@ import java.io.File;
 
 import org.swrlapi.core.SWRLAPIFactory;
 import org.swrlapi.core.SWRLAPIOWLOntology;
-import org.swrlapi.core.SWRLAPIRenderer;
-import org.swrlapi.core.SWRLAPIRule;
 import org.swrlapi.core.SWRLRuleEngineFactory;
 import org.swrlapi.drools.core.DroolsSWRLRuleEngineCreator;
 import org.swrlapi.sqwrl.SQWRLQueryEngine;
