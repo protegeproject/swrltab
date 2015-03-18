@@ -18,8 +18,7 @@ public class SWRLTabRegressionTester
 {
 	public static void main(String[] args)
 	{
-		// TODO Hard code temporarily for testing. SWRLCoreTests, SQWRLCollectionsTests, SQWRLCoreTests, SWRLInferenceTests
-		String owlFileName = SWRLTabRegressionTester.class.getClassLoader().getResource("projects/SQWRLCoreTests.owl")
+		String owlFileName = SWRLTabRegressionTester.class.getClassLoader().getResource("projects/SQWRLSimple.owl")
 				.getFile();
 		File owlFile = new File(owlFileName);
 
@@ -31,10 +30,6 @@ public class SWRLTabRegressionTester
 			SQWRLQueryEngine sqwrlQueryEngine = swrlRuleEngineFactory.createSQWRLQueryEngine(swrlapiOWLOntology);
 			SWRLAPIRegressionTester swrlapiRegressionTester = new SWRLAPIRegressionTester(swrlapiOWLOntology,
 					sqwrlQueryEngine);
-
-			//			SWRLAPIRenderer renderer = SWRLAPIFactory.createSWRLAPIRenderer(swrlapiOWLOntology);
-			//			for (SWRLAPIRule rule : swrlapiOWLOntology.getSWRLAPIRules())
-			//				System.out.println(renderer.renderSWRLRule(rule));
 
 			swrlapiRegressionTester.run();
 		} catch (RuntimeException e) {
@@ -49,6 +44,10 @@ public class SWRLTabRegressionTester
 		System.exit(1);
 	}
 }
+
+// SWRLAPIRenderer renderer = SWRLAPIFactory.createSWRLAPIRenderer(swrlapiOWLOntology);
+// for (SWRLAPIRule rule : swrlapiOWLOntology.getSWRLAPIRules())
+// System.out.println(renderer.renderSWRLRule(rule));
 
 // SWRLParser parser = new SWRLParser(swrlapiOWLOntology);
 // Scanner scanner = new Scanner(System.in);
