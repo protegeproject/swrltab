@@ -10,16 +10,20 @@ import org.swrlapi.sqwrl.SQWRLQueryEngine;
 import org.swrlapi.test.SWRLAPIRegressionTester;
 
 /**
- * To invoke from Maven put <code>org.swrltab.test.SWRLTabRegressionTester</code> in the <code>mainClass</code> element
- * of the <code>exec-maven-plugin</code> plugin configuration in the Maven project POM and run with the
- * <code>exec:java</code> goal.
+ * Uses a {@link org.swrlapi.test.SWRLAPIRegressionTester} to individually execute all SQWRL queries in an ontology and
+ * compare the generated result with the expected result stored in the <code>rdfs:comment</code> annotation associated
+ * with each query.
+ * 
+ * @see org.swrlapi.test.SWRLAPIRegressionTester
  */
 public class SWRLTabRegressionTester
 {
 	public static void main(String[] args)
 	{
-		String owlFileName = SWRLTabRegressionTester.class.getClassLoader().getResource("projects/SQWRLSimple.owl")
-				.getFile();
+		if (args.length != 1)
+			Usage();
+
+		String owlFileName = args[0];
 		File owlFile = new File(owlFileName);
 
 		try {
@@ -37,7 +41,6 @@ public class SWRLTabRegressionTester
 		}
 	}
 
-	@SuppressWarnings("unused")
 	private static void Usage()
 	{
 		System.err.println("Usage: " + SWRLTabRegressionTester.class.getName() + " <owlFileName>");
