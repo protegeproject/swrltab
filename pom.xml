@@ -93,7 +93,7 @@
 				<configuration>
 					<mainClass>org.swrltab.ui.SWRLTab</mainClass>
 					<arguments>
-					  <argument>foo</argument>
+					  <argument>src/main/resources/projects/SWRLSimple.owl</argument>
           </arguments>
 				</configuration>
 			</plugin>

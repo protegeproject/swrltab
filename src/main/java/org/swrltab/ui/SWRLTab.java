@@ -41,7 +41,10 @@ public class SWRLTab extends JFrame implements SWRLAPIApplicationView
 
 	public static void main(String[] args)
 	{
-		String owlFileName = SWRLTab.class.getClassLoader().getResource("projects/SWRLSimple.owl").getFile();
+		if (args.length != 1)
+			Usage();
+
+		String owlFileName = args[0];
 		File owlFile = new File(owlFileName);
 
 		try {
@@ -114,7 +117,6 @@ public class SWRLTab extends JFrame implements SWRLAPIApplicationView
 		}
 	}
 
-	@SuppressWarnings("unused")
 	private static void Usage()
 	{
 		System.err.println("Usage: " + SWRLTab.class.getName() + " <owlFileName>");
