@@ -47,7 +47,7 @@ public class SQWRLTab extends JFrame implements SWRLAPIApplicationView
 
 		try {
 			// Create a SWRLAPI OWL ontology from the OWL ontology in the supplied file
-			SWRLAPIOWLOntology swrlapiOWLOntology = SWRLAPIFactory.createOntology(owlFile);
+			SWRLAPIOWLOntology swrlapiOWLOntology = SWRLAPIFactory.createSWRLAPIOntology(owlFile);
 
 			// Create a Drools-based query engine
 			SWRLRuleEngine queryEngine = SWRLAPIFactory.createSWRLRuleEngine(swrlapiOWLOntology,
