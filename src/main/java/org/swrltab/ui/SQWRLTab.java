@@ -54,11 +54,11 @@ public class SQWRLTab extends JFrame implements SWRLAPIApplicationView
 					new DroolsSWRLRuleEngineCreator());
 
 			// Create the application model, supplying it with the ontology and query engine
-			SWRLAPIApplicationModel applicationModel = SWRLAPIFactory.createApplicationModel(swrlapiOWLOntology, queryEngine);
+			SWRLAPIApplicationModel applicationModel = SWRLAPIFactory.createSWRLAPIApplicationModel(swrlapiOWLOntology, queryEngine);
 
 			// Create the application controller
 			SWRLAPIApplicationDialogManager applicationDialogManager = SWRLAPIFactory
-					.createApplicationDialogManager(applicationModel);
+					.createSWRLAPIApplicationDialogManager(applicationModel);
 
 			// Create the application view
 			SQWRLTab applicationView = new SQWRLTab(applicationModel, applicationDialogManager);
