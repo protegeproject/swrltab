@@ -44,7 +44,7 @@ public class SWRLTabRegressionTester
 	}
 }
 
-// SWRLAPIRenderer renderer = SWRLAPIFactory.createSWRLAPIRenderer(swrlapiOWLOntology);
+// SWRLRuleRenderer renderer = swrlapiOWLOntology.createSWRLRuleRenderer();
 // for (SWRLAPIRule rule : swrlapiOWLOntology.getSWRLAPIRules())
 // System.out.println(renderer.renderSWRLRule(rule));
 
