@@ -5,7 +5,7 @@ The SWRLTab is a [SWRLAPI](https://github.com/protegeproject/swrlapi/wiki)-based
 
 Documentation can be found at the [SWRLTab Wiki](https://github.com/protegeproject/swrltab/wiki).
 
-A [Protege Desktop Ontology Editor](http://protege.stanford.edu)-based [SWRLTab Plugin](https://github.com/protegeproject/swrltab-plugin/wiki) is also available.
+A [Protégé Desktop Ontology Editor](http://protege.stanford.edu)-based [SWRLTab Plugin](https://github.com/protegeproject/swrltab-plugin/wiki) is also available.
 
 #### Building Prerequisites
 
