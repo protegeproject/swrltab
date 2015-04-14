@@ -2,9 +2,9 @@
 				 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.swrlapi</groupId>
+  <groupId>edu.stanford.swrl</groupId>
   <artifactId>swrltab</artifactId>
-  <version>1.0.6</version>
+  <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>Standalone SWRLTab</name>
   <description>Standalone version of SWRLTab that uses the OWLAPI-based version of the SWRLAPI</description>
@@ -12,10 +12,16 @@
 
   <properties>
 
-    <swrlapi.version>1.0.6</swrlapi.version>
+    <java.version>1.8</java.version> 
+
+    <swrlapi.version>1.0.0-SNAPSHOT</swrlapi.version>
 
     <log4j.version>1.2.17</log4j.version>
     <slf4j.version>1.6.1</slf4j.version>
+
+    <maven.compiler.plugin.version>2.3.2</maven.compiler.plugin.version>
+    <maven.assembly.plugin.version>2.5.3</maven.assembly.plugin.version>
+    <exec.maven.plugin.version>1.2.1</exec.maven.plugin.version>
 
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
@@ -24,18 +30,18 @@
   <dependencies>
 
     <dependency>
-      <groupId>org.swrlapi</groupId>
+      <groupId>edu.stanford.swrl</groupId>
       <artifactId>swrlapi</artifactId>
       <version>${swrlapi.version}</version>
     </dependency>
 
     <dependency>
-      <groupId>org.swrlapi</groupId>
+      <groupId>edu.stanford.swrl</groupId>
       <artifactId>swrlapi-drools-engine</artifactId>
       <version>${swrlapi.version}</version>
     </dependency>
 
-        <dependency>
+    <dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
       <version>${slf4j.version}</version>
@@ -49,15 +55,16 @@
 
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
+        <version>${maven.compiler.plugin.version}</version>
         <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
         </configuration>
       </plugin>
 
       <plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
+        <version>${maven.assembly.plugin.version}</version>
 				<configuration>
 					<archive> 
 						<manifest>
@@ -82,7 +89,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.2.1</version>
+				<version>${exec.maven.plugin.version}</version>
 				<executions>
 					<execution>
 						<goals>
