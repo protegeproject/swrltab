@@ -55,8 +55,7 @@ public class SWRLTab extends JFrame implements SWRLAPIApplicationView
 			SWRLRuleEngine ruleEngine = swrlapiOWLOntology.createSWRLRuleEngine(DroolsFactory.getSWRLRuleEngineCreator());
 
 			// Create the application model, supplying it with the ontology and rule engine
-			SWRLAPIApplicationModel applicationModel = SWRLAPIFactory.createSWRLAPIApplicationModel(swrlapiOWLOntology,
-					ruleEngine);
+			SWRLAPIApplicationModel applicationModel = SWRLAPIFactory.createSWRLAPIApplicationModel(ruleEngine);
 
 			// Create the application controller
 			SWRLAPIApplicationDialogManager dialogManager = SWRLAPIFactory
