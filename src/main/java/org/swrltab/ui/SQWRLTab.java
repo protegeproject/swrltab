@@ -10,11 +10,11 @@ import javax.swing.JFrame;
 
 import org.swrlapi.core.SWRLAPIFactory;
 import org.swrlapi.core.SWRLAPIOWLOntology;
-import org.swrlapi.core.SWRLRuleEngine;
 import org.swrlapi.drools.core.DroolsFactory;
 import org.swrlapi.exceptions.SWRLAPIException;
+import org.swrlapi.sqwrl.SQWRLQueryEngine;
 import org.swrlapi.ui.dialog.SWRLAPIApplicationDialogManager;
-import org.swrlapi.ui.model.SWRLAPIApplicationModel;
+import org.swrlapi.ui.model.SQWRLQueryEngineModel;
 import org.swrlapi.ui.view.SWRLAPIApplicationView;
 import org.swrlapi.ui.view.queries.SWRLAPIQueriesView;
 
@@ -49,17 +49,18 @@ public class SQWRLTab extends JFrame implements SWRLAPIApplicationView
 			SWRLAPIOWLOntology swrlapiOWLOntology = SWRLAPIFactory.createSWRLAPIOntology(owlFile);
 
 			// Create a Drools-based query engine
-			SWRLRuleEngine queryEngine = swrlapiOWLOntology.createSWRLRuleEngine(DroolsFactory.getSWRLRuleEngineCreator());
+			SQWRLQueryEngine queryEngine = swrlapiOWLOntology
+					.createSQWRLQueryEngine(DroolsFactory.getSWRLRuleEngineCreator());
 
 			// Create the application model, supplying it with the ontology and query engine
-			SWRLAPIApplicationModel applicationModel = SWRLAPIFactory.createSWRLAPIApplicationModel(queryEngine);
+			SQWRLQueryEngineModel sqwrlQueryEngineModel = SWRLAPIFactory.createSQWRLQueryEngineModel(queryEngine);
 
 			// Create the application controller
 			SWRLAPIApplicationDialogManager applicationDialogManager = SWRLAPIFactory
-					.createSWRLAPIApplicationDialogManager(applicationModel);
+					.createSWRLAPIApplicationDialogManager(sqwrlQueryEngineModel);
 
 			// Create the application view
-			SQWRLTab applicationView = new SQWRLTab(applicationModel, applicationDialogManager);
+			SQWRLTab applicationView = new SQWRLTab(sqwrlQueryEngineModel, applicationDialogManager);
 
 			// Make the view visible
 			applicationView.setVisible(true);
@@ -70,11 +71,11 @@ public class SQWRLTab extends JFrame implements SWRLAPIApplicationView
 		}
 	}
 
-	public SQWRLTab(SWRLAPIApplicationModel applicationModel, SWRLAPIApplicationDialogManager applicationDialogManager)
+	public SQWRLTab(SQWRLQueryEngineModel sqwrlQueryEngineModel, SWRLAPIApplicationDialogManager applicationDialogManager)
 			throws SWRLAPIException
 	{
 		super(APPLICATION_NAME);
-		this.queriesView = createAndAddSWRLAPIQueriesView(applicationModel, applicationDialogManager);
+		this.queriesView = createAndAddSWRLAPIQueriesView(sqwrlQueryEngineModel, applicationDialogManager);
 	}
 
 	@Override
@@ -89,11 +90,12 @@ public class SQWRLTab extends JFrame implements SWRLAPIApplicationView
 		this.queriesView.update();
 	}
 
-	private SWRLAPIQueriesView createAndAddSWRLAPIQueriesView(SWRLAPIApplicationModel applicationModel,
+	private SWRLAPIQueriesView createAndAddSWRLAPIQueriesView(SQWRLQueryEngineModel sqwrlQueryEngineModel,
 			SWRLAPIApplicationDialogManager applicationDialogManager) throws SWRLAPIException
 	{
 		Icon ruleEngineIcon = DroolsFactory.getSWRLRuleEngineIcon();
-		SWRLAPIQueriesView queriesView = new SWRLAPIQueriesView(applicationModel, applicationDialogManager, ruleEngineIcon);
+		SWRLAPIQueriesView queriesView = new SWRLAPIQueriesView(sqwrlQueryEngineModel, applicationDialogManager,
+				ruleEngineIcon);
 		Container contentPane = getContentPane();
 
 		contentPane.setLayout(new BorderLayout());

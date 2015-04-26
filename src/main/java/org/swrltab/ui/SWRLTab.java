@@ -14,7 +14,7 @@ import org.swrlapi.core.SWRLRuleEngine;
 import org.swrlapi.drools.core.DroolsFactory;
 import org.swrlapi.exceptions.SWRLAPIException;
 import org.swrlapi.ui.dialog.SWRLAPIApplicationDialogManager;
-import org.swrlapi.ui.model.SWRLAPIApplicationModel;
+import org.swrlapi.ui.model.SWRLRuleEngineModel;
 import org.swrlapi.ui.view.SWRLAPIApplicationView;
 import org.swrlapi.ui.view.rules.SWRLAPIRulesView;
 
@@ -55,7 +55,7 @@ public class SWRLTab extends JFrame implements SWRLAPIApplicationView
 			SWRLRuleEngine ruleEngine = swrlapiOWLOntology.createSWRLRuleEngine(DroolsFactory.getSWRLRuleEngineCreator());
 
 			// Create the application model, supplying it with the ontology and rule engine
-			SWRLAPIApplicationModel applicationModel = SWRLAPIFactory.createSWRLAPIApplicationModel(ruleEngine);
+			SWRLRuleEngineModel applicationModel = SWRLAPIFactory.createSWRLRuleEngineModel(ruleEngine);
 
 			// Create the application controller
 			SWRLAPIApplicationDialogManager dialogManager = SWRLAPIFactory
@@ -72,7 +72,7 @@ public class SWRLTab extends JFrame implements SWRLAPIApplicationView
 		}
 	}
 
-	public SWRLTab(SWRLAPIApplicationModel applicationModel, SWRLAPIApplicationDialogManager applicationDialogManager)
+	public SWRLTab(SWRLRuleEngineModel applicationModel, SWRLAPIApplicationDialogManager applicationDialogManager)
 			throws SWRLAPIException
 	{
 		super(APPLICATION_NAME);
@@ -92,7 +92,7 @@ public class SWRLTab extends JFrame implements SWRLAPIApplicationView
 		return APPLICATION_NAME;
 	}
 
-	private SWRLAPIRulesView createAndAddSWRLAPIRulesView(SWRLAPIApplicationModel applicationModel,
+	private SWRLAPIRulesView createAndAddSWRLAPIRulesView(SWRLRuleEngineModel applicationModel,
 			SWRLAPIApplicationDialogManager applicationDialogManager) throws SWRLAPIException
 	{
 		Icon ruleEngineIcon = DroolsFactory.getSWRLRuleEngineIcon();
