@@ -13,7 +13,7 @@ import org.swrlapi.core.SWRLAPIOWLOntology;
 import org.swrlapi.drools.core.DroolsFactory;
 import org.swrlapi.exceptions.SWRLAPIException;
 import org.swrlapi.sqwrl.SQWRLQueryEngine;
-import org.swrlapi.ui.dialog.SWRLRuleEngineDialogManager;
+import org.swrlapi.ui.dialog.SWRLAPIDialogManager;
 import org.swrlapi.ui.model.SQWRLQueryEngineModel;
 import org.swrlapi.ui.view.SWRLAPIView;
 import org.swrlapi.ui.view.queries.SWRLAPIQueriesView;
@@ -56,8 +56,8 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
 			SQWRLQueryEngineModel sqwrlQueryEngineModel = SWRLAPIFactory.createSQWRLQueryEngineModel(queryEngine);
 
 			// Create the dialog manager
-			SWRLRuleEngineDialogManager dialogManager = SWRLAPIFactory
-					.createSWRLRuleEngineDialogManager(sqwrlQueryEngineModel);
+			SWRLAPIDialogManager dialogManager = SWRLAPIFactory
+					.createSWRLAPIDialogManager(sqwrlQueryEngineModel);
 
 			// Create the view
 			SQWRLTab sqwrlTab = new SQWRLTab(sqwrlQueryEngineModel, dialogManager);
@@ -71,7 +71,7 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
 		}
 	}
 
-	public SQWRLTab(SQWRLQueryEngineModel sqwrlQueryEngineModel, SWRLRuleEngineDialogManager applicationDialogManager)
+	public SQWRLTab(SQWRLQueryEngineModel sqwrlQueryEngineModel, SWRLAPIDialogManager applicationDialogManager)
 			throws SWRLAPIException
 	{
 		super(APPLICATION_NAME);
@@ -85,7 +85,7 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
 	}
 
 	private SWRLAPIQueriesView createAndAddSWRLAPIQueriesView(SQWRLQueryEngineModel sqwrlQueryEngineModel,
-			SWRLRuleEngineDialogManager applicationDialogManager) throws SWRLAPIException
+			SWRLAPIDialogManager applicationDialogManager) throws SWRLAPIException
 	{
 		Icon ruleEngineIcon = DroolsFactory.getSWRLRuleEngineIcon();
 		SWRLAPIQueriesView queriesView = new SWRLAPIQueriesView(sqwrlQueryEngineModel, applicationDialogManager,
