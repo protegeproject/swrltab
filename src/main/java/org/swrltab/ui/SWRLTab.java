@@ -7,15 +7,19 @@ import java.io.File;
 
 import javax.swing.Icon;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
 import org.swrlapi.core.SWRLAPIFactory;
 import org.swrlapi.core.SWRLAPIOWLOntology;
 import org.swrlapi.core.SWRLRuleEngine;
 import org.swrlapi.drools.core.DroolsFactory;
 import org.swrlapi.exceptions.SWRLAPIException;
+import org.swrlapi.ui.action.OpenAction;
 import org.swrlapi.ui.dialog.SWRLRuleEngineDialogManager;
 import org.swrlapi.ui.model.SWRLRuleEngineModel;
-import org.swrlapi.ui.view.SWRLAPIApplicationView;
+import org.swrlapi.ui.view.SWRLAPIView;
 import org.swrlapi.ui.view.rules.SWRLAPIRulesView;
 
 /**
@@ -29,7 +33,7 @@ import org.swrlapi.ui.view.rules.SWRLAPIRulesView;
  *
  * @see org.swrlapi.ui.view.rules.SWRLAPIRulesView
  */
-public class SWRLTab extends JFrame implements SWRLAPIApplicationView
+public class SWRLTab extends JFrame implements SWRLAPIView
 {
 	private static final long serialVersionUID = 1L;
 
@@ -60,35 +64,31 @@ public class SWRLTab extends JFrame implements SWRLAPIApplicationView
 			// Create the rule engine controller
 			SWRLRuleEngineDialogManager dialogManager = SWRLAPIFactory.createSWRLRuleEngineDialogManager(swrlRuleEngineModel);
 
-			// Create the application view
-			SWRLTab applicationView = new SWRLTab(swrlRuleEngineModel, dialogManager);
+			// Create the view
+			SWRLTab swrlTab = new SWRLTab(swrlRuleEngineModel, dialogManager);
 
 			// Make the view visible
-			applicationView.setVisible(true);
+			swrlTab.setVisible(true);
 		} catch (RuntimeException e) {
 			System.err.println("Error starting application: " + e.getMessage());
 			System.exit(-1);
 		}
 	}
 
-	public SWRLTab(SWRLRuleEngineModel applicationModel, SWRLRuleEngineDialogManager applicationDialogManager)
+	public SWRLTab(SWRLRuleEngineModel swrlRuleEngineModel, SWRLRuleEngineDialogManager applicationDialogManager)
 			throws SWRLAPIException
 	{
 		super(APPLICATION_NAME);
 
-		this.rulesView = createAndAddSWRLAPIRulesView(applicationModel, applicationDialogManager);
+		this.rulesView = createAndAddSWRLAPIRulesView(swrlRuleEngineModel, applicationDialogManager);
+
+		createMenus();
 	}
 
 	@Override
 	public void update()
 	{
 		this.rulesView.update();
-	}
-
-	@Override
-	public String getApplicationName()
-	{
-		return APPLICATION_NAME;
 	}
 
 	private SWRLAPIRulesView createAndAddSWRLAPIRulesView(SWRLRuleEngineModel applicationModel,
@@ -114,6 +114,17 @@ public class SWRLTab extends JFrame implements SWRLAPIApplicationView
 			this.setVisible(false);
 			System.exit(0);
 		}
+	}
+
+	private void createMenus()
+	{
+		JMenuBar menuBar = new JMenuBar();
+		JMenu menu = new JMenu("File");
+		JMenuItem openItem = new JMenuItem("Open");
+		openItem.addActionListener(new OpenAction());
+		menu.add(openItem);
+		menuBar.add(menu);
+		this.setJMenuBar(menuBar);
 	}
 
 	private static void Usage()

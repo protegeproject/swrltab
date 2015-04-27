@@ -15,7 +15,7 @@ import org.swrlapi.exceptions.SWRLAPIException;
 import org.swrlapi.sqwrl.SQWRLQueryEngine;
 import org.swrlapi.ui.dialog.SWRLRuleEngineDialogManager;
 import org.swrlapi.ui.model.SQWRLQueryEngineModel;
-import org.swrlapi.ui.view.SWRLAPIApplicationView;
+import org.swrlapi.ui.view.SWRLAPIView;
 import org.swrlapi.ui.view.queries.SWRLAPIQueriesView;
 
 /**
@@ -29,7 +29,7 @@ import org.swrlapi.ui.view.queries.SWRLAPIQueriesView;
  *
  * @see org.swrlapi.ui.view.queries.SWRLAPIQueriesView
  */
-public class SQWRLTab extends JFrame implements SWRLAPIApplicationView
+public class SQWRLTab extends JFrame implements SWRLAPIView
 {
 	private static final long serialVersionUID = 1L;
 
@@ -59,11 +59,11 @@ public class SQWRLTab extends JFrame implements SWRLAPIApplicationView
 			SWRLRuleEngineDialogManager dialogManager = SWRLAPIFactory
 					.createSWRLRuleEngineDialogManager(sqwrlQueryEngineModel);
 
-			// Create the application view
-			SQWRLTab applicationView = new SQWRLTab(sqwrlQueryEngineModel, dialogManager);
+			// Create the view
+			SQWRLTab sqwrlTab = new SQWRLTab(sqwrlQueryEngineModel, dialogManager);
 
 			// Make the view visible
-			applicationView.setVisible(true);
+			sqwrlTab.setVisible(true);
 
 		} catch (RuntimeException e) {
 			System.err.println("Error starting application: " + e.getMessage());
@@ -76,12 +76,6 @@ public class SQWRLTab extends JFrame implements SWRLAPIApplicationView
 	{
 		super(APPLICATION_NAME);
 		this.queriesView = createAndAddSWRLAPIQueriesView(sqwrlQueryEngineModel, applicationDialogManager);
-	}
-
-	@Override
-	public String getApplicationName()
-	{
-		return APPLICATION_NAME;
 	}
 
 	@Override
