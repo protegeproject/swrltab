@@ -11,8 +11,11 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.swrlapi.core.SWRLAPIFactory;
-import org.swrlapi.core.SWRLAPIOWLOntology;
 import org.swrlapi.core.SWRLRuleEngine;
 import org.swrlapi.drools.core.DroolsFactory;
 import org.swrlapi.exceptions.SWRLAPIException;
@@ -52,13 +55,14 @@ public class SWRLTab extends JFrame implements SWRLAPIView
 		File owlFile = new File(owlFileName);
 
 		try {
-			// Create a SWRLAPI OWL ontology from the OWL ontology in the supplied file
-			SWRLAPIOWLOntology swrlapiOWLOntology = SWRLAPIFactory.createSWRLAPIOntology(owlFile);
+			// Create an OWL ontology using the OWLAPI
+			OWLOntologyManager ontologyManager = OWLManager.createOWLOntologyManager();
+			OWLOntology ontology = ontologyManager.loadOntologyFromOntologyDocument(owlFile);
 
 			// Create a Drools-based rule engine
-			SWRLRuleEngine ruleEngine = swrlapiOWLOntology.createSWRLRuleEngine(DroolsFactory.getSWRLRuleEngineCreator());
+			SWRLRuleEngine ruleEngine = SWRLAPIFactory.createSWRLRuleEngine(ontology);
 
-			// Create the rule engine model, supplying it with the ontology and rule engine
+			// Create the rule engine model, supplying it with the rule engine
 			SWRLRuleEngineModel swrlRuleEngineModel = SWRLAPIFactory.createSWRLRuleEngineModel(ruleEngine);
 
 			// Create the rule engine controller
@@ -69,6 +73,9 @@ public class SWRLTab extends JFrame implements SWRLAPIView
 
 			// Make the view visible
 			swrlTab.setVisible(true);
+		} catch (OWLOntologyCreationException e) {
+			System.err.println("Error creating OWL ontology from file " + owlFile.getAbsolutePath() + ": " + e.getMessage());
+			System.exit(-1);
 		} catch (RuntimeException e) {
 			System.err.println("Error starting application: " + e.getMessage());
 			System.exit(-1);

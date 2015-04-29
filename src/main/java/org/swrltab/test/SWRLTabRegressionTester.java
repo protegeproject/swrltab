@@ -2,9 +2,11 @@ package org.swrltab.test;
 
 import java.io.File;
 
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.swrlapi.core.SWRLAPIFactory;
-import org.swrlapi.core.SWRLAPIOWLOntology;
-import org.swrlapi.drools.core.DroolsSWRLRuleEngineCreator;
 import org.swrlapi.sqwrl.SQWRLQueryEngine;
 import org.swrlapi.test.SWRLAPIRegressionTester;
 
@@ -26,12 +28,17 @@ public class SWRLTabRegressionTester
 		File owlFile = new File(owlFileName);
 
 		try {
-			SWRLAPIOWLOntology swrlapiOWLOntology = SWRLAPIFactory.createSWRLAPIOntology(owlFile);
-			SQWRLQueryEngine sqwrlQueryEngine = swrlapiOWLOntology.createSQWRLQueryEngine(new DroolsSWRLRuleEngineCreator());
-			SWRLAPIRegressionTester swrlapiRegressionTester = new SWRLAPIRegressionTester(swrlapiOWLOntology,
-					sqwrlQueryEngine);
+			OWLOntologyManager ontologyManager = OWLManager.createOWLOntologyManager();
+			OWLOntology ontology = ontologyManager.loadOntologyFromOntologyDocument(owlFile);
+
+			SQWRLQueryEngine sqwrlQueryEngine = SWRLAPIFactory.createSQWRLQueryEngine(ontology);
+
+			SWRLAPIRegressionTester swrlapiRegressionTester = new SWRLAPIRegressionTester(sqwrlQueryEngine);
 
 			swrlapiRegressionTester.run();
+		} catch (OWLOntologyCreationException e) {
+			System.err.println("Error creating OWL ontology from file " + owlFile.getAbsolutePath() + ": " + e.getMessage());
+			System.exit(-1);
 		} catch (RuntimeException e) {
 			e.printStackTrace();
 		}

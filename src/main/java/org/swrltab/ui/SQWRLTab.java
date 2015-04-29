@@ -8,8 +8,11 @@ import java.io.File;
 import javax.swing.Icon;
 import javax.swing.JFrame;
 
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.swrlapi.core.SWRLAPIFactory;
-import org.swrlapi.core.SWRLAPIOWLOntology;
 import org.swrlapi.drools.core.DroolsFactory;
 import org.swrlapi.exceptions.SWRLAPIException;
 import org.swrlapi.sqwrl.SQWRLQueryEngine;
@@ -45,19 +48,18 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
 		File owlFile = new File(owlFileName);
 
 		try {
-			// Create a SWRLAPI OWL ontology from the OWL ontology in the supplied file
-			SWRLAPIOWLOntology swrlapiOWLOntology = SWRLAPIFactory.createSWRLAPIOntology(owlFile);
+			// Create an OWL ontology using the OWLAPI
+			OWLOntologyManager ontologyManager = OWLManager.createOWLOntologyManager();
+			OWLOntology ontology = ontologyManager.loadOntologyFromOntologyDocument(owlFile);
 
 			// Create a Drools-based query engine
-			SQWRLQueryEngine queryEngine = swrlapiOWLOntology
-					.createSQWRLQueryEngine(DroolsFactory.getSWRLRuleEngineCreator());
+			SQWRLQueryEngine queryEngine = SWRLAPIFactory.createSQWRLQueryEngine(ontology);
 
 			// Create the query engine model, supplying it with the ontology and query engine
 			SQWRLQueryEngineModel sqwrlQueryEngineModel = SWRLAPIFactory.createSQWRLQueryEngineModel(queryEngine);
 
 			// Create the dialog manager
-			SWRLAPIDialogManager dialogManager = SWRLAPIFactory
-					.createSWRLAPIDialogManager(sqwrlQueryEngineModel);
+			SWRLAPIDialogManager dialogManager = SWRLAPIFactory.createSWRLAPIDialogManager(sqwrlQueryEngineModel);
 
 			// Create the view
 			SQWRLTab sqwrlTab = new SQWRLTab(sqwrlQueryEngineModel, dialogManager);
@@ -65,6 +67,9 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
 			// Make the view visible
 			sqwrlTab.setVisible(true);
 
+		} catch (OWLOntologyCreationException e) {
+			System.err.println("Error creating OWL ontology from file " + owlFile.getAbsolutePath() + ": " + e.getMessage());
+			System.exit(-1);
 		} catch (RuntimeException e) {
 			System.err.println("Error starting application: " + e.getMessage());
 			System.exit(-1);
