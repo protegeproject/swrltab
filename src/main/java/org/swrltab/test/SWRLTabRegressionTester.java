@@ -19,36 +19,36 @@ import org.swrlapi.test.SWRLAPIRegressionTester;
  */
 public class SWRLTabRegressionTester
 {
-	public static void main(String[] args)
-	{
-		if (args.length != 1)
-			Usage();
+  public static void main(String[] args)
+  {
+    if (args.length != 1)
+      Usage();
 
-		String owlFileName = args[0];
-		File owlFile = new File(owlFileName);
+    String owlFileName = args[0];
+    File owlFile = new File(owlFileName);
 
-		try {
-			OWLOntologyManager ontologyManager = OWLManager.createOWLOntologyManager();
-			OWLOntology ontology = ontologyManager.loadOntologyFromOntologyDocument(owlFile);
+    try {
+      OWLOntologyManager ontologyManager = OWLManager.createOWLOntologyManager();
+      OWLOntology ontology = ontologyManager.loadOntologyFromOntologyDocument(owlFile);
 
-			SQWRLQueryEngine sqwrlQueryEngine = SWRLAPIFactory.createSQWRLQueryEngine(ontology);
+      SQWRLQueryEngine sqwrlQueryEngine = SWRLAPIFactory.createSQWRLQueryEngine(ontology);
 
-			SWRLAPIRegressionTester swrlapiRegressionTester = new SWRLAPIRegressionTester(sqwrlQueryEngine);
+      SWRLAPIRegressionTester swrlapiRegressionTester = new SWRLAPIRegressionTester(sqwrlQueryEngine);
 
-			swrlapiRegressionTester.run();
-		} catch (OWLOntologyCreationException e) {
-			System.err.println("Error creating OWL ontology from file " + owlFile.getAbsolutePath() + ": " + e.getMessage());
-			System.exit(-1);
-		} catch (RuntimeException e) {
-			e.printStackTrace();
-		}
-	}
+      swrlapiRegressionTester.run();
+    } catch (OWLOntologyCreationException e) {
+      System.err.println("Error creating OWL ontology from file " + owlFile.getAbsolutePath() + ": " + e.getMessage());
+      System.exit(-1);
+    } catch (RuntimeException e) {
+      e.printStackTrace();
+    }
+  }
 
-	private static void Usage()
-	{
-		System.err.println("Usage: " + SWRLTabRegressionTester.class.getName() + " <owlFileName>");
-		System.exit(1);
-	}
+  private static void Usage()
+  {
+    System.err.println("Usage: " + SWRLTabRegressionTester.class.getName() + " <owlFileName>");
+    System.exit(1);
+  }
 }
 
 // SWRLRuleRenderer renderer = swrlapiOWLOntology.createSWRLRuleRenderer();

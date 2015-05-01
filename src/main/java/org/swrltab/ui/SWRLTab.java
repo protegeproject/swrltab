@@ -38,105 +38,105 @@ import org.swrlapi.ui.view.rules.SWRLRulesView;
  */
 public class SWRLTab extends JFrame implements SWRLAPIView
 {
-	private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-	private static final String APPLICATION_NAME = "SWRLTabRules";
-	private static final int APPLICATION_WINDOW_WIDTH = 1000;
-	private static final int APPLICATION_WINDOW_HEIGHT = 580;
+  private static final String APPLICATION_NAME = "SWRLTabRules";
+  private static final int APPLICATION_WINDOW_WIDTH = 1000;
+  private static final int APPLICATION_WINDOW_HEIGHT = 580;
 
-	private final SWRLRulesView rulesView;
+  private final SWRLRulesView rulesView;
 
-	public static void main(String[] args)
-	{
-		if (args.length != 1)
-			Usage();
+  public static void main(String[] args)
+  {
+    if (args.length != 1)
+      Usage();
 
-		String owlFileName = args[0];
-		File owlFile = new File(owlFileName);
+    String owlFileName = args[0];
+    File owlFile = new File(owlFileName);
 
-		try {
-			// Create an OWL ontology using the OWLAPI
-			OWLOntologyManager ontologyManager = OWLManager.createOWLOntologyManager();
-			OWLOntology ontology = ontologyManager.loadOntologyFromOntologyDocument(owlFile);
+    try {
+      // Create an OWL ontology using the OWLAPI
+      OWLOntologyManager ontologyManager = OWLManager.createOWLOntologyManager();
+      OWLOntology ontology = ontologyManager.loadOntologyFromOntologyDocument(owlFile);
 
-			// Create a Drools-based rule engine
-			SWRLRuleEngine ruleEngine = SWRLAPIFactory.createSWRLRuleEngine(ontology);
+      // Create a Drools-based rule engine
+      SWRLRuleEngine ruleEngine = SWRLAPIFactory.createSWRLRuleEngine(ontology);
 
-			// Create the rule engine model, supplying it with the rule engine
-			SWRLRuleEngineModel swrlRuleEngineModel = SWRLAPIFactory.createSWRLRuleEngineModel(ruleEngine);
+      // Create the rule engine model, supplying it with the rule engine
+      SWRLRuleEngineModel swrlRuleEngineModel = SWRLAPIFactory.createSWRLRuleEngineModel(ruleEngine);
 
-			// Create the rule engine controller
-			SWRLAPIDialogManager dialogManager = SWRLAPIFactory.createSWRLAPIDialogManager(swrlRuleEngineModel);
+      // Create the rule engine controller
+      SWRLAPIDialogManager dialogManager = SWRLAPIFactory.createSWRLAPIDialogManager(swrlRuleEngineModel);
 
-			// Create the view
-			SWRLTab swrlTab = new SWRLTab(swrlRuleEngineModel, dialogManager);
+      // Create the view
+      SWRLTab swrlTab = new SWRLTab(swrlRuleEngineModel, dialogManager);
 
-			// Make the view visible
-			swrlTab.setVisible(true);
-		} catch (OWLOntologyCreationException e) {
-			System.err.println("Error creating OWL ontology from file " + owlFile.getAbsolutePath() + ": " + e.getMessage());
-			System.exit(-1);
-		} catch (RuntimeException e) {
-			System.err.println("Error starting application: " + e.getMessage());
-			System.exit(-1);
-		}
-	}
+      // Make the view visible
+      swrlTab.setVisible(true);
+    } catch (OWLOntologyCreationException e) {
+      System.err.println("Error creating OWL ontology from file " + owlFile.getAbsolutePath() + ": " + e.getMessage());
+      System.exit(-1);
+    } catch (RuntimeException e) {
+      System.err.println("Error starting application: " + e.getMessage());
+      System.exit(-1);
+    }
+  }
 
-	public SWRLTab(SWRLRuleEngineModel swrlRuleEngineModel, SWRLAPIDialogManager applicationDialogManager)
-			throws SWRLAPIException
-	{
-		super(APPLICATION_NAME);
+  public SWRLTab(SWRLRuleEngineModel swrlRuleEngineModel, SWRLAPIDialogManager applicationDialogManager)
+      throws SWRLAPIException
+  {
+    super(APPLICATION_NAME);
 
-		this.rulesView = createAndAddSWRLAPIRulesView(swrlRuleEngineModel, applicationDialogManager);
+    this.rulesView = createAndAddSWRLAPIRulesView(swrlRuleEngineModel, applicationDialogManager);
 
-		createMenus();
-	}
+    createMenus();
+  }
 
-	@Override
-	public void update()
-	{
-		this.rulesView.update();
-	}
+  @Override
+  public void update()
+  {
+    this.rulesView.update();
+  }
 
-	private SWRLRulesView createAndAddSWRLAPIRulesView(SWRLRuleEngineModel swrlRuleEngineModel,
-			SWRLAPIDialogManager applicationDialogManager) throws SWRLAPIException
-	{
-		Icon ruleEngineIcon = DroolsFactory.getSWRLRuleEngineIcon();
-		SWRLRulesView rulesView = new SWRLRulesView(swrlRuleEngineModel, applicationDialogManager, ruleEngineIcon);
-		Container contentPane = getContentPane();
+  private SWRLRulesView createAndAddSWRLAPIRulesView(SWRLRuleEngineModel swrlRuleEngineModel,
+      SWRLAPIDialogManager applicationDialogManager) throws SWRLAPIException
+  {
+    Icon ruleEngineIcon = DroolsFactory.getSWRLRuleEngineIcon();
+    SWRLRulesView rulesView = new SWRLRulesView(swrlRuleEngineModel, applicationDialogManager, ruleEngineIcon);
+    Container contentPane = getContentPane();
 
-		contentPane.setLayout(new BorderLayout());
-		contentPane.add(rulesView);
-		setSize(APPLICATION_WINDOW_WIDTH, APPLICATION_WINDOW_HEIGHT);
+    contentPane.setLayout(new BorderLayout());
+    contentPane.add(rulesView);
+    setSize(APPLICATION_WINDOW_WIDTH, APPLICATION_WINDOW_HEIGHT);
 
-		return rulesView;
-	}
+    return rulesView;
+  }
 
-	@Override
-	protected void processWindowEvent(WindowEvent e)
-	{
-		super.processWindowEvent(e);
+  @Override
+  protected void processWindowEvent(WindowEvent e)
+  {
+    super.processWindowEvent(e);
 
-		if (e.getID() == WindowEvent.WINDOW_CLOSING) {
-			this.setVisible(false);
-			System.exit(0);
-		}
-	}
+    if (e.getID() == WindowEvent.WINDOW_CLOSING) {
+      this.setVisible(false);
+      System.exit(0);
+    }
+  }
 
-	private void createMenus()
-	{
-		JMenuBar menuBar = new JMenuBar();
-		JMenu menu = new JMenu("File");
-		JMenuItem openItem = new JMenuItem("Open");
-		openItem.addActionListener(new OpenAction());
-		menu.add(openItem);
-		menuBar.add(menu);
-		this.setJMenuBar(menuBar);
-	}
+  private void createMenus()
+  {
+    JMenuBar menuBar = new JMenuBar();
+    JMenu menu = new JMenu("File");
+    JMenuItem openItem = new JMenuItem("Open");
+    openItem.addActionListener(new OpenAction());
+    menu.add(openItem);
+    menuBar.add(menu);
+    this.setJMenuBar(menuBar);
+  }
 
-	private static void Usage()
-	{
-		System.err.println("Usage: " + SWRLTab.class.getName() + " <owlFileName>");
-		System.exit(1);
-	}
+  private static void Usage()
+  {
+    System.err.println("Usage: " + SWRLTab.class.getName() + " <owlFileName>");
+    System.exit(1);
+  }
 }
