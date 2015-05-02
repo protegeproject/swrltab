@@ -1,7 +1,6 @@
 package org.swrltab.ui;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
+import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.io.File;
 
@@ -19,7 +18,11 @@ import org.swrlapi.core.SWRLAPIFactory;
 import org.swrlapi.core.SWRLRuleEngine;
 import org.swrlapi.drools.core.DroolsFactory;
 import org.swrlapi.exceptions.SWRLAPIException;
+import org.swrlapi.ui.action.CloseAction;
 import org.swrlapi.ui.action.OpenAction;
+import org.swrlapi.ui.action.QuitAction;
+import org.swrlapi.ui.action.SaveAction;
+import org.swrlapi.ui.action.SaveAsAction;
 import org.swrlapi.ui.dialog.SWRLAPIDialogManager;
 import org.swrlapi.ui.model.SWRLRuleEngineModel;
 import org.swrlapi.ui.view.SWRLAPIView;
@@ -82,14 +85,14 @@ public class SWRLTab extends JFrame implements SWRLAPIView
     }
   }
 
-  public SWRLTab(SWRLRuleEngineModel swrlRuleEngineModel, SWRLAPIDialogManager applicationDialogManager)
+  public SWRLTab(SWRLRuleEngineModel swrlRuleEngineModel, SWRLAPIDialogManager dialogManager)
       throws SWRLAPIException
   {
     super(APPLICATION_NAME);
 
-    this.rulesView = createAndAddSWRLAPIRulesView(swrlRuleEngineModel, applicationDialogManager);
+    this.rulesView = createAndAddSWRLAPIRulesView(swrlRuleEngineModel, dialogManager);
 
-    createMenus();
+    createMenus(this, dialogManager);
   }
 
   @Override
@@ -123,13 +126,28 @@ public class SWRLTab extends JFrame implements SWRLAPIView
     }
   }
 
-  private void createMenus()
+  private void createMenus(Component parent, SWRLAPIDialogManager dialogManager)
   {
     JMenuBar menuBar = new JMenuBar();
     JMenu menu = new JMenu("File");
-    JMenuItem openItem = new JMenuItem("Open");
-    openItem.addActionListener(new OpenAction());
+    JMenuItem openItem = new JMenuItem(OpenAction.TITLE);
+    JMenuItem saveItem = new JMenuItem(SaveAction.TITLE);
+    JMenuItem saveAsItem = new JMenuItem(SaveAsAction.TITLE);
+    JMenuItem closeItem = new JMenuItem(CloseAction.TITLE);
+    JMenuItem quitItem = new JMenuItem(QuitAction.TITLE);
+
+    openItem.addActionListener(new OpenAction(parent, dialogManager));
+    saveItem.addActionListener(new SaveAction(parent, dialogManager));
+    saveAsItem.addActionListener(new SaveAsAction(parent, dialogManager));
+    closeItem.addActionListener(new CloseAction(parent, dialogManager));
+    quitItem.addActionListener(new QuitAction(parent, dialogManager));
+
     menu.add(openItem);
+    menu.add(saveItem);
+    menu.add(saveAsItem);
+    menu.add(closeItem);
+    menu.add(quitItem);
+
     menuBar.add(menu);
     this.setJMenuBar(menuBar);
   }
