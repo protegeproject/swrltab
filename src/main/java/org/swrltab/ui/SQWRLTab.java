@@ -56,7 +56,7 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
       SQWRLQueryEngine queryEngine = SWRLAPIFactory.createSQWRLQueryEngine(ontology);
 
       // Create the query engine model, supplying it with the ontology and query engine
-      SQWRLQueryEngineModel sqwrlQueryEngineModel = SWRLAPIFactory.createSQWRLQueryEngineModel(queryEngine);
+      SQWRLQueryEngineModel sqwrlQueryEngineModel = queryEngine.createSQWRLQueryEngineModel();
 
       // Create the dialog manager
       SWRLAPIDialogManager dialogManager = SWRLAPIFactory.createSWRLAPIDialogManager(sqwrlQueryEngineModel);
