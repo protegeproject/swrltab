@@ -1,15 +1,5 @@
 package org.swrltab.ui;
 
-import java.awt.*;
-import java.awt.event.WindowEvent;
-import java.io.File;
-
-import javax.swing.Icon;
-import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
@@ -27,6 +17,11 @@ import org.swrlapi.ui.dialog.SWRLAPIDialogManager;
 import org.swrlapi.ui.model.SWRLRuleEngineModel;
 import org.swrlapi.ui.view.SWRLAPIView;
 import org.swrlapi.ui.view.rules.SWRLRulesView;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.WindowEvent;
+import java.io.File;
 
 /**
  * Standalone SWRLAPI-based application that presents a SWRL editor and rule execution graphical interface.
@@ -66,10 +61,12 @@ public class SWRLTab extends JFrame implements SWRLAPIView
       SWRLRuleEngine ruleEngine = SWRLAPIFactory.createSWRLRuleEngine(ontology);
 
       // Create the rule engine model, supplying it with the rule engine
-      SWRLRuleEngineModel swrlRuleEngineModel = ruleEngine.createSWRLRuleEngineModel();
+      SWRLRuleEngineModel swrlRuleEngineModel = SWRLAPIFactory.createSWRLRuleEngineModel(ruleEngine);
 
       // Create the application dialog manager
-      SWRLAPIDialogManager dialogManager = SWRLAPIFactory.createSWRLAPIDialogManager(swrlRuleEngineModel);
+      SWRLAPIDialogManager dialogManager = SWRLAPIFactory.createDialogManager(swrlRuleEngineModel);
+
+
 
       // Create the view
       SWRLTab swrlTab = new SWRLTab(swrlRuleEngineModel, dialogManager);

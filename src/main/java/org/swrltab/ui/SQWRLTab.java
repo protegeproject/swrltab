@@ -1,25 +1,21 @@
 package org.swrltab.ui;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.event.WindowEvent;
-import java.io.File;
-
-import javax.swing.Icon;
-import javax.swing.JFrame;
-
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.swrlapi.core.SWRLAPIFactory;
-import org.swrlapi.drools.core.DroolsFactory;
 import org.swrlapi.exceptions.SWRLAPIException;
 import org.swrlapi.sqwrl.SQWRLQueryEngine;
 import org.swrlapi.ui.dialog.SWRLAPIDialogManager;
 import org.swrlapi.ui.model.SQWRLQueryEngineModel;
 import org.swrlapi.ui.view.SWRLAPIView;
 import org.swrlapi.ui.view.queries.SWRLAPIQueriesView;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.WindowEvent;
+import java.io.File;
 
 /**
  * Standalone SWRLAPI-based application that presents a SQWRL editor and query execution graphical interface.
@@ -52,17 +48,19 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
       OWLOntologyManager ontologyManager = OWLManager.createOWLOntologyManager();
       OWLOntology ontology = ontologyManager.loadOntologyFromOntologyDocument(owlFile);
 
-      // Create a Drools-based query engine
+      // Create a SQWRL query engine
       SQWRLQueryEngine queryEngine = SWRLAPIFactory.createSQWRLQueryEngine(ontology);
 
-      // Create the query engine model, supplying it with the ontology and query engine
-      SQWRLQueryEngineModel sqwrlQueryEngineModel = queryEngine.createSQWRLQueryEngineModel();
+      // Create the query engine model, supplying it with the query engine
+      SQWRLQueryEngineModel sqwrlQueryEngineModel = SWRLAPIFactory.createSQWRLQueryEngineModel(queryEngine);
 
       // Create the dialog manager
-      SWRLAPIDialogManager dialogManager = SWRLAPIFactory.createSWRLAPIDialogManager(sqwrlQueryEngineModel);
+      SWRLAPIDialogManager dialogManager = SWRLAPIFactory.createDialogManager(sqwrlQueryEngineModel);
+
+      Icon queryEngineIcon = queryEngine.getQueryEngineIcon();
 
       // Create the view
-      SQWRLTab sqwrlTab = new SQWRLTab(sqwrlQueryEngineModel, dialogManager);
+      SQWRLTab sqwrlTab = new SQWRLTab(sqwrlQueryEngineModel, dialogManager, queryEngineIcon);
 
       // Make the view visible
       sqwrlTab.setVisible(true);
@@ -76,11 +74,11 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
     }
   }
 
-  public SQWRLTab(SQWRLQueryEngineModel sqwrlQueryEngineModel, SWRLAPIDialogManager applicationDialogManager)
+  public SQWRLTab(SQWRLQueryEngineModel sqwrlQueryEngineModel, SWRLAPIDialogManager dialogManager, Icon queryEngineIcon)
       throws SWRLAPIException
   {
     super(APPLICATION_NAME);
-    this.queriesView = createAndAddSWRLAPIQueriesView(sqwrlQueryEngineModel, applicationDialogManager);
+    this.queriesView = createAndAddSWRLAPIQueriesView(sqwrlQueryEngineModel, dialogManager, queryEngineIcon);
   }
 
   @Override
@@ -90,11 +88,10 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
   }
 
   private SWRLAPIQueriesView createAndAddSWRLAPIQueriesView(SQWRLQueryEngineModel sqwrlQueryEngineModel,
-      SWRLAPIDialogManager applicationDialogManager) throws SWRLAPIException
+      SWRLAPIDialogManager dialogManager, Icon queryEngineIcon) throws SWRLAPIException
   {
-    Icon ruleEngineIcon = DroolsFactory.getSWRLRuleEngineIcon();
-    SWRLAPIQueriesView queriesView = new SWRLAPIQueriesView(sqwrlQueryEngineModel, applicationDialogManager,
-        ruleEngineIcon);
+    SWRLAPIQueriesView queriesView = new SWRLAPIQueriesView(sqwrlQueryEngineModel, dialogManager,
+        queryEngineIcon);
     Container contentPane = getContentPane();
 
     contentPane.setLayout(new BorderLayout());
