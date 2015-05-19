@@ -1,7 +1,5 @@
 package org.swrltab.test;
 
-import java.io.File;
-
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
@@ -9,6 +7,8 @@ import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.swrlapi.factory.SWRLAPIFactory;
 import org.swrlapi.sqwrl.SQWRLQueryEngine;
 import org.swrlapi.test.SWRLAPIRegressionTester;
+
+import java.io.File;
 
 /**
  * Uses a {@link org.swrlapi.test.SWRLAPIRegressionTester} to individually execute all SQWRL queries in an ontology and
@@ -62,7 +62,7 @@ public class SWRLTabRegressionTester
 // try {
 // System.out.println("Rule: " + line);
 // parser.parseSWRLRule(line, true);
-// System.out.println("Foine");
+// System.out.println("Fine");
 // } catch (SWRLIncompleteRuleException e) {
 // System.err.println("Incomplete " + e.getMessage());
 // } catch (SWRLParseException e) {
