@@ -1,11 +1,12 @@
 package org.swrltab.ui;
 
+import checkers.nullness.quals.NonNull;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
-import org.swrlapi.factory.SWRLAPIFactory;
 import org.swrlapi.exceptions.SWRLAPIException;
+import org.swrlapi.factory.SWRLAPIFactory;
 import org.swrlapi.sqwrl.SQWRLQueryEngine;
 import org.swrlapi.ui.dialog.SWRLAPIDialogManager;
 import org.swrlapi.ui.model.SQWRLQueryEngineModel;
@@ -36,7 +37,7 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
   private static final int APPLICATION_WINDOW_WIDTH = 1000;
   private static final int APPLICATION_WINDOW_HEIGHT = 580;
 
-  private final SWRLAPIQueriesView queriesView;
+  @NonNull private final SWRLAPIQueriesView queriesView;
 
   public static void main(String[] args)
   {
@@ -74,24 +75,23 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
     }
   }
 
-  public SQWRLTab(SQWRLQueryEngineModel sqwrlQueryEngineModel, SWRLAPIDialogManager dialogManager, Icon queryEngineIcon)
-      throws SWRLAPIException
+  public SQWRLTab(@NonNull SQWRLQueryEngineModel sqwrlQueryEngineModel, @NonNull SWRLAPIDialogManager dialogManager,
+    @NonNull Icon queryEngineIcon) throws SWRLAPIException
   {
     super(APPLICATION_NAME);
     this.queriesView = createAndAddSWRLAPIQueriesView(sqwrlQueryEngineModel, dialogManager, queryEngineIcon);
   }
 
-  @Override
-  public void update()
+  @Override public void update()
   {
     this.queriesView.update();
   }
 
-  private SWRLAPIQueriesView createAndAddSWRLAPIQueriesView(SQWRLQueryEngineModel sqwrlQueryEngineModel,
-      SWRLAPIDialogManager dialogManager, Icon queryEngineIcon) throws SWRLAPIException
+  @NonNull private SWRLAPIQueriesView createAndAddSWRLAPIQueriesView(
+    @NonNull SQWRLQueryEngineModel sqwrlQueryEngineModel, @NonNull SWRLAPIDialogManager dialogManager,
+    @NonNull Icon queryEngineIcon) throws SWRLAPIException
   {
-    SWRLAPIQueriesView queriesView = new SWRLAPIQueriesView(sqwrlQueryEngineModel, dialogManager,
-        queryEngineIcon);
+    SWRLAPIQueriesView queriesView = new SWRLAPIQueriesView(sqwrlQueryEngineModel, dialogManager, queryEngineIcon);
     Container contentPane = getContentPane();
 
     contentPane.setLayout(new BorderLayout());
@@ -101,8 +101,7 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
     return queriesView;
   }
 
-  @Override
-  protected void processWindowEvent(WindowEvent e)
+  @Override protected void processWindowEvent(@NonNull WindowEvent e)
   {
     super.processWindowEvent(e);
 
@@ -112,8 +111,7 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
     }
   }
 
-  @SuppressWarnings("unused")
-  private static void Usage()
+  @SuppressWarnings("unused") private static void Usage()
   {
     System.err.println("Usage: " + SQWRLTab.class.getName() + " <owlFileName>");
     System.exit(1);

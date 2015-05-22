@@ -1,5 +1,6 @@
 package org.swrltab.test;
 
+import checkers.nullness.quals.NonNull;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
@@ -19,7 +20,7 @@ import java.io.File;
  */
 public class SWRLTabRegressionTester
 {
-  public static void main(String[] args)
+  public static void main(@NonNull String[] args)
   {
     if (args.length != 1)
       Usage();
