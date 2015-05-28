@@ -1,7 +1,7 @@
 SWRLTab
 =======
 
-The SWRLTab is a [SWRLAPI](https://github.com/protegeproject/swrlapi/wiki)-based environment that provides a set of standalone graphical interfaces for managing SWRL rules. These interfaces are designed to be embeddable into third party Java applications.
+The SWRLTab is a [SWRLAPI](https://github.com/protegeproject/swrlapi/wiki)-based environment that provides a set of standalone graphical interfaces for managing SWRL rules. 
 
 Documentation can be found at the [SWRLTab Wiki](https://github.com/protegeproject/swrltab/wiki).
 
@@ -9,12 +9,12 @@ A [Protégé Desktop Ontology Editor](http://protege.stanford.edu)-based [SWRLTa
 
 #### Building Prerequisites
 
-To build and run this plugin, you must have the following items installed:
+To build and run this project, you must have the following items installed:
 
-+ Apache's [Maven](http://maven.apache.org/index.html).
 + A tool for checking out a [Git](http://git-scm.com/) repository.
++ Apache's [Maven](http://maven.apache.org/index.html).
 
-#### Building
+### Building
 
 Get a copy of the latest code:
 
@@ -29,3 +29,15 @@ Build it with Maven:
     mvn clean install
 
 On build completion, your local Maven repository will contain generated swrltab-${version}.jar and swrltab-${version}-jar-with-dependencies.jar files.
+The ./target directory will also contain these JARs.
+
+### Running
+
+You can run the standalone SWRLTab as follows:
+
+    java -cp swrltab-${version}-jar-with-dependencies.jar org.swrltab.ui.SWRLTab <OWL-File-Name>
+
+You can run the standalone SQWRLTab as follows:
+
+    java -cp swrltab-${version}-jar-with-dependencies.jar org.swrltab.ui.SQWRLTab <OWL-File-Name>
+

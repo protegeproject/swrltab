@@ -39,9 +39,12 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
 
   @NonNull private final SWRLAPIQueriesView queriesView;
 
-  public static void main(String[] args)
+  public static void main(@NonNull String[] args)
   {
-    String owlFileName = SQWRLTab.class.getClassLoader().getResource("projects/SWRLSimple.owl").getFile();
+    if (args.length != 1)
+      Usage();
+
+    String owlFileName = args[0];
     File owlFile = new File(owlFileName);
 
     try {
