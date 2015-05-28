@@ -82,26 +82,18 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
     @NonNull Icon queryEngineIcon) throws SWRLAPIException
   {
     super(APPLICATION_NAME);
-    this.queriesView = createAndAddSWRLAPIQueriesView(sqwrlQueryEngineModel, dialogManager, queryEngineIcon);
+
+    this.queriesView = new SWRLAPIQueriesView(sqwrlQueryEngineModel, dialogManager, queryEngineIcon);
+
+    getContentPane().setLayout(new BorderLayout());
+    getContentPane().add(queriesView);
+
+    setSize(APPLICATION_WINDOW_WIDTH, APPLICATION_WINDOW_HEIGHT);
   }
 
   @Override public void update()
   {
     this.queriesView.update();
-  }
-
-  @NonNull private SWRLAPIQueriesView createAndAddSWRLAPIQueriesView(
-    @NonNull SQWRLQueryEngineModel sqwrlQueryEngineModel, @NonNull SWRLAPIDialogManager dialogManager,
-    @NonNull Icon queryEngineIcon) throws SWRLAPIException
-  {
-    SWRLAPIQueriesView queriesView = new SWRLAPIQueriesView(sqwrlQueryEngineModel, dialogManager, queryEngineIcon);
-    Container contentPane = getContentPane();
-
-    contentPane.setLayout(new BorderLayout());
-    contentPane.add(queriesView);
-    setSize(APPLICATION_WINDOW_WIDTH, APPLICATION_WINDOW_HEIGHT);
-
-    return queriesView;
   }
 
   @Override protected void processWindowEvent(@NonNull WindowEvent e)

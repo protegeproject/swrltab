@@ -39,7 +39,7 @@ public class SWRLTab extends JFrame implements SWRLAPIView
 {
   private static final long serialVersionUID = 1L;
 
-  private static final String APPLICATION_NAME = "SWRLTabRules";
+  private static final String APPLICATION_NAME = "SWRLTab";
   private static final int APPLICATION_WINDOW_WIDTH = 1000;
   private static final int APPLICATION_WINDOW_HEIGHT = 580;
 
@@ -91,8 +91,12 @@ public class SWRLTab extends JFrame implements SWRLAPIView
   {
     super(APPLICATION_NAME);
 
-    this.rulesView = createAndAddSWRLAPIRulesView(ontologyModel.getSWRLRuleEngineModel(), dialogManager,
-      ruleEngineIcon);
+    this.rulesView = new SWRLRulesView(ontologyModel.getSWRLRuleEngineModel(), dialogManager, ruleEngineIcon);
+
+    getContentPane().setLayout(new BorderLayout());
+    getContentPane().add(rulesView);
+
+    setSize(APPLICATION_WINDOW_WIDTH, APPLICATION_WINDOW_HEIGHT);
 
     createMenus(this, ontologyModel, dialogManager);
   }
@@ -100,19 +104,6 @@ public class SWRLTab extends JFrame implements SWRLAPIView
   @Override public void update()
   {
     this.rulesView.update();
-  }
-
-  @NonNull private SWRLRulesView createAndAddSWRLAPIRulesView(@NonNull SWRLRuleEngineModel swrlRuleEngineModel,
-    @NonNull SWRLAPIDialogManager dialogManager, @NonNull Icon ruleEngineIcon) throws SWRLAPIException
-  {
-    SWRLRulesView rulesView = new SWRLRulesView(swrlRuleEngineModel, dialogManager, ruleEngineIcon);
-    Container contentPane = getContentPane();
-
-    contentPane.setLayout(new BorderLayout());
-    contentPane.add(rulesView);
-    setSize(APPLICATION_WINDOW_WIDTH, APPLICATION_WINDOW_HEIGHT);
-
-    return rulesView;
   }
 
   @Override protected void processWindowEvent(@NonNull WindowEvent e)
@@ -125,7 +116,7 @@ public class SWRLTab extends JFrame implements SWRLAPIView
     }
   }
 
-  private void createMenus(@NonNull Component parent, @NonNull FileBackedOWLOntologyModel ontologyModel,
+  private void createMenus(@NonNull JFrame parent, @NonNull FileBackedOWLOntologyModel ontologyModel,
     @NonNull SWRLAPIDialogManager dialogManager)
   {
     JMenuBar menuBar = new JMenuBar();
@@ -149,7 +140,7 @@ public class SWRLTab extends JFrame implements SWRLAPIView
     menu.add(quitItem);
 
     menuBar.add(menu);
-    this.setJMenuBar(menuBar);
+    parent.setJMenuBar(menuBar);
   }
 
   private static void Usage()

@@ -1,15 +1,15 @@
 SWRLTab
 =======
 
-The SWRLTab is a [SWRLAPI](https://github.com/protegeproject/swrlapi/wiki)-based environment that provides a set of standalone graphical interfaces for managing SWRL rules. 
+The SWRLTab is a [SWRLAPI](https://github.com/protegeproject/swrlapi/wiki)-based environment that provides a set of standalone graphical interfaces for managing SWRL rules and SQWRL queries. 
 
 Documentation can be found at the [SWRLTab Wiki](https://github.com/protegeproject/swrltab/wiki).
 
 A [Protégé Desktop Ontology Editor](http://protege.stanford.edu)-based [SWRLTab Plugin](https://github.com/protegeproject/swrltab-plugin/wiki) is also available.
 
-#### Building Prerequisites
+### Building Prerequisites
 
-To build and run this project, you must have the following items installed:
+To build and run this project you must have the following items installed:
 
 + A tool for checking out a [Git](http://git-scm.com/) repository.
 + Apache's [Maven](http://maven.apache.org/index.html).
