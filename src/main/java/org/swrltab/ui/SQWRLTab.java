@@ -11,7 +11,7 @@ import org.swrlapi.sqwrl.SQWRLQueryEngine;
 import org.swrlapi.ui.dialog.SWRLAPIDialogManager;
 import org.swrlapi.ui.model.SQWRLQueryEngineModel;
 import org.swrlapi.ui.view.SWRLAPIView;
-import org.swrlapi.ui.view.queries.SWRLAPIQueriesView;
+import org.swrlapi.ui.view.queries.SQWRLQueriesView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,7 +27,7 @@ import java.io.File;
  * <code>exec-maven-plugin</code> plugin configuration in the Maven project POM and run with the <code>exec:java</code>
  * goal.
  *
- * @see org.swrlapi.ui.view.queries.SWRLAPIQueriesView
+ * @see SQWRLQueriesView
  */
 public class SQWRLTab extends JFrame implements SWRLAPIView
 {
@@ -37,7 +37,7 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
   private static final int APPLICATION_WINDOW_WIDTH = 1000;
   private static final int APPLICATION_WINDOW_HEIGHT = 580;
 
-  @NonNull private final SWRLAPIQueriesView queriesView;
+  private final @NonNull SQWRLQueriesView queriesView;
 
   public static void main(@NonNull String[] args)
   {
@@ -61,10 +61,8 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
       // Create the dialog manager
       SWRLAPIDialogManager dialogManager = SWRLAPIFactory.createDialogManager(sqwrlQueryEngineModel);
 
-      Icon queryEngineIcon = queryEngine.getQueryEngineIcon();
-
       // Create the view
-      SQWRLTab sqwrlTab = new SQWRLTab(sqwrlQueryEngineModel, dialogManager, queryEngineIcon);
+      SQWRLTab sqwrlTab = new SQWRLTab(sqwrlQueryEngineModel, dialogManager, queryEngine.getQueryEngineIcon());
 
       // Make the view visible
       sqwrlTab.setVisible(true);
@@ -83,7 +81,7 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
   {
     super(APPLICATION_NAME);
 
-    this.queriesView = new SWRLAPIQueriesView(sqwrlQueryEngineModel, dialogManager, queryEngineIcon);
+    this.queriesView = new SQWRLQueriesView(sqwrlQueryEngineModel, dialogManager, queryEngineIcon);
 
     getContentPane().setLayout(new BorderLayout());
     getContentPane().add(queriesView);

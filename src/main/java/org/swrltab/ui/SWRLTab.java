@@ -60,7 +60,6 @@ public class SWRLTab extends JFrame implements SWRLAPIView
 
       // Create a rule engine and get its icon
       SWRLRuleEngine ruleEngine = SWRLAPIFactory.createSWRLRuleEngine(ontology);
-      Icon ruleEngineIcon = ruleEngine.getRuleEngineIcon();
 
       // Create the rule engine model, supplying it with the rule engine
       SWRLRuleEngineModel swrlRuleEngineModel = SWRLAPIFactory.createSWRLRuleEngineModel(ruleEngine);
@@ -72,7 +71,7 @@ public class SWRLTab extends JFrame implements SWRLAPIView
         .createFileBackedOWLOntologyModel(ontology, swrlRuleEngineModel, owlFile);
 
       // Create the view
-      SWRLTab swrlTab = new SWRLTab(ontologyModel, dialogManager, ruleEngineIcon);
+      SWRLTab swrlTab = new SWRLTab(ontologyModel, dialogManager, ruleEngine.getRuleEngineIcon());
 
       // Make the view visible
       swrlTab.setVisible(true);
