@@ -17,6 +17,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.io.File;
+import java.util.Optional;
 
 /**
  * Standalone SWRLAPI-based application that presents a SQWRL editor and query execution graphical interface.
@@ -41,16 +42,17 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
 
   public static void main(@NonNull String[] args)
   {
-    if (args.length != 1)
+    if (args.length > 1)
       Usage();
 
-    String owlFileName = args[0];
-    File owlFile = new File(owlFileName);
+    Optional<File> owlFile = args.length == 0 ? Optional.empty() : Optional.of(new File(args[0]));
 
     try {
       // Create an OWL ontology using the OWLAPI
       OWLOntologyManager ontologyManager = OWLManager.createOWLOntologyManager();
-      OWLOntology ontology = ontologyManager.loadOntologyFromOntologyDocument(owlFile);
+      OWLOntology ontology = owlFile.isPresent() ?
+          ontologyManager.loadOntologyFromOntologyDocument(owlFile.get()) :
+          ontologyManager.createOntology();
 
       // Create a SQWRL query engine
       SQWRLQueryEngine queryEngine = SWRLAPIFactory.createSQWRLQueryEngine(ontology);
@@ -68,7 +70,10 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
       sqwrlTab.setVisible(true);
 
     } catch (OWLOntologyCreationException e) {
-      System.err.println("Error creating OWL ontology from file " + owlFile.getAbsolutePath() + ": " + e.getMessage());
+      if (owlFile.isPresent())
+        System.err.println("Error creating OWL ontology from file " + owlFile.get().getAbsolutePath() + ": " + e.getMessage());
+      else
+        System.err.println("Error creating OWL ontology: " + e.getMessage());
       System.exit(-1);
     } catch (RuntimeException e) {
       System.err.println("Error starting application: " + e.getMessage());
