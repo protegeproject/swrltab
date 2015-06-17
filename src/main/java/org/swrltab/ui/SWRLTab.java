@@ -8,12 +8,8 @@ import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.swrlapi.core.SWRLRuleEngine;
 import org.swrlapi.exceptions.SWRLAPIException;
 import org.swrlapi.factory.SWRLAPIFactory;
-import org.swrlapi.ui.action.CloseAction;
-import org.swrlapi.ui.action.OpenAction;
-import org.swrlapi.ui.action.QuitAction;
-import org.swrlapi.ui.action.SaveAction;
-import org.swrlapi.ui.action.SaveAsAction;
 import org.swrlapi.ui.dialog.SWRLAPIDialogManager;
+import org.swrlapi.ui.menu.SWRLAPIMenuManager;
 import org.swrlapi.ui.model.FileBackedOWLOntologyModel;
 import org.swrlapi.ui.model.SWRLRuleEngineModel;
 import org.swrlapi.ui.view.SWRLAPIView;
@@ -102,7 +98,7 @@ public class SWRLTab extends JFrame implements SWRLAPIView
 
 		setSize(APPLICATION_WINDOW_WIDTH, APPLICATION_WINDOW_HEIGHT);
 
-		createMenus(this, ontologyModel, dialogManager);
+		SWRLAPIMenuManager.createApplicationMenus(this, ontologyModel, dialogManager);
 	}
 
 	@Override public void update()
@@ -120,32 +116,6 @@ public class SWRLTab extends JFrame implements SWRLAPIView
 		}
 	}
 
-	private void createMenus(@NonNull JFrame parent, @NonNull FileBackedOWLOntologyModel ontologyModel,
-			@NonNull SWRLAPIDialogManager dialogManager)
-	{
-		JMenuBar menuBar = new JMenuBar();
-		JMenu menu = new JMenu("File");
-		JMenuItem openItem = new JMenuItem(OpenAction.TITLE);
-		JMenuItem saveItem = new JMenuItem(SaveAction.TITLE);
-		JMenuItem saveAsItem = new JMenuItem(SaveAsAction.TITLE);
-		JMenuItem closeItem = new JMenuItem(CloseAction.TITLE);
-		JMenuItem quitItem = new JMenuItem(QuitAction.TITLE);
-
-		openItem.addActionListener(new OpenAction(parent, ontologyModel, dialogManager));
-		saveItem.addActionListener(new SaveAction(parent, ontologyModel, dialogManager));
-		saveAsItem.addActionListener(new SaveAsAction(parent, ontologyModel, dialogManager));
-		closeItem.addActionListener(new CloseAction(parent, dialogManager));
-		quitItem.addActionListener(new QuitAction(parent, dialogManager));
-
-		menu.add(openItem);
-		menu.add(saveItem);
-		menu.add(saveAsItem);
-		menu.add(closeItem);
-		menu.add(quitItem);
-
-		menuBar.add(menu);
-		parent.setJMenuBar(menuBar);
-	}
 
 	private static void Usage()
 	{

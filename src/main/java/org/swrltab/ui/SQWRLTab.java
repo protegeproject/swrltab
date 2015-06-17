@@ -9,6 +9,8 @@ import org.swrlapi.exceptions.SWRLAPIException;
 import org.swrlapi.factory.SWRLAPIFactory;
 import org.swrlapi.sqwrl.SQWRLQueryEngine;
 import org.swrlapi.ui.dialog.SWRLAPIDialogManager;
+import org.swrlapi.ui.menu.SWRLAPIMenuManager;
+import org.swrlapi.ui.model.FileBackedOWLOntologyModel;
 import org.swrlapi.ui.model.SQWRLQueryEngineModel;
 import org.swrlapi.ui.view.SWRLAPIView;
 import org.swrlapi.ui.view.queries.SQWRLQueriesView;
@@ -21,9 +23,9 @@ import java.util.Optional;
 
 /**
  * Standalone SWRLAPI-based application that presents a SQWRL editor and query execution graphical interface.
- * <p>
+ * <p/>
  * The Drools rule engine is used for query execution.
- * <p>
+ * <p/>
  * To invoke from Maven put <code>org.swrltab.ui.SQWRLTab</code> in the <code>mainClass</code> element of the
  * <code>exec-maven-plugin</code> plugin configuration in the Maven project POM and run with the <code>exec:java</code>
  * goal.
@@ -51,8 +53,8 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
       // Create an OWL ontology using the OWLAPI
       OWLOntologyManager ontologyManager = OWLManager.createOWLOntologyManager();
       OWLOntology ontology = owlFile.isPresent() ?
-          ontologyManager.loadOntologyFromOntologyDocument(owlFile.get()) :
-          ontologyManager.createOntology();
+        ontologyManager.loadOntologyFromOntologyDocument(owlFile.get()) :
+        ontologyManager.createOntology();
 
       // Create a SQWRL query engine
       SQWRLQueryEngine queryEngine = SWRLAPIFactory.createSQWRLQueryEngine(ontology);
@@ -63,15 +65,20 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
       // Create the dialog manager
       SWRLAPIDialogManager dialogManager = SWRLAPIFactory.createDialogManager(sqwrlQueryEngineModel);
 
+      FileBackedOWLOntologyModel ontologyModel = SWRLAPIFactory
+        .createFileBackedOWLOntologyModel(ontology, sqwrlQueryEngineModel, owlFile);
+
       // Create the view
-      SQWRLTab sqwrlTab = new SQWRLTab(sqwrlQueryEngineModel, dialogManager, queryEngine.getQueryEngineIcon());
+      SQWRLTab sqwrlTab = new SQWRLTab(ontologyModel, sqwrlQueryEngineModel, dialogManager,
+        queryEngine.getQueryEngineIcon());
 
       // Make the view visible
       sqwrlTab.setVisible(true);
 
     } catch (OWLOntologyCreationException e) {
       if (owlFile.isPresent())
-        System.err.println("Error creating OWL ontology from file " + owlFile.get().getAbsolutePath() + ": " + e.getMessage());
+        System.err
+          .println("Error creating OWL ontology from file " + owlFile.get().getAbsolutePath() + ": " + e.getMessage());
       else
         System.err.println("Error creating OWL ontology: " + e.getMessage());
       System.exit(-1);
@@ -81,7 +88,8 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
     }
   }
 
-  public SQWRLTab(@NonNull SQWRLQueryEngineModel sqwrlQueryEngineModel, @NonNull SWRLAPIDialogManager dialogManager,
+  public SQWRLTab(@NonNull FileBackedOWLOntologyModel ontologyModel,
+    @NonNull SQWRLQueryEngineModel sqwrlQueryEngineModel, @NonNull SWRLAPIDialogManager dialogManager,
     @NonNull Icon queryEngineIcon) throws SWRLAPIException
   {
     super(APPLICATION_NAME);
@@ -92,6 +100,8 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
     getContentPane().add(queriesView);
 
     setSize(APPLICATION_WINDOW_WIDTH, APPLICATION_WINDOW_HEIGHT);
+
+    SWRLAPIMenuManager.createApplicationMenus(this, ontologyModel, dialogManager);
   }
 
   @Override public void update()
