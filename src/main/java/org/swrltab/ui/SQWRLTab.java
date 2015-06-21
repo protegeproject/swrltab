@@ -34,94 +34,93 @@ import java.util.Optional;
  */
 public class SQWRLTab extends JFrame implements SWRLAPIView
 {
-  private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-  private static final String APPLICATION_NAME = "SQWRLTab";
-  private static final int APPLICATION_WINDOW_WIDTH = 1000;
-  private static final int APPLICATION_WINDOW_HEIGHT = 580;
+	private static final String APPLICATION_NAME = "SQWRLTab";
+	private static final int APPLICATION_WINDOW_WIDTH = 1000;
+	private static final int APPLICATION_WINDOW_HEIGHT = 580;
 
-  private final @NonNull SQWRLQueriesView queriesView;
+	private final @NonNull SQWRLQueriesView queriesView;
 
-  public static void main(@NonNull String[] args)
-  {
-    if (args.length > 1)
-      Usage();
+	public static void main(@NonNull String[] args)
+	{
+		if (args.length > 1)
+			Usage();
 
-    Optional<File> owlFile = args.length == 0 ? Optional.empty() : Optional.of(new File(args[0]));
+		Optional<File> owlFile = args.length == 0 ? Optional.empty() : Optional.of(new File(args[0]));
 
-    try {
-      // Create an OWL ontology using the OWLAPI
-      OWLOntologyManager ontologyManager = OWLManager.createOWLOntologyManager();
-      OWLOntology ontology = owlFile.isPresent() ?
-        ontologyManager.loadOntologyFromOntologyDocument(owlFile.get()) :
-        ontologyManager.createOntology();
+		try {
+			// Create an OWL ontology using the OWLAPI
+			OWLOntologyManager ontologyManager = OWLManager.createOWLOntologyManager();
+			OWLOntology ontology = owlFile.isPresent() ?
+					ontologyManager.loadOntologyFromOntologyDocument(owlFile.get()) :
+					ontologyManager.createOntology();
 
-      // Create a SQWRL query engine
-      SQWRLQueryEngine queryEngine = SWRLAPIFactory.createSQWRLQueryEngine(ontology);
+			// Create a SQWRL query engine
+			SQWRLQueryEngine queryEngine = SWRLAPIFactory.createSQWRLQueryEngine(ontology);
 
-      // Create the query engine model, supplying it with the query engine
-      SQWRLQueryEngineModel sqwrlQueryEngineModel = SWRLAPIFactory.createSQWRLQueryEngineModel(queryEngine);
+			// Create the query engine model, supplying it with the query engine
+			SQWRLQueryEngineModel sqwrlQueryEngineModel = SWRLAPIFactory.createSQWRLQueryEngineModel(queryEngine);
 
-      // Create the dialog manager
-      SWRLAPIDialogManager dialogManager = SWRLAPIFactory.createDialogManager(sqwrlQueryEngineModel);
+			// Create the dialog manager
+			SWRLAPIDialogManager dialogManager = SWRLAPIFactory.createDialogManager(sqwrlQueryEngineModel);
 
-      FileBackedOWLOntologyModel ontologyModel = SWRLAPIFactory
-        .createFileBackedOWLOntologyModel(ontology, sqwrlQueryEngineModel, owlFile);
+			FileBackedOWLOntologyModel ontologyModel = SWRLAPIFactory
+					.createFileBackedOWLOntologyModel(ontology, sqwrlQueryEngineModel, owlFile);
 
-      // Create the view
-      SQWRLTab sqwrlTab = new SQWRLTab(ontologyModel, sqwrlQueryEngineModel, dialogManager,
-        queryEngine.getQueryEngineIcon());
+			// Create the view
+			SQWRLTab sqwrlTab = new SQWRLTab(ontologyModel, sqwrlQueryEngineModel, dialogManager);
 
-      // Make the view visible
-      sqwrlTab.setVisible(true);
+			// Make the view visible
+			sqwrlTab.setVisible(true);
 
-    } catch (OWLOntologyCreationException e) {
-      if (owlFile.isPresent())
-        System.err
-          .println("Error creating OWL ontology from file " + owlFile.get().getAbsolutePath() + ": " + e.getMessage());
-      else
-        System.err.println("Error creating OWL ontology: " + e.getMessage());
-      System.exit(-1);
-    } catch (RuntimeException e) {
-      System.err.println("Error starting application: " + e.getMessage());
-      System.exit(-1);
-    }
-  }
+		} catch (OWLOntologyCreationException e) {
+			if (owlFile.isPresent())
+				System.err.println(
+						"Error creating OWL ontology from file " + owlFile.get().getAbsolutePath() + ": " + e.getMessage());
+			else
+				System.err.println("Error creating OWL ontology: " + e.getMessage());
+			System.exit(-1);
+		} catch (RuntimeException e) {
+			System.err.println("Error starting application: " + e.getMessage());
+			System.exit(-1);
+		}
+	}
 
-  public SQWRLTab(@NonNull FileBackedOWLOntologyModel ontologyModel,
-    @NonNull SQWRLQueryEngineModel sqwrlQueryEngineModel, @NonNull SWRLAPIDialogManager dialogManager,
-    @NonNull Icon queryEngineIcon) throws SWRLAPIException
-  {
-    super(APPLICATION_NAME);
+	public SQWRLTab(@NonNull FileBackedOWLOntologyModel ontologyModel,
+			@NonNull SQWRLQueryEngineModel sqwrlQueryEngineModel, @NonNull SWRLAPIDialogManager dialogManager)
+			throws SWRLAPIException
+	{
+		super(APPLICATION_NAME);
 
-    this.queriesView = new SQWRLQueriesView(sqwrlQueryEngineModel, dialogManager, queryEngineIcon);
+		this.queriesView = new SQWRLQueriesView(sqwrlQueryEngineModel, dialogManager);
 
-    getContentPane().setLayout(new BorderLayout());
-    getContentPane().add(queriesView);
+		getContentPane().setLayout(new BorderLayout());
+		getContentPane().add(queriesView);
 
-    setSize(APPLICATION_WINDOW_WIDTH, APPLICATION_WINDOW_HEIGHT);
+		setSize(APPLICATION_WINDOW_WIDTH, APPLICATION_WINDOW_HEIGHT);
 
-    SWRLAPIMenuManager.createApplicationMenus(this, ontologyModel, dialogManager);
-  }
+		SWRLAPIMenuManager.createApplicationMenus(this, ontologyModel, dialogManager);
+	}
 
-  @Override public void update()
-  {
-    this.queriesView.update();
-  }
+	@Override public void update()
+	{
+		this.queriesView.update();
+	}
 
-  @Override protected void processWindowEvent(@NonNull WindowEvent e)
-  {
-    super.processWindowEvent(e);
+	@Override protected void processWindowEvent(@NonNull WindowEvent e)
+	{
+		super.processWindowEvent(e);
 
-    if (e.getID() == WindowEvent.WINDOW_CLOSING) {
-      this.setVisible(false);
-      System.exit(0);
-    }
-  }
+		if (e.getID() == WindowEvent.WINDOW_CLOSING) {
+			this.setVisible(false);
+			System.exit(0);
+		}
+	}
 
-  @SuppressWarnings("unused") private static void Usage()
-  {
-    System.err.println("Usage: " + SQWRLTab.class.getName() + " <owlFileName>");
-    System.exit(1);
-  }
+	@SuppressWarnings("unused") private static void Usage()
+	{
+		System.err.println("Usage: " + SQWRLTab.class.getName() + " <owlFileName>");
+		System.exit(1);
+	}
 }

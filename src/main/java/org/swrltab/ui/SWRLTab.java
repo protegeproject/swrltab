@@ -8,9 +8,11 @@ import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.swrlapi.core.SWRLRuleEngine;
 import org.swrlapi.exceptions.SWRLAPIException;
 import org.swrlapi.factory.SWRLAPIFactory;
+import org.swrlapi.sqwrl.SQWRLQueryEngine;
 import org.swrlapi.ui.dialog.SWRLAPIDialogManager;
 import org.swrlapi.ui.menu.SWRLAPIMenuManager;
 import org.swrlapi.ui.model.FileBackedOWLOntologyModel;
+import org.swrlapi.ui.model.SQWRLQueryEngineModel;
 import org.swrlapi.ui.model.SWRLRuleEngineModel;
 import org.swrlapi.ui.view.SWRLAPIView;
 import org.swrlapi.ui.view.rules.SWRLRulesView;
@@ -56,29 +58,29 @@ public class SWRLTab extends JFrame implements SWRLAPIView
 					ontologyManager.loadOntologyFromOntologyDocument(owlFile.get()) :
 					ontologyManager.createOntology();
 
-			// Create a rule engine and get its icon
-			SWRLRuleEngine ruleEngine = SWRLAPIFactory.createSWRLRuleEngine(ontology);
+			// Create a query engine
+			SQWRLQueryEngine queryEngine = SWRLAPIFactory.createSQWRLQueryEngine(ontology);
 
 			// Create the rule engine model, supplying it with the rule engine
-			SWRLRuleEngineModel swrlRuleEngineModel = SWRLAPIFactory.createSWRLRuleEngineModel(ruleEngine);
+			SQWRLQueryEngineModel queryEngineModel = SWRLAPIFactory.createSQWRLQueryEngineModel(queryEngine);
 
 			// Create the application dialog manager
-			SWRLAPIDialogManager dialogManager = SWRLAPIFactory.createDialogManager(swrlRuleEngineModel);
+			SWRLAPIDialogManager dialogManager = SWRLAPIFactory.createDialogManager(queryEngineModel);
 
-			FileBackedOWLOntologyModel ontologyModel = SWRLAPIFactory
-					.createFileBackedOWLOntologyModel(ontology, swrlRuleEngineModel, owlFile);
+			FileBackedOWLOntologyModel ontologyModel = SWRLAPIFactory.createFileBackedOWLOntologyModel(ontology, queryEngineModel, owlFile);
 
 			// Create the view
-			SWRLTab swrlTab = new SWRLTab(ontologyModel, dialogManager, ruleEngine.getRuleEngineIcon());
+			SWRLTab swrlTab = new SWRLTab(ontologyModel, dialogManager, queryEngine.getRuleEngineIcon());
 
 			// Make the view visible
 			swrlTab.setVisible(true);
 
 		} catch (OWLOntologyCreationException e) {
 			if (owlFile.isPresent())
-			  System.err.println("Error creating OWL ontology from file " + owlFile.get().getAbsolutePath() + ": " + e.getMessage());
+				System.err.println(
+						"Error creating OWL ontology from file " + owlFile.get().getAbsolutePath() + ": " + e.getMessage());
 			else
-			  System.err.println("Error creating OWL ontology: " + e.getMessage());
+				System.err.println("Error creating OWL ontology: " + e.getMessage());
 			System.exit(-1);
 		} catch (RuntimeException e) {
 			System.err.println("Error starting application: " + e.getMessage());
@@ -91,7 +93,7 @@ public class SWRLTab extends JFrame implements SWRLAPIView
 	{
 		super(APPLICATION_NAME);
 
-		this.rulesView = new SWRLRulesView(ontologyModel.getSWRLRuleEngineModel(), dialogManager, ruleEngineIcon);
+		this.rulesView = new SWRLRulesView(ontologyModel.getSWRLRuleEngineModel(), dialogManager);
 
 		getContentPane().setLayout(new BorderLayout());
 		getContentPane().add(rulesView);
@@ -115,7 +117,6 @@ public class SWRLTab extends JFrame implements SWRLAPIView
 			System.exit(0);
 		}
 	}
-
 
 	private static void Usage()
 	{
