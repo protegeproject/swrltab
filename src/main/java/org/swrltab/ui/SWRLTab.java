@@ -8,14 +8,9 @@ import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.swrlapi.core.SWRLRuleEngine;
 import org.swrlapi.exceptions.SWRLAPIException;
 import org.swrlapi.factory.SWRLAPIFactory;
-import org.swrlapi.sqwrl.SQWRLQueryEngine;
 import org.swrlapi.ui.dialog.SWRLAPIDialogManager;
 import org.swrlapi.ui.menu.SWRLAPIMenuManager;
-import org.swrlapi.ui.model.FileBackedModel;
-import org.swrlapi.ui.model.FileBackedSQWRLQueryEngineModel;
 import org.swrlapi.ui.model.FileBackedSWRLRuleEngineModel;
-import org.swrlapi.ui.model.SQWRLQueryEngineModel;
-import org.swrlapi.ui.model.SWRLRuleEngineModel;
 import org.swrlapi.ui.view.SWRLAPIView;
 import org.swrlapi.ui.view.rules.SWRLRulesView;
 

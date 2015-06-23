@@ -10,9 +10,7 @@ import org.swrlapi.factory.SWRLAPIFactory;
 import org.swrlapi.sqwrl.SQWRLQueryEngine;
 import org.swrlapi.ui.dialog.SWRLAPIDialogManager;
 import org.swrlapi.ui.menu.SWRLAPIMenuManager;
-import org.swrlapi.ui.model.FileBackedModel;
 import org.swrlapi.ui.model.FileBackedSQWRLQueryEngineModel;
-import org.swrlapi.ui.model.SQWRLQueryEngineModel;
 import org.swrlapi.ui.view.SWRLAPIView;
 import org.swrlapi.ui.view.queries.SQWRLQueriesView;
 
