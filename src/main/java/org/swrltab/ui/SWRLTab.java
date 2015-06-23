@@ -11,7 +11,9 @@ import org.swrlapi.factory.SWRLAPIFactory;
 import org.swrlapi.sqwrl.SQWRLQueryEngine;
 import org.swrlapi.ui.dialog.SWRLAPIDialogManager;
 import org.swrlapi.ui.menu.SWRLAPIMenuManager;
-import org.swrlapi.ui.model.FileBackedOWLOntologyModel;
+import org.swrlapi.ui.model.FileBackedModel;
+import org.swrlapi.ui.model.FileBackedSQWRLQueryEngineModel;
+import org.swrlapi.ui.model.FileBackedSWRLRuleEngineModel;
 import org.swrlapi.ui.model.SQWRLQueryEngineModel;
 import org.swrlapi.ui.model.SWRLRuleEngineModel;
 import org.swrlapi.ui.view.SWRLAPIView;
@@ -58,19 +60,17 @@ public class SWRLTab extends JFrame implements SWRLAPIView
 					ontologyManager.loadOntologyFromOntologyDocument(owlFile.get()) :
 					ontologyManager.createOntology();
 
-			// Create a query engine
-			SQWRLQueryEngine queryEngine = SWRLAPIFactory.createSQWRLQueryEngine(ontology);
+			// Create a rule engine
+			SWRLRuleEngine ruleEngine = SWRLAPIFactory.createSWRLRuleEngine(ontology);
 
-			// Create the rule engine model, supplying it with the rule engine
-			SQWRLQueryEngineModel queryEngineModel = SWRLAPIFactory.createSQWRLQueryEngineModel(queryEngine);
+			FileBackedSWRLRuleEngineModel ruleEngineModel = SWRLAPIFactory
+					.createFileBackedSWRLRuleEngineModel(ontology, ruleEngine, owlFile);
 
 			// Create the application dialog manager
-			SWRLAPIDialogManager dialogManager = SWRLAPIFactory.createDialogManager(queryEngineModel);
-
-			FileBackedOWLOntologyModel ontologyModel = SWRLAPIFactory.createFileBackedOWLOntologyModel(ontology, queryEngineModel, owlFile);
+			SWRLAPIDialogManager dialogManager = SWRLAPIFactory.createDialogManager(ruleEngineModel);
 
 			// Create the view
-			SWRLTab swrlTab = new SWRLTab(ontologyModel, dialogManager, queryEngine.getRuleEngineIcon());
+			SWRLTab swrlTab = new SWRLTab(ruleEngineModel, dialogManager);
 
 			// Make the view visible
 			swrlTab.setVisible(true);
@@ -88,19 +88,19 @@ public class SWRLTab extends JFrame implements SWRLAPIView
 		}
 	}
 
-	public SWRLTab(@NonNull FileBackedOWLOntologyModel ontologyModel, @NonNull SWRLAPIDialogManager dialogManager,
-			@NonNull Icon ruleEngineIcon) throws SWRLAPIException
+	public SWRLTab(@NonNull FileBackedSWRLRuleEngineModel ruleEngineModel, @NonNull SWRLAPIDialogManager dialogManager)
+			throws SWRLAPIException
 	{
 		super(APPLICATION_NAME);
 
-		this.rulesView = new SWRLRulesView(ontologyModel.getSWRLRuleEngineModel(), dialogManager);
+		this.rulesView = new SWRLRulesView(ruleEngineModel, dialogManager);
 
 		getContentPane().setLayout(new BorderLayout());
 		getContentPane().add(rulesView);
 
 		setSize(APPLICATION_WINDOW_WIDTH, APPLICATION_WINDOW_HEIGHT);
 
-		SWRLAPIMenuManager.createApplicationMenus(this, ontologyModel, dialogManager);
+		SWRLAPIMenuManager.createApplicationMenus(this, ruleEngineModel, dialogManager);
 	}
 
 	@Override public void update()

@@ -10,7 +10,8 @@ import org.swrlapi.factory.SWRLAPIFactory;
 import org.swrlapi.sqwrl.SQWRLQueryEngine;
 import org.swrlapi.ui.dialog.SWRLAPIDialogManager;
 import org.swrlapi.ui.menu.SWRLAPIMenuManager;
-import org.swrlapi.ui.model.FileBackedOWLOntologyModel;
+import org.swrlapi.ui.model.FileBackedModel;
+import org.swrlapi.ui.model.FileBackedSQWRLQueryEngineModel;
 import org.swrlapi.ui.model.SQWRLQueryEngineModel;
 import org.swrlapi.ui.view.SWRLAPIView;
 import org.swrlapi.ui.view.queries.SQWRLQueriesView;
@@ -59,17 +60,14 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
 			// Create a SQWRL query engine
 			SQWRLQueryEngine queryEngine = SWRLAPIFactory.createSQWRLQueryEngine(ontology);
 
-			// Create the query engine model, supplying it with the query engine
-			SQWRLQueryEngineModel sqwrlQueryEngineModel = SWRLAPIFactory.createSQWRLQueryEngineModel(queryEngine);
+			FileBackedSQWRLQueryEngineModel queryEngineModel = SWRLAPIFactory
+					.createFileBackedSQWRLQueryEngineModel(ontology, queryEngine, owlFile);
 
 			// Create the dialog manager
-			SWRLAPIDialogManager dialogManager = SWRLAPIFactory.createDialogManager(sqwrlQueryEngineModel);
-
-			FileBackedOWLOntologyModel ontologyModel = SWRLAPIFactory
-					.createFileBackedOWLOntologyModel(ontology, sqwrlQueryEngineModel, owlFile);
+			SWRLAPIDialogManager dialogManager = SWRLAPIFactory.createDialogManager(queryEngineModel);
 
 			// Create the view
-			SQWRLTab sqwrlTab = new SQWRLTab(ontologyModel, sqwrlQueryEngineModel, dialogManager);
+			SQWRLTab sqwrlTab = new SQWRLTab(queryEngineModel, dialogManager);
 
 			// Make the view visible
 			sqwrlTab.setVisible(true);
@@ -87,20 +85,19 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
 		}
 	}
 
-	public SQWRLTab(@NonNull FileBackedOWLOntologyModel ontologyModel,
-			@NonNull SQWRLQueryEngineModel sqwrlQueryEngineModel, @NonNull SWRLAPIDialogManager dialogManager)
+	public SQWRLTab(@NonNull FileBackedSQWRLQueryEngineModel queryEngineModel, @NonNull SWRLAPIDialogManager dialogManager)
 			throws SWRLAPIException
 	{
 		super(APPLICATION_NAME);
 
-		this.queriesView = new SQWRLQueriesView(sqwrlQueryEngineModel, dialogManager);
+		this.queriesView = new SQWRLQueriesView(queryEngineModel, dialogManager);
 
 		getContentPane().setLayout(new BorderLayout());
 		getContentPane().add(queriesView);
 
 		setSize(APPLICATION_WINDOW_WIDTH, APPLICATION_WINDOW_HEIGHT);
 
-		SWRLAPIMenuManager.createApplicationMenus(this, ontologyModel, dialogManager);
+		SWRLAPIMenuManager.createApplicationMenus(this, queryEngineModel, dialogManager);
 	}
 
 	@Override public void update()
