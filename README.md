@@ -33,11 +33,12 @@ The ./target directory will also contain these JARs.
 
 ### Running
 
-You can run the standalone SWRLTab as follows:
-
-    java -cp swrltab-${version}-jar-with-dependencies.jar org.swrltab.ui.SWRLTab <OWL-File-Name>
-
 You can run the standalone SQWRLTab as follows:
 
-    java -cp swrltab-${version}-jar-with-dependencies.jar org.swrltab.ui.SQWRLTab <OWL-File-Name>
+    mvn exec:java
+
+You can run the standalone SWRLTab as follows:
+
+    java -cp swrltab-${version}-jar-with-dependencies.jar org.swrltab.ui.SWRLTab 
+
 
