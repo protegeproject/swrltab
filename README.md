@@ -16,7 +16,7 @@ To build and run this project you must have the following items installed:
 
 ### Building
 
-*The SWRLAPI libraries used by the SWRLTab are not yet on Maven central. They can be built using the following [build project](https://github.com/protegeproject/swrltab-project).* 
+*The SWRLAPI libraries used by the SWRLTab are not yet on Maven central. They can be built using the [SWRLTab build project](https://github.com/protegeproject/swrltab-project).* 
 
 Get a copy of the latest code:
 
