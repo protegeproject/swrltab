@@ -7,16 +7,16 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.swrlapi.factory.SWRLAPIFactory;
 import org.swrlapi.sqwrl.SQWRLQueryEngine;
-import org.swrlapi.test.SWRLAPIRegressionTester;
+import org.swrlapi.test.RegressionTester;
 
 import java.io.File;
 
 /**
- * Uses a {@link org.swrlapi.test.SWRLAPIRegressionTester} to individually execute all SQWRL queries in an ontology and
+ * Uses a {@link RegressionTester} to individually execute all SQWRL queries in an ontology and
  * compare the generated result with the expected result stored in the <code>rdfs:comment</code> annotation associated
  * with each query.
  * 
- * @see org.swrlapi.test.SWRLAPIRegressionTester
+ * @see RegressionTester
  */
 public class SWRLTabRegressionTester
 {
@@ -34,9 +34,9 @@ public class SWRLTabRegressionTester
 
       SQWRLQueryEngine sqwrlQueryEngine = SWRLAPIFactory.createSQWRLQueryEngine(ontology);
 
-      SWRLAPIRegressionTester swrlapiRegressionTester = new SWRLAPIRegressionTester(sqwrlQueryEngine);
+      RegressionTester regressionTester = new RegressionTester(sqwrlQueryEngine);
 
-      swrlapiRegressionTester.run();
+      regressionTester.run();
     } catch (OWLOntologyCreationException e) {
       System.err.println("Error creating OWL ontology from file " + owlFile.getAbsolutePath() + ": " + e.getMessage());
       System.exit(-1);
