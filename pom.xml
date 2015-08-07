@@ -4,7 +4,7 @@
 
   <groupId>edu.stanford.swrl</groupId>
   <artifactId>swrltab</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
   <packaging>jar</packaging>
   <name>Standalone SWRLTab</name>
   <description>Standalone version of SWRLTab that uses the OWLAPI-based version of the SWRLAPI</description>
@@ -14,7 +14,7 @@
 
     <java.version>1.8</java.version> 
 
-    <swrlapi.version>1.0.0-SNAPSHOT</swrlapi.version>
+    <swrlapi.version>1.0.0</swrlapi.version>
 
     <checker.framework.version>1.7.5</checker.framework.version>
     <log4j.version>1.2.17</log4j.version>
@@ -105,7 +105,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<mainClass>org.swrltab.ui.SWRLTab</mainClass>
+					<mainClass>org.swrltab.ui.SQWRLTab</mainClass>
 				</configuration>
 			</plugin>
 
