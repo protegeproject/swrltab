@@ -58,6 +58,7 @@ public class SWRLTab extends JFrame implements SWRLAPIView
       // Create a rule engine
       SWRLRuleEngine ruleEngine = SWRLAPIFactory.createSWRLRuleEngine(ontology);
 
+      // Create a rule engine model. This is the core application model.
       FileBackedSWRLRuleEngineModel ruleEngineModel = SWRLAPIFactory
           .createFileBackedSWRLRuleEngineModel(ruleEngine, owlFile);
 
