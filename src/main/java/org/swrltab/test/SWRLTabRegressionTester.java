@@ -2,9 +2,11 @@ package org.swrltab.test;
 
 import checkers.nullness.quals.NonNull;
 import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.OWLDocumentFormat;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.util.DefaultPrefixManager;
 import org.swrlapi.factory.SWRLAPIFactory;
 import org.swrlapi.sqwrl.SQWRLQueryEngine;
 import org.swrlapi.test.RegressionTester;
@@ -31,8 +33,13 @@ public class SWRLTabRegressionTester
     try {
       OWLOntologyManager ontologyManager = OWLManager.createOWLOntologyManager();
       OWLOntology ontology = ontologyManager.loadOntologyFromOntologyDocument(owlFile);
+      DefaultPrefixManager prefixManager = new DefaultPrefixManager();
+      OWLDocumentFormat format = ontology.getOWLOntologyManager().getOntologyFormat(ontology);
 
-      SQWRLQueryEngine sqwrlQueryEngine = SWRLAPIFactory.createSQWRLQueryEngine(ontology);
+      if (format.isPrefixOWLOntologyFormat())
+        prefixManager.copyPrefixesFrom(format.asPrefixOWLOntologyFormat().getPrefixName2PrefixMap());
+
+      SQWRLQueryEngine sqwrlQueryEngine = SWRLAPIFactory.createSQWRLQueryEngine(ontology, prefixManager);
 
       RegressionTester regressionTester = new RegressionTester(sqwrlQueryEngine);
 

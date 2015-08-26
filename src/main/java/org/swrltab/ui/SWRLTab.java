@@ -2,9 +2,11 @@ package org.swrltab.ui;
 
 import checkers.nullness.quals.NonNull;
 import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.OWLDocumentFormat;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.util.DefaultPrefixManager;
 import org.swrlapi.core.SWRLRuleEngine;
 import org.swrlapi.exceptions.SWRLAPIException;
 import org.swrlapi.factory.SWRLAPIFactory;
@@ -54,9 +56,14 @@ public class SWRLTab extends JFrame implements SWRLAPIView
       OWLOntology ontology = owlFile.isPresent() ?
           ontologyManager.loadOntologyFromOntologyDocument(owlFile.get()) :
           ontologyManager.createOntology();
+      DefaultPrefixManager prefixManager = new DefaultPrefixManager();
+      OWLDocumentFormat format = ontology.getOWLOntologyManager().getOntologyFormat(ontology);
+
+      if (format.isPrefixOWLOntologyFormat())
+        prefixManager.copyPrefixesFrom(format.asPrefixOWLOntologyFormat().getPrefixName2PrefixMap());
 
       // Create a rule engine
-      SWRLRuleEngine ruleEngine = SWRLAPIFactory.createSWRLRuleEngine(ontology);
+      SWRLRuleEngine ruleEngine = SWRLAPIFactory.createSWRLRuleEngine(ontology, prefixManager);
 
       // Create a rule engine model. This is the core application model.
       FileBackedSWRLRuleEngineModel ruleEngineModel = SWRLAPIFactory
