@@ -42,6 +42,6 @@ You can run the standalone SQWRLTab as follows:
 
 You can run the standalone SWRLTab as follows:
 
-    java -cp swrltab-${version}-jar-with-dependencies.jar org.swrltab.ui.SWRLTab 
+    java -cp ./target/swrltab-${version}-jar-with-dependencies.jar org.swrltab.ui.SWRLTab 
 
 

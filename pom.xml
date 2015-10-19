@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-				 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>edu.stanford.swrl</groupId>
@@ -49,12 +49,12 @@
     </dependency>
 
     <dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
       <version>${slf4j.version}</version>
     </dependency>
 
-	</dependencies>
+  </dependencies>
 
   <build>
 
@@ -70,44 +70,44 @@
       </plugin>
 
       <plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
+	<artifactId>maven-assembly-plugin</artifactId>
         <version>${maven.assembly.plugin.version}</version>
-				<configuration>
-					<archive> 
-						<manifest>
-							<mainClass>org.swrltab.ui.SWRLTab</mainClass>
-						</manifest>
-					</archive>
-					<descriptorRefs>
-						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs>
-				</configuration>
-				<executions>
-					<execution>
-						<id>make-assembly</id> <!-- this is used for inheritance merges -->
-						<phase>package</phase> <!-- bind to the packaging phase -->
-						<goals>
+	<configuration>
+	  <archive> 
+	    <manifest>
+	      <mainClass>org.swrltab.ui.SWRLTab</mainClass>
+	    </manifest>
+	  </archive>
+	  <descriptorRefs>
+	    <descriptorRef>jar-with-dependencies</descriptorRef>
+	  </descriptorRefs>
+	</configuration>
+	<executions>
+	  <execution>
+	    <id>make-assembly</id> <!-- this is used for inheritance merges -->
+	    <phase>package</phase> <!-- bind to the packaging phase -->
+	    <goals>
               <goal>single</goal>
-						</goals>
-					</execution>
-				</executions>
+	    </goals>
+	  </execution>
+	</executions>
       </plugin>
 
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>${exec.maven.plugin.version}</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>java</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<mainClass>org.swrltab.ui.SQWRLTab</mainClass>
-				</configuration>
-			</plugin>
+      <plugin>
+	<groupId>org.codehaus.mojo</groupId>
+	<artifactId>exec-maven-plugin</artifactId>
+	<version>${exec.maven.plugin.version}</version>
+	<executions>
+	  <execution>
+	    <goals>
+	      <goal>java</goal>
+	    </goals>
+	  </execution>
+	</executions>
+	<configuration>
+	  <mainClass>org.swrltab.ui.SQWRLTab</mainClass>
+	</configuration>
+      </plugin>
 
     </plugins>
 
