@@ -15,8 +15,8 @@
     <java.version>1.8</java.version> 
 
     <swrlapi.version>1.0.0</swrlapi.version>
+    <owlapi.version>4.1.1</owlapi.version> 
 
-    <checker.framework.version>1.7.5</checker.framework.version>
     <log4j.version>1.2.17</log4j.version>
     <slf4j.version>1.6.1</slf4j.version>
 
@@ -43,15 +43,9 @@
     </dependency>
 
     <dependency>
-      <groupId>edu.washington.cs.types.checker</groupId>
-      <artifactId>checker-framework</artifactId>
-      <version>${checker.framework.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
-      <version>${slf4j.version}</version>
+      <groupId>net.sourceforge.owlapi</groupId>
+      <artifactId>owlapi-osgidistribution</artifactId>
+      <version>${owlapi.version}</version>
     </dependency>
 
   </dependencies>
