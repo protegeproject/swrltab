@@ -24,9 +24,9 @@ import java.util.Optional;
 
 /**
  * Standalone SWRLAPI-based application that presents a SQWRL editor and query execution graphical interface.
- * <p/>
+ * <p>
  * The Drools rule engine is used for query execution.
- * <p/>
+ * <p>
  * To invoke from Maven put <code>org.swrltab.ui.SQWRLTab</code> in the <code>mainClass</code> element of the
  * <code>exec-maven-plugin</code> plugin configuration in the Maven project POM and run with the <code>exec:java</code>
  * goal.
