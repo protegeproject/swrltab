@@ -24,9 +24,9 @@ import java.util.Optional;
 
 /**
  * Standalone SWRLAPI-based application that presents a SQWRL editor and query execution graphical interface.
- * <p>
+ * <p/>
  * The Drools rule engine is used for query execution.
- * <p>
+ * <p/>
  * To invoke from Maven put <code>org.swrltab.ui.SQWRLTab</code> in the <code>mainClass</code> element of the
  * <code>exec-maven-plugin</code> plugin configuration in the Maven project POM and run with the <code>exec:java</code>
  * goal.
@@ -42,6 +42,8 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
   private static final int APPLICATION_WINDOW_HEIGHT = 580;
 
   private final @NonNull SQWRLQueriesView queriesView;
+  private final @NonNull FileBackedSQWRLQueryEngineModel queryEngineModel;
+  private final @NonNull SWRLRuleEngineDialogManager dialogManager;
 
   public static void main(@NonNull String[] args)
   {
@@ -75,6 +77,9 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
       // Create the view
       SQWRLTab sqwrlTab = new SQWRLTab(queryEngineModel, dialogManager);
 
+      // Initilize it
+      sqwrlTab.initialize();
+
       // Make the view visible
       sqwrlTab.setVisible(true);
 
@@ -97,13 +102,18 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
     super(APPLICATION_NAME);
 
     this.queriesView = new SQWRLQueriesView(queryEngineModel, dialogManager);
+    this.queryEngineModel = queryEngineModel;
+    this.dialogManager = dialogManager;
+  }
 
+  @Override public void initialize()
+  {
     getContentPane().setLayout(new BorderLayout());
     getContentPane().add(queriesView);
 
     setSize(APPLICATION_WINDOW_WIDTH, APPLICATION_WINDOW_HEIGHT);
 
-    SWRLRuleEngineMenuManager.createSWRLRuleEngineMenus(this, queryEngineModel, dialogManager);
+    SWRLRuleEngineMenuManager.createSWRLRuleEngineMenus(this, this.queryEngineModel, this.dialogManager);
   }
 
   @Override public void update()

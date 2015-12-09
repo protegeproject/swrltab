@@ -42,6 +42,8 @@ public class SWRLTab extends JFrame implements SWRLAPIView
   private static final int APPLICATION_WINDOW_HEIGHT = 580;
 
   @NonNull private final SWRLRulesView rulesView;
+  @NonNull private final FileBackedSWRLRuleEngineModel ruleEngineModel;
+  @NonNull private final SWRLRuleEngineDialogManager dialogManager;
 
   public static void main(@NonNull String[] args)
   {
@@ -75,6 +77,9 @@ public class SWRLTab extends JFrame implements SWRLAPIView
       // Create the view
       SWRLTab swrlTab = new SWRLTab(ruleEngineModel, dialogManager);
 
+      // Initialize it
+      swrlTab.initialize();
+
       // Make the view visible
       swrlTab.setVisible(true);
 
@@ -96,8 +101,13 @@ public class SWRLTab extends JFrame implements SWRLAPIView
   {
     super(APPLICATION_NAME);
 
+    this.ruleEngineModel = ruleEngineModel;
+    this.dialogManager = dialogManager;
     this.rulesView = new SWRLRulesView(ruleEngineModel, dialogManager);
+  }
 
+  @Override public void initialize()
+  {
     getContentPane().setLayout(new BorderLayout());
     getContentPane().add(rulesView);
 
