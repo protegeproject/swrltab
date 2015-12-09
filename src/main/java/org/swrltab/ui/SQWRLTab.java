@@ -77,7 +77,7 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
       // Create the view
       SQWRLTab sqwrlTab = new SQWRLTab(queryEngineModel, dialogManager);
 
-      // Initilize it
+      // Initialize it
       sqwrlTab.initialize();
 
       // Make the view visible
@@ -108,6 +108,8 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
 
   @Override public void initialize()
   {
+    this.queriesView.initialize();
+
     getContentPane().setLayout(new BorderLayout());
     getContentPane().add(queriesView);
 

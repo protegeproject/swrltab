@@ -108,6 +108,8 @@ public class SWRLTab extends JFrame implements SWRLAPIView
 
   @Override public void initialize()
   {
+    this.rulesView.initialize();
+
     getContentPane().setLayout(new BorderLayout());
     getContentPane().add(rulesView);
 
