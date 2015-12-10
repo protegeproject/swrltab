@@ -24,9 +24,9 @@ import java.util.Optional;
 
 /**
  * Standalone SWRLAPI-based application that presents a SWRL editor and rule execution graphical interface.
- * <p>
+ * <p/>
  * The Drools rule engine is used for rule execution.
- * <p>
+ * <p/>
  * To invoke from Maven put <code>org.swrltab.ui.SWRLTab</code> in the <code>mainClass</code> element of the
  * <code>exec-maven-plugin</code> plugin configuration in the Maven project POM and run with the <code>exec:java</code>
  * goal.
@@ -85,13 +85,13 @@ public class SWRLTab extends JFrame implements SWRLAPIView
 
     } catch (OWLOntologyCreationException e) {
       if (owlFile.isPresent())
-        System.err.println(
-            "Error creating OWL ontology from file " + owlFile.get().getAbsolutePath() + ": " + e.getMessage());
+        System.err.println("Error creating OWL ontology from file " + owlFile.get().getAbsolutePath() + ": " + (
+            e.getMessage() != null ? e.getMessage() : ""));
       else
-        System.err.println("Error creating OWL ontology: " + e.getMessage());
+        System.err.println("Error creating OWL ontology: " + (e.getMessage() != null ? e.getMessage() : ""));
       System.exit(-1);
     } catch (RuntimeException e) {
-      System.err.println("Error starting application: " + e.getMessage());
+      System.err.println("Error starting application: " + (e.getMessage() != null ? e.getMessage() : ""));
       System.exit(-1);
     }
   }
