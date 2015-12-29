@@ -17,6 +17,7 @@
     <swrlapi.version>1.0.0-SNAPSHOT</swrlapi.version>
     <owlapi.version>4.1.3</owlapi.version> 
 
+    <checker.framework.version>1.9.9</checker.framework.version>
     <slf4j.version>1.7.13</slf4j.version>
 
     <maven.compiler.plugin.version>2.3.2</maven.compiler.plugin.version>
@@ -46,6 +47,28 @@
       <artifactId>owlapi-osgidistribution</artifactId>
       <version>${owlapi.version}</version>
     </dependency>
+
+    <!-- Start of Checker Framework Dependencies -->
+    
+    <dependency>
+      <groupId>org.checkerframework</groupId>
+      <artifactId>checker</artifactId>
+      <version>${checker.framework.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.checkerframework</groupId>
+      <artifactId>checker-qual</artifactId>
+      <version>${checker.framework.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.checkerframework</groupId>
+      <artifactId>jdk8</artifactId>
+      <version>${checker.framework.version}</version>
+    </dependency>
+
+    <!-- End of Checker Framework Dependencies -->
 
     <dependency>
       <groupId>org.slf4j</groupId>
