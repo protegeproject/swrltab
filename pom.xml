@@ -53,17 +53,6 @@
     <tag>swrltab-1.0.0-beta-1</tag>
   </scm>
 
-  <distributionManagement>
-    <repository>
-        <id>repo</id>
-        <url>https://github.com/protegeproject/swrltab/raw/master/releases</url>
-    </repository>
-    <snapshotRepository>
-        <id>snapshot-repo</id>
-        <url>https://github.com/protegeproject/swrltab/raw/master/snapshots</url>
-    </snapshotRepository>
-  </distributionManagement>
-  
   <dependencies>
 
     <dependency>
