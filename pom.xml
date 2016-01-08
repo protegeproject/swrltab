@@ -21,8 +21,6 @@
     <maven.compiler.plugin.version>2.3.2</maven.compiler.plugin.version>
     <maven.assembly.plugin.version>2.5.3</maven.assembly.plugin.version>
     <maven.exec.plugin.version>1.2.1</maven.exec.plugin.version>
-    <maven.jar.plugin.version>2.4</maven.jar.plugin.version>
-    <maven.install.plugin.version>2.4</maven.install.plugin.version>
     <maven.release.plugin.version>2.5</maven.release.plugin.version>
     <maven.scm.gitexe.version>1.9</maven.scm.gitexe.version>
 
@@ -125,11 +123,6 @@
       </plugin>
 
       <plugin>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>${maven.jar.plugin.version}</version>
-      </plugin>  
-
-      <plugin>
 	<artifactId>maven-assembly-plugin</artifactId>
         <version>${maven.assembly.plugin.version}</version>
 	<configuration>
@@ -167,14 +160,6 @@
 	<configuration>
 	  <mainClass>org.swrltab.ui.SQWRLTab</mainClass>
 	</configuration>
-      </plugin>
-
-      <plugin>
-        <artifactId>maven-install-plugin</artifactId>
-        <version>${maven.install.plugin.version}</version>
-        <configuration>
-          <skip>true</skip>
-        </configuration>
       </plugin>
 
       <plugin> 
