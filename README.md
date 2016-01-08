@@ -13,7 +13,7 @@ You can get a copy of the latests JAR from the [project's GitHub Release area](h
 
 This JAR will have a name of the form:
 
-  swrltab-${version}-jar-with-dependencies.jar
+    swrltab-${version}-jar-with-dependencies.jar
  
 ### Running
 
