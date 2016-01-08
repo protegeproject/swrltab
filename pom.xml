@@ -33,6 +33,29 @@
 
   </properties>
 
+  <developers>
+    <developer>
+      <name>Martin O'Connor</name>
+      <email>martin.oconnor@stanford.edu</email>
+      <organization>Stanford Center for Biomedical Informatics Research</organization>
+      <organizationUrl>http://bmir.stanford.edu</organizationUrl>
+    </developer>
+  </developers>
+
+  <licenses>
+    <license>
+      <name>BSD 2-Clause License</name>
+      <url>http://opensource.org/licenses/BSD-2-Clause</url>
+    </license>
+  </licenses>
+  
+  <scm>
+    <connection>scm:git:git@github.com:protegeproject/swrtab.git</connection>
+    <developerConnection>scm:git:git@github.com:protegeproject/swrtab.git</developerConnection>
+    <url>https://github.com/protegeproject/swrltab</url>
+    <tag>HEAD</tag>
+  </scm>
+
   <dependencies>
 
     <dependency>
