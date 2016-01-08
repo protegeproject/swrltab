@@ -4,7 +4,7 @@
 
   <groupId>edu.stanford.swrl</groupId>
   <artifactId>swrltab</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0-beta-1-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>Standalone SWRLTab</name>
   <description>Standalone version of SWRLTab that uses the OWLAPI-based version of the SWRLAPI</description>
@@ -12,8 +12,8 @@
 
   <properties>
 
-    <swrlapi.version>1.0.0-beta-4-SNAPSHOT</swrlapi.version>
-    <swrlapi.drools.version>1.0.0-beta-3-SNAPSHOT</swrlapi.drools.version>
+    <swrlapi.version>1.0.0-beta-4</swrlapi.version>
+    <swrlapi.drools.version>1.0.0-beta-6</swrlapi.drools.version>
     <owlapi.version>4.1.3</owlapi.version> 
 
     <checker.framework.version>1.9.9</checker.framework.version>
@@ -21,7 +21,11 @@
 
     <maven.compiler.plugin.version>2.3.2</maven.compiler.plugin.version>
     <maven.assembly.plugin.version>2.5.3</maven.assembly.plugin.version>
-    <exec.maven.plugin.version>1.2.1</exec.maven.plugin.version>
+    <maven.exec.plugin.version>1.2.1</maven.exec.plugin.version>
+    <maven.jar.plugin.version>2.4</maven.jar.plugin.version>
+    <maven.install.plugin.version>2.4</maven.install.plugin.version>
+    <maven.release.plugin.version>2.5</maven.release.plugin.version>
+    <maven.scm.gitexe.version>1.9</maven.scm.gitexe.version>
 
     <java.version>1.8</java.version> 
 
@@ -99,6 +103,17 @@
       </plugin>
 
       <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>${maven.jar.plugin.version}</version>
+        <executions> <!-- Attach this plugin to the 'none' phase so it never runs -->
+          <execution>
+            <id>default-jar</id>
+            <phase>none</phase>
+          </execution>
+        </executions>
+      </plugin>  
+
+      <plugin>
 	<artifactId>maven-assembly-plugin</artifactId>
         <version>${maven.assembly.plugin.version}</version>
 	<configuration>
@@ -125,7 +140,7 @@
       <plugin>
 	<groupId>org.codehaus.mojo</groupId>
 	<artifactId>exec-maven-plugin</artifactId>
-	<version>${exec.maven.plugin.version}</version>
+	<version>${maven.exec.plugin.version}</version>
 	<executions>
 	  <execution>
 	    <goals>
@@ -136,6 +151,26 @@
 	<configuration>
 	  <mainClass>org.swrltab.ui.SQWRLTab</mainClass>
 	</configuration>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-install-plugin</artifactId>
+        <version>${maven.install.plugin.version}</version>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+      </plugin>
+
+      <plugin> 
+        <artifactId>maven-release-plugin</artifactId>
+        <version>${maven.release.plugin.version}</version>
+        <dependencies>
+          <dependency>
+            <groupId>org.apache.maven.scm</groupId>
+            <artifactId>maven-scm-provider-gitexe</artifactId>
+	    <version>${maven.scm.gitexe.version}</version>
+          </dependency>
+        </dependencies>
       </plugin>
 
     </plugins>
