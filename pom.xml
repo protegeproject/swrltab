@@ -105,12 +105,6 @@
       <plugin>
         <artifactId>maven-jar-plugin</artifactId>
         <version>${maven.jar.plugin.version}</version>
-        <executions> <!-- Attach this plugin to the 'none' phase so it never runs -->
-          <execution>
-            <id>default-jar</id>
-            <phase>none</phase>
-          </execution>
-        </executions>
       </plugin>  
 
       <plugin>
