@@ -58,6 +58,10 @@ You can run the standalone SWRLTab as follows:
 
     java -cp ./target/swrltab-${version}-jar-with-dependencies.jar org.swrltab.ui.SWRLTab 
 
+#### License
+
+The software is licensed under the [BSD 2-clause License](https://github.com/protegeproject/swrltab/blob/master/license.txt).
+
 #### Questions
 
 If you have questions about this library, please go to the main
