@@ -7,4 +7,7 @@ notifications:
     - martin.oconnor@stanford.edu
     on_success: never
     on_failure: always
-
+env:
+  global:
+  - secure: TD+KLO02ZSy01h7h7IiqgEZzpBq5cBpmiuvCy2wa3iAnEGxHPRIUOZn7C+eBPxZ2/Y+wkelk5UU2VH+aN9HAdwXJq8FsRY21yGHE6SFoaZfKjz0++gKtR8hzNtZioi0im0xgPeMk/XVNMKEK1Ks6N5dc7QhmzuDSSug7El5VhwI=
+  - secure: jcnlYMvISAoc5xFYcQTZLi67ed/bap1H/4gBn5H+CYMsZmCZCZEEKEVwFQW19tyUF1Ns9QbxfdkZDb39UjhTX3uXlliMOLBKl6fDr44TR8eMihXo0uWN1eZrCDKIvPgcXNDVv0i5h9HB6fV5iinKx9nxlHO9zdsI2vl+r4xRac8=
