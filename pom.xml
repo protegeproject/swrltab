@@ -27,7 +27,7 @@
     <maven.compiler.plugin.version>3.5</maven.compiler.plugin.version>
     <maven.assembly.plugin.version>2.6</maven.assembly.plugin.version>
     <maven.exec.plugin.version>1.4.0</maven.exec.plugin.version>
-    <maven.release.plugin.version>3.0-r1585899</maven.release.plugin.version>
+    <maven.release.plugin.version>2.5.3</maven.release.plugin.version>
     <maven.scm.gitexe.version>1.9.4</maven.scm.gitexe.version>
 
     <java.version>1.8</java.version> 
