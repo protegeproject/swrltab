@@ -5,7 +5,6 @@ import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
-import org.semanticweb.owlapi.util.DefaultPrefixManager;
 import org.swrlapi.exceptions.SWRLAPIException;
 import org.swrlapi.factory.SWRLAPIFactory;
 import org.swrlapi.sqwrl.SQWRLQueryEngine;
@@ -60,7 +59,6 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
       OWLOntology ontology = owlFile.isPresent() ?
           ontologyManager.loadOntologyFromOntologyDocument(owlFile.get()) :
           ontologyManager.createOntology();
-      DefaultPrefixManager prefixManager = new DefaultPrefixManager();
 
       // Create a SQWRL query engine
       SQWRLQueryEngine queryEngine = SWRLAPIFactory.createSQWRLQueryEngine(ontology);
