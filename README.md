@@ -10,27 +10,7 @@ Documentation can be found at the [SWRLTab Wiki](https://github.com/protegeproje
 
 A [Protégé Desktop Ontology Editor](http://protege.stanford.edu)-based [SWRLTab Plugin](https://github.com/protegeproject/swrltab-plugin/wiki) is also available.
 
-### Downloading
-
-You can get a copy of the latests JAR from the [project's GitHub Release area](https://github.com/protegeproject/swrltab/releases).
-
-This JAR will have a name of the form:
-
-    swrltab-${version}-jar-with-dependencies.jar
- 
-### Running
-
-To execute this JAR you must have [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) installed.
-
-The SWRLTab can be started as follows:
-
-    java -cp swrltab-${version}-jar-with-dependencies.jar org.swrltab.ui.SWRLTab 
-
-The SQWRLTab can be started as follows:
-
-    java -cp swrltab-${version}-jar-with-dependencies.jar org.swrltab.ui.SQWRLTab 
-
-### Building
+### Building and Running
 
 To build and run this project you must have the following items installed:
 
