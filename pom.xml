@@ -21,7 +21,7 @@
     <swrlapi.drools.version>1.0.0-beta-22-SNAPSHOT</swrlapi.drools.version>
     <owlapi.version>4.2.1</owlapi.version> 
 
-    <checker.framework.version>1.9.11</checker.framework.version>
+    <checker.framework.version>1.9.12</checker.framework.version>
     <slf4j.version>1.7.18</slf4j.version>
 
     <maven.compiler.plugin.version>3.5.1</maven.compiler.plugin.version>
