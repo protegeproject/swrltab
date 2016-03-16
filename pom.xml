@@ -2,14 +2,14 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.sonatype.oss</groupId>
-    <artifactId>oss-parent</artifactId>
-    <version>7</version>
+    <groupId>edu.stanford.swrl</groupId>
+    <artifactId>swrlapi-parent</artifactId>
+    <version>1.0.0</version>
   </parent>
 
   <groupId>edu.stanford.swrl</groupId>
   <artifactId>swrltab</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.0-BETA-25-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>Standalone SWRLTab</name>
   <description>Standalone version of SWRLTab that uses the OWLAPI-based version of the SWRLAPI</description>
@@ -17,40 +17,10 @@
 
   <properties>
 
-    <swrlapi.version>1.0.0-beta-23-SNAPSHOT</swrlapi.version>
-    <swrlapi.drools.version>1.0.0-beta-22-SNAPSHOT</swrlapi.drools.version>
-    <owlapi.version>4.2.1</owlapi.version> 
-
-    <checker.framework.version>1.9.12</checker.framework.version>
-    <slf4j.version>1.7.18</slf4j.version>
-
-    <maven.compiler.plugin.version>3.5.1</maven.compiler.plugin.version>
-    <maven.assembly.plugin.version>2.6</maven.assembly.plugin.version>
-    <maven.exec.plugin.version>1.4.0</maven.exec.plugin.version>
-    <maven.release.plugin.version>2.5.3</maven.release.plugin.version>
-    <maven.scm.gitexe.version>1.9.4</maven.scm.gitexe.version>
-
-    <java.version>1.8</java.version> 
-
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <swrlapi.version>${project.version}</swrlapi.version>
+    <swrlapi.drools.version>${project.version}</swrlapi.drools.version>
 
   </properties>
-
-  <developers>
-    <developer>
-      <name>Martin O'Connor</name>
-      <email>martin.oconnor@stanford.edu</email>
-      <organization>Stanford Center for Biomedical Informatics Research</organization>
-      <organizationUrl>http://bmir.stanford.edu</organizationUrl>
-    </developer>
-  </developers>
-
-  <licenses>
-    <license>
-      <name>BSD 2-Clause License</name>
-      <url>http://opensource.org/licenses/BSD-2-Clause</url>
-    </license>
-  </licenses>
   
   <scm>
     <connection>scm:git:git@github.com:protegeproject/swrltab.git</connection>
@@ -81,7 +51,6 @@
     <dependency>
       <groupId>net.sourceforge.owlapi</groupId>
       <artifactId>owlapi-osgidistribution</artifactId>
-      <version>${owlapi.version}</version>
     </dependency>
 
     <!-- Start of Checker Framework Dependencies -->
@@ -89,19 +58,16 @@
     <dependency>
       <groupId>org.checkerframework</groupId>
       <artifactId>checker</artifactId>
-      <version>${checker.framework.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.checkerframework</groupId>
       <artifactId>checker-qual</artifactId>
-      <version>${checker.framework.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.checkerframework</groupId>
       <artifactId>jdk8</artifactId>
-      <version>${checker.framework.version}</version>
     </dependency>
 
     <!-- End of Checker Framework Dependencies -->
@@ -109,13 +75,11 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <version>${slf4j.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-simple</artifactId>
-      <version>${slf4j.version}</version>
     </dependency>
 
   </dependencies>
@@ -125,17 +89,13 @@
     <plugins>
 
       <plugin>
+	<groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>${maven.compiler.plugin.version}</version>
-        <configuration>
-          <source>${java.version}</source>
-          <target>${java.version}</target>
-        </configuration>
       </plugin>
 
       <plugin>
+	<groupId>org.apache.maven.plugins</groupId>
 	<artifactId>maven-assembly-plugin</artifactId>
-        <version>${maven.assembly.plugin.version}</version>
 	<configuration>
 	  <archive> 
 	    <manifest>
@@ -160,7 +120,6 @@
       <plugin>
 	<groupId>org.codehaus.mojo</groupId>
 	<artifactId>exec-maven-plugin</artifactId>
-	<version>${maven.exec.plugin.version}</version>
 	<executions>
 	  <execution>
 	    <goals>
@@ -171,18 +130,6 @@
 	<configuration>
 	  <mainClass>org.swrltab.ui.SQWRLTab</mainClass>
 	</configuration>
-      </plugin>
-
-      <plugin> 
-        <artifactId>maven-release-plugin</artifactId>
-        <version>${maven.release.plugin.version}</version>
-        <dependencies>
-          <dependency>
-            <groupId>org.apache.maven.scm</groupId>
-            <artifactId>maven-scm-provider-gitexe</artifactId>
-	    <version>${maven.scm.gitexe.version}</version>
-          </dependency>
-        </dependencies>
       </plugin>
 
     </plugins>
