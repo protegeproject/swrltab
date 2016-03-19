@@ -18,7 +18,6 @@
     <connection>scm:git:git@github.com:protegeproject/swrltab.git</connection>
     <developerConnection>scm:git:git@github.com:protegeproject/swrltab.git</developerConnection>
     <url>https://github.com/protegeproject/swrltab</url>
-    <tag>swrltab-1.0.0-beta-1</tag>
   </scm>
 
   <issueManagement>
@@ -45,8 +44,6 @@
       <artifactId>owlapi-osgidistribution</artifactId>
     </dependency>
 
-    <!-- Start of Checker Framework Dependencies -->
-    
     <dependency>
       <groupId>org.checkerframework</groupId>
       <artifactId>checker</artifactId>
@@ -61,8 +58,6 @@
       <groupId>org.checkerframework</groupId>
       <artifactId>jdk8</artifactId>
     </dependency>
-
-    <!-- End of Checker Framework Dependencies -->
 
     <dependency>
       <groupId>org.slf4j</groupId>
