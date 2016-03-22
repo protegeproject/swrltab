@@ -4,7 +4,7 @@
   <parent>
     <groupId>edu.stanford.swrl</groupId>
     <artifactId>swrlapi-parent</artifactId>
-    <version>1.0.0-beta-31-SNAPSHOT</version>
+    <version>1.0.0-beta-31</version>
   </parent>
 
   <groupId>edu.stanford.swrl</groupId>
@@ -14,6 +14,13 @@
   <name>Standalone SWRLTab</name>
   <description>Standalone version of SWRLTab that uses the OWLAPI-based version of the SWRLAPI</description>
   <url>https://github.com/protegeproject/swrltab/wiki</url>
+
+  <properties>
+
+    <swrlapi.version>1.0.0-beta-31</swrlapi.version>
+    <swrlapi.drools.version>1.0.0-beta-31</swrlapi.drools.version>
+
+  </properties>
 
   <scm>
     <connection>scm:git:git@github.com:protegeproject/swrltab.git</connection>
