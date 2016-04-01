@@ -4,12 +4,12 @@
   <parent>
     <groupId>edu.stanford.swrl</groupId>
     <artifactId>swrlapi-parent</artifactId>
-    <version>1.0.0-beta-51-SNAPSHOT</version>
+    <version>1.0.0-beta-51</version>
   </parent>
 
   <groupId>edu.stanford.swrl</groupId>
   <artifactId>swrltab</artifactId>
-  <version>1.0.0-beta-51-SNAPSHOT</version>
+  <version>1.0.0-beta-51</version>
   <packaging>jar</packaging>
   <name>Standalone SWRLTab</name>
   <description>Standalone version of SWRLTab that uses the OWLAPI-based version of the SWRLAPI</description>
@@ -17,8 +17,8 @@
 
   <properties>
 
-    <swrlapi.version>1.0.0-beta-51-SNAPSHOT</swrlapi.version>
-    <swrlapi.drools.version>1.0.0-beta-51-SNAPSHOT</swrlapi.drools.version>
+    <swrlapi.version>1.0.0-beta-51</swrlapi.version>
+    <swrlapi.drools.version>1.0.0-beta-51</swrlapi.drools.version>
 
   </properties>
 
