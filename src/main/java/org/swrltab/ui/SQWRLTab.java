@@ -131,7 +131,7 @@ public class SQWRLTab extends JFrame implements SWRLAPIView
 
   @SuppressWarnings("unused") private static void Usage()
   {
-    System.err.println("Usage: " + SQWRLTab.class.getName() + " <owlFileName>");
+    System.err.println("Usage: " + SQWRLTab.class.getName() + " [ <owlFileName> ]");
     System.exit(1);
   }
 }
