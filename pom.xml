@@ -9,7 +9,7 @@
 
   <groupId>edu.stanford.swrl</groupId>
   <artifactId>swrltab</artifactId>
-  <version>2.0.3-SNAPSHOT</version>
+  <version>2.0.3</version>
   <packaging>jar</packaging>
   <name>Standalone SWRLTab</name>
   <description>Standalone version of SWRLTab that uses the OWLAPI-based version of the SWRLAPI</description>
@@ -26,7 +26,7 @@
     <connection>scm:git:git@github.com:protegeproject/swrltab.git</connection>
     <developerConnection>scm:git:git@github.com:protegeproject/swrltab.git</developerConnection>
     <url>https://github.com/protegeproject/swrltab</url>
-    <tag>HEAD</tag>
+    <tag>release-2.0.3</tag>
   </scm>
 
   <issueManagement>
