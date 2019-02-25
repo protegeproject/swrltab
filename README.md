@@ -2,7 +2,6 @@ SWRLTab
 =======
 
 [![Build Status](https://travis-ci.org/protegeproject/swrltab.svg?branch=master)](https://travis-ci.org/protegeproject/swrltab)
-[![Dependency Status](https://www.versioneye.com/user/projects/56a278759b5998003c000083/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56a278759b5998003c000083)
 
 The SWRLTab is a [SWRLAPI](https://github.com/protegeproject/swrlapi/wiki)-based environment that provides a set of standalone graphical interfaces for managing SWRL rules and SQWRL queries. 
 
