@@ -26,7 +26,7 @@
     <connection>scm:git:git@github.com:protegeproject/swrltab.git</connection>
     <developerConnection>scm:git:git@github.com:protegeproject/swrltab.git</developerConnection>
     <url>https://github.com/protegeproject/swrltab</url>
-    <tag></tag>
+    <tag>release-2.1.0</tag>
   </scm>
 
   <issueManagement>
